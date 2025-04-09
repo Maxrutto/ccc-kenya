@@ -12,8 +12,8 @@ export default function Vision() {
                     transition={{ duration: 0.6 }}
                     className="max-w-3xl mx-auto text-center"
                 >
-                    <FaLightbulb className="text-6xl text-primary mx-auto mb-6" />
-                    <h2 className="text-3xl md:text-4xl font-bold mb-6 text-secondary">
+                    <FaLightbulb className="text-6xl text-red-600 mx-auto mb-6" />
+                    <h2 className="text-3xl md:text-4xl font-bold mb-6 text-red-600">
                         Our Vision
                     </h2>
                     <p className="text-xl md:text-2xl italic">

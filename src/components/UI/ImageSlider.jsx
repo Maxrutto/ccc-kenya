@@ -1,36 +1,50 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-import '@splidejs/splide/css/core';
-import PropTypes from 'prop-types';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { motion } from 'framer-motion';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export default function ImageSlider({ images }) {
-    return (
-        <Splide
-            options={{
-                type: 'fade',
-                rewind: true,
-                autoplay: true,
-                interval: 4000,
-            }}
-        >
-            {images.map((image, index) => (
-                <SplideSlide key={index}>
-                    <img
-                        src={image.url}
-                        alt={image.alt}
-                        className='w-full h-[60vh] object-cover'
-                        loading='lazy'
-                    />
-                </SplideSlide>
-            ))}
-        </Splide>
-    );
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      className="w-full h-[40vh]"
+    >
+      <Splide
+        options={{
+          type: 'slide',
+          rewind: true,
+          autoplay: true,
+          interval: 3000,
+          speed: 1000,
+          pagination: false,
+          arrows: false,
+          perPage: 1,
+          width: '100%',
+          height: '40vh',
+          gap: '0px',
+          drag: true,
+          classes: {
+            track: '!overflow-hidden',
+          }
+        }}
+      >
+        {images.map((img, index) => (
+          <SplideSlide key={index}>
+            <div className="w-full h-full">
+              <LazyLoadImage
+                src={img.url}
+                alt={img.alt}
+                className="w-full h-full object-cover"
+                effect="blur"
+                threshold={200}
+                placeholderSrc="/placeholder.jpg"
+              />
+            </div>
+          </SplideSlide>
+        ))}
+      </Splide>
+    </motion.div>
+  );
 }
-
-ImageSlider.propTypes = {
-    images: PropTypes.arrayOf(
-        PropTypes.shape({
-            url: PropTypes.string.isRequired,
-            alt: PropTypes.string.isRequired,
-        })
-    ).isRequired,
-};
