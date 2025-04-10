@@ -3,7 +3,7 @@ import { FaLightbulb } from 'react-icons/fa';
 
 export default function Vision() {
     return (
-        <section className="py-16 bg-light-gray" id="vision">
+        <section className="py-16 mt-8 bg-light-gray" id="vision">
             <div className="container mx-auto px-4">
                 <motion.div
                     initial={{ opacity: 0 }}

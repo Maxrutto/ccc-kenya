@@ -5,7 +5,7 @@ export default function About() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
 
   return (
-    <section className="py-20" id="about">
+    <section className="py-16 mt-20 bg-gray-50" id="about">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}

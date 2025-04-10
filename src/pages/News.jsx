@@ -1,11 +1,27 @@
 import { useState, useEffect, useCallback, memo } from 'react';
 import { client } from '../lib/sanity';
 import { urlFor } from '../lib/imageBuilder';
-import { PortableText } from '@portabletext/react';
 import AnimWrapper from '../components/UI/AnimWrapper';
 import Loader from '../components/UI/Loader';
-import { format } from 'date-fns';
 import { FaCalendarAlt, FaTag } from 'react-icons/fa';
+
+// Custom component for rendering Portable Text
+const CustomPortableText = ({ value }) => {
+  if (!value) return null;
+  
+  // Simple renderer that just outputs the text content
+  return (
+    <div>
+      {value.map((block, index) => (
+        <p key={index}>
+          {block.children && block.children.map((child, i) => (
+            <span key={i}>{child.text}</span>
+          ))}
+        </p>
+      ))}
+    </div>
+  );
+};
 
 function News() {
   const [news, setNews] = useState([]);
@@ -69,7 +85,7 @@ function News() {
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <AnimWrapper>
-            <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 font-playfair text-secondary">
+            <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 font-playfair text-red-600">
               News & Events
             </h1>
             <p className="text-xl text-center max-w-4xl mx-auto mb-12">
@@ -82,7 +98,7 @@ function News() {
               <button 
                 className={`px-4 py-2 rounded-full text-sm ${
                   activeFilter === 'all' 
-                    ? 'bg-secondary text-white' 
+                    ? 'bg-red-600 text-white' 
                     : 'bg-gray-100 hover:bg-gray-200'
                 }`}
                 onClick={() => setActiveFilter('all')}
@@ -94,7 +110,7 @@ function News() {
                   key={category._id}
                   className={`px-4 py-2 rounded-full text-sm ${
                     activeFilter === category._id 
-                      ? 'bg-secondary text-white' 
+                      ? 'bg-red-600 text-white' 
                       : 'bg-gray-100 hover:bg-gray-200'
                   }`}
                   onClick={() => setActiveFilter(category._id)}
@@ -120,6 +136,9 @@ function News() {
                         alt={item.title}
                         className="w-full object-cover aspect-video"
                         loading="lazy"
+                        onError={(e) => {
+                          e.target.src = 'images/placeholder.jpg';
+                        }}
                       />
                     </div>
                   )}
@@ -130,7 +149,11 @@ function News() {
                       <div className="flex items-center mr-4 mb-2">
                         <FaCalendarAlt className="mr-1" />
                         <span>
-                          {item.publishedAt ? format(new Date(item.publishedAt), 'MMMM d, yyyy') : 'No date'}
+                          {item.publishedAt ? new Date(item.publishedAt).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                          }) : 'No date'}
                         </span>
                       </div>
                       

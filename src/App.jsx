@@ -18,23 +18,25 @@ const NotFound = lazy(() => import('./pages/NotFound'));
 function App() {
   return (
     <Router>
-      <Header />
-      <main className="min-h-screen">
-        <Suspense fallback={<Loader />}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/mission" element={<Mission />} />
-            <Route path="/vision" element={<Vision />} />
-            <Route path="/monasteries" element={<Monasteries />} />
-            <Route path="/work" element={<Work />} />
-            <Route path="/news" element={<News />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-      </main>
-      <Footer />
+      <div className="flex flex-col min-h-screen overflow-x-hidden">
+        <Header />
+        <main className="min-h-screen overflow-x-hidden">
+          <Suspense fallback={<Loader />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/mission" element={<Mission />} />
+              <Route path="/vision" element={<Vision />} />
+              <Route path="/monasteries" element={<Monasteries />} />
+              <Route path="/work" element={<Work />} />
+              <Route path="/news" element={<News />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </main>
+        <Footer />
+      </div>
     </Router>
   );
 }

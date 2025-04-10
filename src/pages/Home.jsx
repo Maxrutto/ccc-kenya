@@ -9,15 +9,15 @@ const Vision = lazy(() => import('../components/sections/Vision'));
 
 export default function Home() {
     return (
-        <div className="overflow-hidden">
+        <div className="flex flex-col min-h-screen gap-y-8 overflow-x-hidden w-full">
             <Suspense fallback={<Loader />}>
                 <Hero />
-                <AnimWrapper>
+                <div className="flex-1 flex flex-col gap-y-8">
                     <About />
                     <Mission />
                     <Vision />
                     {/* Additional sections will be added here */}
-                </AnimWrapper>
+                </div>
             </Suspense>
         </div>
     );

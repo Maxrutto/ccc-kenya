@@ -3,7 +3,7 @@ import { FaHandshake } from 'react-icons/fa';
 
 export default function Mission() {
     return (
-        <section className="py-16" id="mission">
+        <section className="py-16 mt-8" id="mission">
             <div className="container mx-auto px-4">
                 <motion.div
                     initial={{ opacity: 0 }}

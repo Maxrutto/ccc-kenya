@@ -2,6 +2,104 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global styles to prevent horizontal scrolling */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #333;
+  background-color: #f5f8fc;
+}
+
+/* Container styles */
+.container {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Custom utilities */
+@layer components {
+  .card {
+    @apply bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg;
+  }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Background colors */
+.bg-light-gray {
+  background-color: #f5f7fa;
+}
+
+/* Forms styling */
+input, textarea, select {
+  @apply bg-white border border-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600;
+}
+
+label {
+  @apply text-gray-700 font-medium mb-1 block;
+}
+
+/* Button styling */
+button {
+  @apply cursor-pointer;
+}
+
+.btn-primary {
+  @apply bg-red-600 text-white px-6 py-3 rounded-lg font-medium shadow-md hover:shadow-lg transition-all duration-300 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50;
+}
+
+.btn-outline {
+  @apply border border-red-600 text-red-600 px-6 py-3 rounded-lg font-medium shadow-md hover:shadow-lg transition-all duration-300 hover:bg-red-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50;
+}
+
+/* Text styles */
+.text-secondary {
+  color: #b91c1c;
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.slide-in {
+  animation: slideIn 0.5s ease-in;
+}
+
+@keyframes slideIn {
+  0% { transform: translateY(50px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* For Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 @layer base {
   :root {
     --primary-blue: #e6f4ff;
