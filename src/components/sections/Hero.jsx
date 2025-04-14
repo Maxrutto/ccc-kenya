@@ -6,9 +6,9 @@ import { useInView } from 'react-intersection-observer';
 const images = [
   { url: 'images/Executive commitee.jpg', alt: 'CCC Kenya Executive Committee' },
   { url: 'images/Picture homepage2.jpg', alt: 'CCC Kenya Homepage Picture 2' },
-  { url: 'images/Picture homepage3.jpg', alt: 'CCC Kenya Homepage Picture 2' },
-  { url: 'images/Picture homepage4.jpg', alt: 'CCC Kenya Homepage Picture 2' },
-  { url: 'images/Picture homepage5.jpg', alt: 'CCC Kenya Homepage Picture 2' },
+  { url: 'images/Picture homepage3.jpg', alt: 'CCC Kenya Homepage Picture 3' },
+  { url: 'images/Picturehomepage4.jpg', alt: 'CCC Kenya Homepage Picture 4' },
+  { url: 'images/Picture homepage5.jpg', alt: 'CCC Kenya Homepage Picture 5' },
   { url: 'images/image2.jpeg', alt: 'CCC Kenya Community' },
   { url: 'images/image3.jpeg', alt: 'CCC Kenya Community' },
   { url: 'images/image4.jpeg', alt: 'CCC Kenya Community' },

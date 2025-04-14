@@ -84,7 +84,9 @@ export default function ImageSlider({ images }) {
           style={getImageStyle(currentIndex)}
           onError={(e) => {
             console.error(`Failed to load image: ${safeImages[currentIndex].url}`);
-            e.target.src = `images/image${currentIndex + 1}.jpeg`;
+            // First try the placeholder image
+            e.target.onerror = null; // Prevent infinite error loops
+            e.target.src = 'images/placeholder.jpg';
           }}
         />
       </div>
