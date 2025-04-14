@@ -12,8 +12,8 @@ export default function Mission() {
                     transition={{ duration: 0.6 }}
                     className="max-w-3xl mx-auto text-center"
                 >
-                    <FaHandshake className="text-6xl text-red-600 mx-auto mb-6" />
-                    <h2 className="text-3xl md:text-4xl font-bold mb-6 text-red-600">
+                    <FaHandshake className="text-6xl text-blue-600 mx-auto mb-6" />
+                    <h2 className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-6 text-blue-600">
                         Our Mission
                     </h2>
                     <p className="text-xl md:text-2xl italic">

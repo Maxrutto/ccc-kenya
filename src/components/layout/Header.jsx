@@ -14,8 +14,9 @@ export default function Header() {
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Monasteries', path: '/monasteries' },
-    { name: 'Work', path: '/work' },
+    { name: 'Initiatives', path: '/work' },
     { name: 'News', path: '/news' },
+    { name: 'Annual Meetings', path: '/annual-meetings' },
     { name: 'Contact', path: '/contact' },
   ];
 

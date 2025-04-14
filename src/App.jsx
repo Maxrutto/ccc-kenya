@@ -12,6 +12,7 @@ const Vision = lazy(() => import('./components/sections/Vision'));
 const Monasteries = lazy(() => import('./pages/Monasteries'));
 const Work = lazy(() => import('./pages/Work'));
 const News = lazy(() => import('./pages/News'));
+const AnnualMeetings = lazy(() => import('./pages/AnnualMeetings'));
 const Contact = lazy(() => import('./pages/Contact'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
@@ -30,6 +31,7 @@ function App() {
               <Route path="/monasteries" element={<Monasteries />} />
               <Route path="/work" element={<Work />} />
               <Route path="/news" element={<News />} />
+              <Route path="/annual-meetings" element={<AnnualMeetings />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
