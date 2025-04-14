@@ -40,6 +40,7 @@ function Monasteries() {
   const [activeMonastery, setActiveMonastery] = useState(null);
   const [mapError, setMapError] = useState(false);
   const defaultCenter = [0.0236, 37.9062]; // Kenya center
+  const isMobile = window.innerWidth <= 768;
 
   useEffect(() => {
     async function fetchMonasteries() {
@@ -67,24 +68,24 @@ function Monasteries() {
 
   return (
     <div className="pt-16 pb-12">
-      <section className="py-16 md:py-20">
+      <section className="py-10 md:py-20">
         <div className="container mx-auto px-4">
           <AnimWrapper>
-            <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 font-playfair text-red-600">
+            <h1 className="text-4xl md:text-5xl font-bold text-center mb-6 md:mb-8 font-playfair text-red-600">
               Member Monasteries
             </h1>
-            <p className="text-xl text-center max-w-4xl mx-auto mb-12">
+            <p className="text-lg md:text-xl text-center max-w-4xl mx-auto mb-8 md:mb-12">
               Explore our member monasteries across Kenya and other parts of English-speaking Africa, 
               each contributing their unique charism to our contemplative mission.
             </p>
           </AnimWrapper>
 
-          <AnimWrapper delay={0.7}>
+          <AnimWrapper delay={isMobile ? 0.2 : 0.5}>
             {!mapError ? (
-              <div className="h-[50vh] md:h-[60vh] mb-16 rounded-xl overflow-hidden shadow-lg">
+              <div className="h-[40vh] md:h-[60vh] mb-10 md:mb-16 rounded-xl overflow-hidden shadow-lg">
                 <MapContainer 
                   center={defaultCenter} 
-                  zoom={7} 
+                  zoom={6} 
                   style={{ height: "100%", width: "100%" }}
                   whenReady={() => console.log("Map is ready")}
                   onError={handleMapError}
@@ -117,7 +118,7 @@ function Monasteries() {
                 </MapContainer>
               </div>
             ) : (
-              <div className="h-[30vh] mb-16 rounded-xl overflow-hidden shadow-lg bg-gray-100 flex items-center justify-center">
+              <div className="h-[30vh] mb-10 md:mb-16 rounded-xl overflow-hidden shadow-lg bg-gray-100 flex items-center justify-center">
                 <div className="text-center p-8">
                   <FaMapMarkerAlt className="text-5xl text-red-600 mx-auto mb-4" />
                   <h3 className="text-2xl font-bold text-gray-700 mb-2">Map Unavailable</h3>
@@ -129,18 +130,21 @@ function Monasteries() {
             )}
           </AnimWrapper>
 
-          <AnimWrapper delay={0.9}>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {monasteries.map(monastery => (
+          {/* Debugging text for mobile */}
+          {isMobile && <p className="text-center text-sm text-gray-500 mb-4">Loading monastery cards...</p>}
+          
+          {/* Cards with reduced animation delay for mobile */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {monasteries.map((monastery, index) => (
+              <AnimWrapper key={monastery._id} delay={isMobile ? 0.1 : 0.1 * (index % 6)}>
                 <div 
-                  key={monastery._id} 
                   className={`card p-0 overflow-hidden transition-all duration-300 ${
                     activeMonastery?._id === monastery._id ? 'ring-2 ring-red-600' : ''
                   }`}
                   onClick={() => setActiveMonastery(monastery)}
                 >
                   {monastery.image && (
-                    <div className="h-56 overflow-hidden">
+                    <div className="h-48 md:h-56 overflow-hidden">
                       <img 
                         src={urlFor(monastery.image).width(600).url()} 
                         alt={monastery.name}
@@ -152,8 +156,8 @@ function Monasteries() {
                       />
                     </div>
                   )}
-                  <div className="p-5">
-                    <h3 className="text-xl font-bold mb-2">{monastery.name}</h3>
+                  <div className="p-4 md:p-5">
+                    <h3 className="text-lg md:text-xl font-bold mb-2">{monastery.name}</h3>
                     <p className="text-gray-700 mb-3">{monastery.congregationName}</p>
                     <div className="flex items-start mb-3">
                       <FaMapMarkerAlt className="text-red-600 mt-1 mr-2 flex-shrink-0" />
@@ -171,9 +175,9 @@ function Monasteries() {
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
-          </AnimWrapper>
+              </AnimWrapper>
+            ))}
+          </div>
         </div>
       </section>
     </div>

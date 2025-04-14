@@ -40,15 +40,8 @@ export default function Header() {
       transition={{ duration: 0.5 }}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link to="/" className="z-50">
-          <img 
-            src="/images/logo.jpeg"
-            alt="CCC Kenya Logo"
-            className="w-24 h-24 mx-auto mb-4 rounded-full shadow-lg"
-            initial={{ scale: 0 }}
-            animate={{ scale: inView ? 1 : 0 }}
-            transition={{ delay: 0.2 }}
-          />
+        <Link to="/" className="z-50 flex items-center">
+          <span className="text-lg font-semibold text-blue-600">CCCK</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -59,8 +52,8 @@ export default function Header() {
               to={link.path}
               className={`text-lg font-medium transition-colors ${
                 location.pathname === link.path 
-                  ? 'text-red-600' 
-                  : 'text-gray-700 hover:text-red-500'
+                  ? 'text-blue-600' 
+                  : 'text-gray-700 hover:text-blue-500'
               }`}
             >
               {link.name}
@@ -75,7 +68,7 @@ export default function Header() {
           aria-label="Navigation Menu"
         >
           {isMenuOpen ? (
-            <FiX className="w-8 h-8 text-red-600" />
+            <FiX className="w-8 h-8 text-blue-600" />
           ) : (
             <FiMenu className="w-8 h-8 text-gray-700" />
           )}
@@ -94,7 +87,7 @@ export default function Header() {
                   <Link
                     key={link.path}
                     to={link.path}
-                    className="block py-4 text-xl text-gray-700 border-b hover:text-red-600"
+                    className="block py-4 text-xl text-gray-700 border-b hover:text-blue-600"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {link.name}
