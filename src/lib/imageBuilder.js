@@ -1,19 +1,27 @@
 // Mock implementation of Sanity's urlFor image builder
 export const urlFor = (source) => {
-  // Simple mock implementation that returns a URL based on the image reference
-  if (!source) return '';
+  // If source is null or undefined, return placeholder
+  if (!source) return 'images/placeholder.jpg';
   
-  // Extract the image number from the _ref, defaulting to 1 if not found
+  // Extract the image number from the _ref, defaulting to a placeholder if not found
   const refMatch = source.asset && source.asset._ref ? source.asset._ref.match(/image-(\d+)/) : null;
-  const imageNum = refMatch ? refMatch[1] : '1';
+  
+  // If we have a ref match, use it, otherwise use placeholder
+  let imageUrl = 'images/placeholder.jpg';
+  
+  if (refMatch) {
+    const imageNum = refMatch[1] || '1';
+    // Try to use a specific image number if available
+    imageUrl = `images/image${imageNum}.jpeg`;
+  }
   
   // Build a builder-like interface to match Sanity's usage pattern
   return {
     width: () => {
       return {
-        url: () => `images/image${imageNum}.jpeg`
+        url: () => imageUrl
       };
     },
-    url: () => `images/image${imageNum}.jpeg`
+    url: () => imageUrl
   };
 }; 

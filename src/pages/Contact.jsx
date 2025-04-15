@@ -48,55 +48,57 @@ function Contact() {
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <AnimWrapper>
-            <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 font-playfair text-secondary">
-              Contact Us
+            <h1 className="text-4xl md:text-5xl font-['Playfair_Display'] font-bold text-center mb-8 text-blue-600">
+              Contact <span className="text-red-600">Us</span>
             </h1>
-            <p className="text-xl text-center max-w-4xl mx-auto mb-12">
+            <p className="text-lg md:text-xl text-center max-w-4xl mx-auto mb-12 font-['Montserrat'] text-gray-700">
               We'd love to hear from you. Reach out to us with your questions, feedback, or prayer requests.
             </p>
           </AnimWrapper>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
             <AnimWrapper delay={0.3}>
-              <div className="card p-8">
-                <h2 className="text-2xl font-bold mb-6">Get In Touch</h2>
+              <div className="bg-white rounded-lg shadow-md p-8">
+                <h2 className="text-2xl font-['Playfair_Display'] font-bold mb-6 text-blue-700">
+                  Get In <span className="text-red-600">Touch</span>
+                </h2>
                 
                 <div className="space-y-6">
                   <div className="flex items-start">
-                    <FaMapMarkerAlt className="text-secondary mt-1 mr-4 text-xl flex-shrink-0" />
+                    <FaMapMarkerAlt className="text-red-500 mt-1 mr-4 text-xl flex-shrink-0" />
                     <div>
-                      <h3 className="font-bold mb-1">Our Location</h3>
-                      <p>Conference of Contemplative Communities of Kenya, Nairobi, Kenya</p>
+                      <h3 className="font-['Montserrat'] font-bold mb-1 text-gray-800">Our Location</h3>
+                      <p className="font-['Montserrat'] text-gray-700">Conference of Contemplative Communities of Kenya, Nairobi, Kenya</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start">
-                    <FaPhone className="text-secondary mt-1 mr-4 text-xl flex-shrink-0" />
+                    <FaPhone className="text-blue-600 mt-1 mr-4 text-xl flex-shrink-0" />
                     <div>
-                      <h3 className="font-bold mb-1">Phone</h3>
-                      <p>+254 123 456 789</p>
-                      <p>+254 987 654 321</p>
+                      <h3 className="font-['Montserrat'] font-bold mb-1 text-gray-800">Phone</h3>
+                      <p className="font-['Montserrat'] text-gray-700">+254 123 456 789</p>
+                      <p className="font-['Montserrat'] text-gray-700">+254 987 654 321</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start">
-                    <FaEnvelope className="text-secondary mt-1 mr-4 text-xl flex-shrink-0" />
+                    <FaEnvelope className="text-red-500 mt-1 mr-4 text-xl flex-shrink-0" />
                     <div>
-                      <h3 className="font-bold mb-1">Email</h3>
-                      <p>info@ccckenya.org</p>
-                      <p>contact@ccckenya.org</p>
+                      <h3 className="font-['Montserrat'] font-bold mb-1 text-gray-800">Email</h3>
+                      <p className="font-['Montserrat'] text-gray-700">info@ccckenya.org</p>
+                      <p className="font-['Montserrat'] text-gray-700">contact@ccckenya.org</p>
                     </div>
                   </div>
                 </div>
                 
-                <h3 className="text-xl font-bold mt-10 mb-4">Follow Us</h3>
+                <h3 className="text-xl font-['Playfair_Display'] font-bold mt-10 mb-4 text-blue-700">Follow Us</h3>
                 <div className="flex space-x-4">
                   <a 
                     href="https://facebook.com" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     aria-label="Facebook"
-                    className="bg-primary hover:bg-primary-dark p-3 rounded-full transition-colors text-secondary"
+                    className="bg-blue-100 hover:bg-red-100 p-3 rounded-full transition-all duration-300 text-blue-600 hover:text-red-600"
                   >
                     <FaFacebook className="text-xl" />
                   </a>
@@ -105,7 +107,7 @@ function Contact() {
                     target="_blank" 
                     rel="noopener noreferrer"
                     aria-label="Twitter"
-                    className="bg-primary hover:bg-primary-dark p-3 rounded-full transition-colors text-secondary"
+                    className="bg-blue-100 hover:bg-red-100 p-3 rounded-full transition-all duration-300 text-blue-600 hover:text-red-600"
                   >
                     <FaTwitter className="text-xl" />
                   </a>
@@ -114,7 +116,7 @@ function Contact() {
                     target="_blank" 
                     rel="noopener noreferrer"
                     aria-label="Instagram"
-                    className="bg-primary hover:bg-primary-dark p-3 rounded-full transition-colors text-secondary"
+                    className="bg-blue-100 hover:bg-red-100 p-3 rounded-full transition-all duration-300 text-blue-600 hover:text-red-600"
                   >
                     <FaInstagram className="text-xl" />
                   </a>
@@ -123,8 +125,10 @@ function Contact() {
             </AnimWrapper>
 
             <AnimWrapper delay={0.5}>
-              <div className="card p-8">
-                <h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>
+              <div className="bg-white rounded-lg shadow-md p-8">
+                <h2 className="text-2xl font-['Playfair_Display'] font-bold mb-6 text-blue-700">
+                  Send Us a <span className="text-red-600">Message</span>
+                </h2>
                 
                 <Formik
                   initialValues={{ 
@@ -140,76 +144,80 @@ function Contact() {
                   {({ isSubmitting, status }) => (
                     <Form className="space-y-4">
                       {status && (
-                        <div className={`p-4 rounded ${status.success ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                        <div className={`p-4 rounded font-['Montserrat'] ${status.success ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
                           {status.message}
                         </div>
                       )}
                       
                       <div>
-                        <label htmlFor="name" className="block mb-1 font-medium">Name</label>
+                        <label htmlFor="name" className="block mb-1 font-['Montserrat'] font-medium text-gray-700">Name</label>
                         <Field 
                           type="text" 
                           name="name" 
                           id="name"
-                          className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-secondary"
+                          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 hover:border-red-300 font-['Montserrat'] transition-all"
                           placeholder="Your name"
                         />
-                        <ErrorMessage name="name" component="div" className="text-red-600 text-sm mt-1" />
+                        <ErrorMessage name="name" component="div" className="text-red-600 text-sm mt-1 font-['Montserrat']" />
                       </div>
                       
                       <div>
-                        <label htmlFor="email" className="block mb-1 font-medium">Email</label>
+                        <label htmlFor="email" className="block mb-1 font-['Montserrat'] font-medium text-gray-700">Email</label>
                         <Field 
                           type="email" 
                           name="email" 
                           id="email"
-                          className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-secondary"
+                          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 hover:border-red-300 font-['Montserrat'] transition-all"
                           placeholder="your.email@example.com"
                         />
-                        <ErrorMessage name="email" component="div" className="text-red-600 text-sm mt-1" />
+                        <ErrorMessage name="email" component="div" className="text-red-600 text-sm mt-1 font-['Montserrat']" />
                       </div>
                       
                       <div>
-                        <label htmlFor="subject" className="block mb-1 font-medium">Subject</label>
+                        <label htmlFor="subject" className="block mb-1 font-['Montserrat'] font-medium text-gray-700">Subject</label>
                         <Field 
                           type="text" 
                           name="subject" 
                           id="subject"
-                          className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-secondary"
+                          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 hover:border-red-300 font-['Montserrat'] transition-all"
                           placeholder="Subject of your message"
                         />
-                        <ErrorMessage name="subject" component="div" className="text-red-600 text-sm mt-1" />
+                        <ErrorMessage name="subject" component="div" className="text-red-600 text-sm mt-1 font-['Montserrat']" />
                       </div>
                       
                       <div>
-                        <label htmlFor="message" className="block mb-1 font-medium">Message</label>
+                        <label htmlFor="message" className="block mb-1 font-['Montserrat'] font-medium text-gray-700">Message</label>
                         <Field 
                           as="textarea" 
                           name="message" 
                           id="message"
                           rows="5"
-                          className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-secondary"
+                          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 hover:border-red-300 font-['Montserrat'] transition-all"
                           placeholder="Your message here..."
                         />
-                        <ErrorMessage name="message" component="div" className="text-red-600 text-sm mt-1" />
+                        <ErrorMessage name="message" component="div" className="text-red-600 text-sm mt-1 font-['Montserrat']" />
                       </div>
                       
-                      <div>
-                        <label className="flex items-center">
+                      <div className="flex items-start pt-2">
+                        <div className="flex items-center h-5">
                           <Field 
                             type="checkbox" 
                             name="acceptTerms" 
                             id="acceptTerms"
-                            className="mr-2"
+                            className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-red-500 hover:ring-2 hover:ring-red-300 transition-all"
                           />
-                          <span>I agree to the privacy policy and terms of service</span>
-                        </label>
-                        <ErrorMessage name="acceptTerms" component="div" className="text-red-600 text-sm mt-1" />
+                        </div>
+                        <div className="ml-3 text-sm">
+                          <label htmlFor="acceptTerms" className="font-['Montserrat'] text-gray-700">
+                            I agree to the <span className="text-red-600 hover:underline cursor-pointer">privacy policy</span> and <span className="text-blue-600 hover:underline cursor-pointer">terms of service</span>
+                          </label>
+                          <ErrorMessage name="acceptTerms" component="div" className="text-red-600 text-sm mt-1 font-['Montserrat']" />
+                        </div>
                       </div>
                       
                       <button 
                         type="submit" 
-                        className="btn w-full"
+                        className="w-full px-4 py-3 mt-2 text-white bg-blue-600 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-all duration-300 font-['Montserrat'] font-medium"
                         disabled={isSubmitting}
                         aria-label="Send Message"
                       >

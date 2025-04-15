@@ -372,14 +372,14 @@ function Monasteries() {
   if (loading) return <Loader />;
 
   return (
-    <div className="pt-16 pb-12">
-      <section className="py-10 md:py-20">
-        <div className="container mx-auto px-4">
+    <div className="pt-16 pb-12 w-full overflow-x-hidden">
+      <section className="py-10 md:py-20 w-full">
+        <div className="container mx-auto px-2 sm:px-4 max-w-full">
           <AnimWrapper>
-            <h1 className="text-4xl md:text-5xl font-['Playfair_Display'] font-bold text-center mb-6 md:mb-8 text-blue-600">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-['Playfair_Display'] font-bold text-center mb-6 md:mb-8 text-blue-600">
               Member Monasteries
             </h1>
-            <p className="text-lg md:text-xl text-center max-w-4xl mx-auto mb-8 md:mb-12 font-['Montserrat']">
+            <p className="text-base sm:text-lg md:text-xl text-center max-w-4xl mx-auto mb-8 md:mb-12 font-['Montserrat']">
               Explore our member monasteries across Kenya and other parts of English-speaking Africa, 
               each contributing their unique charism to our contemplative mission.
             </p>
@@ -457,6 +457,7 @@ function Monasteries() {
                       alt={monastery.name}
                       className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
                       loading="lazy"
+                      decoding="async"
                       onError={(e) => {
                         console.error(`Failed to load image: ${monastery.image}`);
                         e.target.onerror = null;
@@ -500,6 +501,7 @@ function Monasteries() {
                       alt={monastery.name}
                       className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
                       loading="lazy"
+                      decoding="async"
                       onError={(e) => {
                         console.error(`Failed to load image: ${monastery.image}`);
                         e.target.onerror = null;

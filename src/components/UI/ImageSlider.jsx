@@ -1,120 +1,192 @@
 import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import LazyImage from './LazyImage';
+import { FaAngleRight, FaAngleLeft } from 'react-icons/fa';
 
-export default function ImageSlider({ images }) {
+const ImageSlider = ({ images, autoPlayInterval = 5000, height = "600px" }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [touchStart, setTouchStart] = useState(0);
-  const [touchEnd, setTouchEnd] = useState(0);
+  const [direction, setDirection] = useState(1); // 1 for forward, -1 for backward
+  const [isMobile, setIsMobile] = useState(false);
+  const touchStartXRef = useRef(0);
+  const touchEndXRef = useRef(0);
+  const autoPlayTimerRef = useRef(null);
   const sliderRef = useRef(null);
-  
-  // Use safer image paths that definitely exist in the public folder
-  const safeImages = images.map(img => ({
-    ...img,
-    url: img.url.replace(/^\//, '')  // Remove leading slash if present
-  }));
-  
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => 
-        prevIndex === safeImages.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 3000);
-    
-    return () => clearInterval(interval);
-  }, [safeImages.length]);
 
-  // Handle touch events for swiping
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    // Set initial value
+    handleResize();
+    
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+    
+    // Clean up
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    // Autoplay functionality
+    if (autoPlayInterval > 0) {
+      restartAutoPlay();
+    }
+    
+    return () => {
+      if (autoPlayTimerRef.current) {
+        clearInterval(autoPlayTimerRef.current);
+      }
+    };
+  }, [currentIndex, autoPlayInterval]);
+
+  const restartAutoPlay = () => {
+    if (autoPlayTimerRef.current) {
+      clearInterval(autoPlayTimerRef.current);
+    }
+    
+    autoPlayTimerRef.current = setInterval(() => {
+      setDirection(1);
+      setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
+    }, autoPlayInterval);
+  };
+
+  const handleNext = () => {
+    if (autoPlayTimerRef.current) {
+      clearInterval(autoPlayTimerRef.current);
+    }
+    setDirection(1);
+    setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
+    restartAutoPlay();
+  };
+
+  const handlePrev = () => {
+    if (autoPlayTimerRef.current) {
+      clearInterval(autoPlayTimerRef.current);
+    }
+    setDirection(-1);
+    setCurrentIndex(prevIndex => (prevIndex - 1 + images.length) % images.length);
+    restartAutoPlay();
+  };
+
+  const handleDotClick = (index) => {
+    if (autoPlayTimerRef.current) {
+      clearInterval(autoPlayTimerRef.current);
+    }
+    setDirection(index > currentIndex ? 1 : -1);
+    setCurrentIndex(index);
+    restartAutoPlay();
+  };
+
+  // Touch handlers for mobile swiping
   const handleTouchStart = (e) => {
-    setTouchStart(e.targetTouches[0].clientX);
+    touchStartXRef.current = e.touches[0].clientX;
   };
 
   const handleTouchMove = (e) => {
-    setTouchEnd(e.targetTouches[0].clientX);
+    touchEndXRef.current = e.touches[0].clientX;
   };
 
   const handleTouchEnd = () => {
-    if (touchStart - touchEnd > 50) {
-      // Swipe left, go to next image
-      setCurrentIndex(currentIndex === safeImages.length - 1 ? 0 : currentIndex + 1);
-    }
-
-    if (touchStart - touchEnd < -50) {
-      // Swipe right, go to previous image
-      setCurrentIndex(currentIndex === 0 ? safeImages.length - 1 : currentIndex - 1);
+    if (touchStartXRef.current - touchEndXRef.current > 100) {
+      // Swipe left - go to next
+      handleNext();
+    } else if (touchEndXRef.current - touchStartXRef.current > 100) {
+      // Swipe right - go to previous
+      handlePrev();
     }
   };
 
-  // Manual navigation functions
-  const goToNext = () => {
-    setCurrentIndex(currentIndex === safeImages.length - 1 ? 0 : currentIndex + 1);
-  };
+  // Dynamic height that correctly adjusts for mobile
+  const sliderHeight = isMobile ? "350px" : height;
+  const buttonSize = isMobile ? "text-xl" : "text-3xl";
 
-  const goToPrev = () => {
-    setCurrentIndex(currentIndex === 0 ? safeImages.length - 1 : currentIndex - 1);
-  };
-
-  if (!safeImages || safeImages.length === 0) {
-    return <div className="h-full w-full bg-gray-200 flex items-center justify-center">No images available</div>;
-  }
-
-  // Custom styling for specific images - especially the executive committee image
-  const getImageStyle = (index) => {
-    if (index === 0 && safeImages[currentIndex].url.includes('Executive commitee.jpg')) {
+  // Variants for framer motion
+  const variants = {
+    enter: (direction) => {
       return {
-        objectFit: 'contain',
-        padding: '10px',
-        background: 'rgba(255, 255, 255, 0.9)'
+        x: direction > 0 ? 500 : -500,
+        opacity: 0
+      };
+    },
+    center: {
+      x: 0,
+      opacity: 1
+    },
+    exit: (direction) => {
+      return {
+        x: direction < 0 ? 500 : -500,
+        opacity: 0
       };
     }
-    return { objectFit: 'cover' };
   };
 
   return (
     <div 
-      className="w-full h-full relative overflow-hidden rounded-lg"
       ref={sliderRef}
+      className="relative overflow-hidden w-full rounded-lg shadow-lg" 
+      style={{ height: sliderHeight }}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      <div className="w-full h-full">
-        <img 
-          src={safeImages[currentIndex].url} 
-          alt={safeImages[currentIndex].alt} 
-          className="w-full h-full rounded-lg"
-          style={getImageStyle(currentIndex)}
-          onError={(e) => {
-            console.error(`Failed to load image: ${safeImages[currentIndex].url}`);
-            // First try the placeholder image
-            e.target.onerror = null; // Prevent infinite error loops
-            e.target.src = 'images/placeholder.jpg';
+      <AnimatePresence initial={false} custom={direction} mode="wait">
+        <motion.div
+          key={currentIndex}
+          custom={direction}
+          variants={variants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={{
+            x: { type: "spring", stiffness: 300, damping: 30 },
+            opacity: { duration: 0.2 }
           }}
-        />
-      </div>
-      
-      {/* Navigation arrows */}
-      <button 
-        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/30 text-white p-2 rounded-full cursor-pointer hover:bg-black/50"
-        onClick={goToPrev}
+          className="absolute w-full h-full"
+        >
+          <LazyImage
+            src={images[currentIndex]?.url || ''}
+            alt={images[currentIndex]?.alt || 'Slider image'}
+            className="w-full h-full object-cover"
+            containerClassName="w-full h-full"
+            usePlaceholder={true}
+          />
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Navigation buttons */}
+      <button
+        onClick={handlePrev}
+        className={`absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 p-2 rounded-full text-white z-10 transition duration-300 ${buttonSize}`}
+        aria-label="Previous image"
       >
-        &#10094;
+        <FaAngleLeft />
       </button>
-      
-      <button 
-        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/30 text-white p-2 rounded-full cursor-pointer hover:bg-black/50"
-        onClick={goToNext}
+      <button
+        onClick={handleNext}
+        className={`absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 p-2 rounded-full text-white z-10 transition duration-300 ${buttonSize}`}
+        aria-label="Next image"
       >
-        &#10095;
+        <FaAngleRight />
       </button>
-      
-      <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1 z-10">
-        {safeImages.map((_, index) => (
-          <button 
+
+      {/* Dots indicator */}
+      <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+        {images.map((_, index) => (
+          <button
             key={index}
-            className={`w-2 h-2 rounded-full ${currentIndex === index ? 'bg-red-600' : 'bg-white/70'}`}
-            onClick={() => setCurrentIndex(index)}
+            onClick={() => handleDotClick(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentIndex 
+                ? 'bg-white scale-110' 
+                : 'bg-white bg-opacity-50 hover:bg-opacity-75'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>
     </div>
   );
-}
+};
+
+export default ImageSlider;

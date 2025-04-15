@@ -5,71 +5,76 @@ export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="bg-gray-100 pt-12 pb-6">
+        <footer className="bg-gray-100 pt-12 pb-6 relative z-10">
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {/* Organization Info */}
                     <div>
-                        <h3 className="text-xl font-semibold mb-4 text-secondary">CCC Kenya</h3>
+                        <h3 className="font-['Playfair_Display'] text-xl sm:text-2xl font-bold mb-4 text-blue-600">
+                            <span className="text-blue-700">C</span>
+                            <span className="text-blue-600">C</span>
+                            <span className="text-blue-500">C</span>
+                            <span className="font-cursive ml-1 text-blue-700">Kenya</span>
+                        </h3>
                         <div className="flex items-start mb-3">
-                            <FaMapMarkerAlt className="text-primary mt-1 mr-3" />
-                            <p>Conference of Contemplative Communities of Kenya, Nairobi, Kenya</p>
+                            <FaMapMarkerAlt className="text-blue-600 mt-1 mr-3 flex-shrink-0" />
+                            <p className="font-['Montserrat'] text-gray-700 text-sm sm:text-base">Conference of Contemplative Communities of Kenya, Nairobi, Kenya</p>
                         </div>
                         <div className="flex items-center mb-3">
-                            <FaPhone className="text-primary mr-3" />
-                            <p>+254 123 456 789</p>
+                            <FaPhone className="text-blue-600 mr-3 flex-shrink-0" />
+                            <p className="font-['Montserrat'] text-gray-700 text-sm sm:text-base">+254 123 456 789</p>
                         </div>
                         <div className="flex items-center">
-                            <FaEnvelope className="text-primary mr-3" />
-                            <p>info@ccckenya.org</p>
+                            <FaEnvelope className="text-blue-600 mr-3 flex-shrink-0" />
+                            <p className="font-['Montserrat'] text-gray-700 text-sm sm:text-base">info@ccckenya.org</p>
                         </div>
                     </div>
 
                     {/* Quick Links */}
                     <div>
-                        <h3 className="text-xl font-semibold mb-4 text-secondary">Quick Links</h3>
-                        <ul className="space-y-2">
-                            <li><Link to="/about" className="hover:text-primary transition-colors">About Us</Link></li>
-                            <li><Link to="/monasteries" className="hover:text-primary transition-colors">Member Monasteries</Link></li>
-                            <li><Link to="/work" className="hover:text-primary transition-colors">What We Do</Link></li>
-                            <li><Link to="/contact" className="hover:text-primary transition-colors">Contact Us</Link></li>
+                        <h3 className="font-['Playfair_Display'] text-xl font-semibold mb-4 text-blue-600">Quick Links</h3>
+                        <ul className="space-y-2 font-['Montserrat']">
+                            <li><Link to="/#about" className="text-gray-700 hover:text-blue-500 transition-all">About Us</Link></li>
+                            <li><Link to="/monasteries" className="text-gray-700 hover:text-blue-500 transition-all">Member Monasteries</Link></li>
+                            <li><Link to="/work" className="text-gray-700 hover:text-blue-500 transition-all">What We Do</Link></li>
+                            <li><Link to="/contact" className="text-gray-700 hover:text-blue-500 transition-all">Contact Us</Link></li>
                         </ul>
                     </div>
 
                     {/* Resources */}
                     <div>
-                        <h3 className="text-xl font-semibold mb-4 text-secondary">Resources</h3>
-                        <ul className="space-y-2">
-                            <li><Link to="/news" className="hover:text-primary transition-colors">News & Events</Link></li>
-                            <li><Link to="/initiatives" className="hover:text-primary transition-colors">Our Initiatives</Link></li>
-                            <li><Link to="/partnerships" className="hover:text-primary transition-colors">Partnerships</Link></li>
-                            <li><Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
+                        <h3 className="font-['Playfair_Display'] text-xl font-semibold mb-4 text-blue-600">Resources</h3>
+                        <ul className="space-y-2 font-['Montserrat']">
+                            <li><Link to="/news" className="text-gray-700 hover:text-blue-500 transition-all">News & Events</Link></li>
+                            <li><Link to="/annual-meetings" className="text-gray-700 hover:text-blue-500 transition-all">Annual Meetings</Link></li>
+                            <li><Link to="/#mission" className="text-gray-700 hover:text-blue-500 transition-all">Our Mission</Link></li>
+                            <li><Link to="/#vision" className="text-gray-700 hover:text-blue-500 transition-all">Our Vision</Link></li>
                         </ul>
                     </div>
 
                     {/* Connect */}
                     <div>
-                        <h3 className="text-xl font-semibold mb-4 text-secondary">Connect With Us</h3>
+                        <h3 className="font-['Playfair_Display'] text-xl font-semibold mb-4 text-blue-600">Connect With Us</h3>
                         <div className="flex space-x-4 text-2xl">
-                            <a href="#" className="text-primary hover:text-secondary transition-colors" aria-label="Facebook">
+                            <a href="#" className="text-blue-600 hover:text-blue-700 transition-all" aria-label="Facebook">
                                 <FaFacebook />
                             </a>
-                            <a href="#" className="text-primary hover:text-secondary transition-colors" aria-label="Twitter">
+                            <a href="#" className="text-blue-600 hover:text-blue-700 transition-all" aria-label="Twitter">
                                 <FaTwitter />
                             </a>
-                            <a href="#" className="text-primary hover:text-secondary transition-colors" aria-label="Instagram">
+                            <a href="#" className="text-blue-600 hover:text-blue-700 transition-all" aria-label="Instagram">
                                 <FaInstagram />
                             </a>
                         </div>
                         <div className="mt-6">
-                            <h4 className="font-semibold mb-2">Newsletter</h4>
+                            <h4 className="font-['Montserrat'] font-semibold mb-2 text-gray-700">Newsletter</h4>
                             <div className="flex">
                                 <input 
                                     type="email" 
                                     placeholder="Your email"
-                                    className="py-2 px-3 border border-gray-300 rounded-l focus:outline-none focus:border-primary"
+                                    className="py-2 px-3 border border-gray-300 rounded-l focus:outline-none focus:border-blue-500 font-['Montserrat']"
                                 />
-                                <button className="bg-primary text-white py-2 px-4 rounded-r hover:bg-blue-700 transition-colors">
+                                <button className="bg-blue-600 text-white py-2 px-4 rounded-r hover:bg-blue-700 transition-all font-['Montserrat']">
                                     Subscribe
                                 </button>
                             </div>
@@ -77,8 +82,8 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="border-t border-gray-200 mt-10 pt-6 text-center text-sm">
-                    <p>&copy; {currentYear} Conference of Contemplative Communities of Kenya. All Rights Reserved.</p>
+                <div className="border-t border-gray-200 mt-10 pt-6 text-center">
+                    <p className="font-['Montserrat'] text-gray-600 text-sm">&copy; {currentYear} Conference of Contemplative Communities of Kenya. All Rights Reserved.</p>
                 </div>
             </div>
         </footer>

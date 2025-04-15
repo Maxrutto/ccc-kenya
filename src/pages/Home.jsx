@@ -1,26 +1,28 @@
-import { lazy, Suspense } from 'react';
+import React from 'react';
+import Hero from '../components/sections/Hero';
+import History from '../components/sections/History';
+import About from '../components/sections/About';
+import Mission from '../components/sections/Mission';
+import Vision from '../components/sections/Vision';
 import Loader from '../components/UI/Loader';
-import AnimWrapper from '../components/UI/AnimWrapper';
-
-const Hero = lazy(() => import('../components/sections/Hero'));
-const History = lazy(() => import('../components/sections/History'));
-const About = lazy(() => import('../components/sections/About'));
-const Mission = lazy(() => import('../components/sections/Mission'));
-const Vision = lazy(() => import('../components/sections/Vision'));
 
 export default function Home() {
     return (
         <div className="flex flex-col min-h-screen gap-y-8 overflow-x-hidden w-full">
-            <Suspense fallback={<Loader />}>
-                <Hero />
-                <div className="flex-1 flex flex-col gap-y-8">
-                    <History />
+            <Hero />
+            <div className="flex-1 flex flex-col gap-y-8">
+                <History />
+                <div id="about">
                     <About />
-                    <Mission />
-                    <Vision />
-                    {/* Additional sections will be added here */}
                 </div>
-            </Suspense>
+                <div id="mission">
+                    <Mission />
+                </div>
+                <div id="vision">
+                    <Vision />
+                </div>
+                {/* Additional sections will be added here */}
+            </div>
         </div>
     );
 }

@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { useInView } from 'react-intersection-observer';
 
-
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,7 +11,9 @@ export default function Header() {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
+    { name: 'About', path: '/#about' },
+    { name: 'Mission', path: '/#mission' },
+    { name: 'Vision', path: '/#vision' },
     { name: 'Monasteries', path: '/monasteries' },
     { name: 'Initiatives', path: '/work' },
     { name: 'News', path: '/news' },
@@ -26,79 +27,163 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
+
+  // Prevent scrolling when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isMenuOpen]);
+
+  // Handle hash navigation
+  const handleHashLink = (path) => {
+    if (path.includes('#')) {
+      const [route, hash] = path.split('#');
+      
+      // If already on the correct route, just scroll to the element
+      if (location.pathname === route || (route === '/' && location.pathname === '/')) {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+        setIsMenuOpen(false);
+        return;
+      }
+    }
+    // For non-hash links, just close the menu
+    setIsMenuOpen(false);
+  };
+
   const [inView] = useInView({ 
     triggerOnce: true,
     threshold: 0.1
   });
 
+  // Check if a nav link is active
+  const isActive = (path) => {
+    if (path.includes('#')) {
+      const [route] = path.split('#');
+      return location.pathname === route || (route === '/' && location.pathname === '/');
+    }
+    return location.pathname === path;
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <motion.header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/90 backdrop-blur-sm py-2 shadow-md' : 'bg-transparent py-4'
-      }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link to="/" className="z-50 flex items-center">
-          <span className="text-lg font-semibold text-blue-600">CCCK</span>
-        </Link>
+    <>
+      <motion.header
+        className={`fixed top-0 w-full z-[990] transition-all duration-300 ${
+          isScrolled ? 'bg-white/90 backdrop-blur-sm py-2 shadow-md' : 'bg-transparent py-3 md:py-4'
+        }`}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="container mx-auto px-2 sm:px-4 flex justify-between items-center">
+          <Link to="/" className="z-50 flex items-center group">
+            <div className="flex items-center">
+              <span className="font-['Playfair_Display'] text-lg sm:text-xl md:text-2xl font-bold text-blue-600 tracking-wider transition-all duration-300 group-hover:text-blue-700">
+                <span className="text-blue-700">C</span>
+                <span className="text-blue-600">C</span>
+                <span className="text-red-500">C</span>
+                <span className="font-cursive ml-1 text-blue-700">Kenya</span>
+              </span>
+            </div>
+          </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={`text-lg font-medium transition-colors ${
-                location.pathname === link.path 
-                  ? 'text-blue-600' 
-                  : 'text-gray-700 hover:text-blue-500'
-              }`}
-            >
-              {link.name}
-            </Link>
-          ))}
-        </nav>
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex space-x-6 lg:space-x-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`text-base lg:text-lg font-['Montserrat'] font-medium transition-all duration-200 ${
+                  isActive(link.path) 
+                    ? 'text-blue-600 border-b-2 border-red-500' 
+                    : 'text-gray-700 hover:text-blue-600 hover:border-b-2 hover:border-red-400'
+                }`}
+                onClick={() => handleHashLink(link.path)}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </nav>
 
-        {/* Mobile Menu */}
+          {/* Placeholder for mobile menu button (actual button is rendered outside header) */}
+          <div className="md:hidden w-10 h-10 opacity-0"></div>
+        </div>
+      </motion.header>
+
+      {/* Mobile Menu Button - Positioned absolutely outside the header */}
+      <div className="fixed top-3 right-3 z-[999] md:hidden">
         <button
-          className="md:hidden z-50"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="p-2 bg-white/90 backdrop-blur-sm rounded-full shadow-md"
+          onClick={toggleMenu}
           aria-label="Navigation Menu"
+          aria-expanded={isMenuOpen}
         >
-          {isMenuOpen ? (
-            <FiX className="w-8 h-8 text-blue-600" />
-          ) : (
-            <FiMenu className="w-8 h-8 text-gray-700" />
-          )}
+          <div className="w-10 h-10 flex items-center justify-center">
+            {isMenuOpen ? (
+              <FiX className="w-6 h-6 text-red-500" />
+            ) : (
+              <FiMenu className="w-6 h-6 text-blue-600" />
+            )}
+          </div>
         </button>
-
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.nav
-              className="md:hidden fixed inset-0 bg-white/95 backdrop-blur-sm pt-20"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <div className="container mx-auto px-4">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.path}
-                    to={link.path}
-                    className="block py-4 text-xl text-gray-700 border-b hover:text-blue-600"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </div>
-            </motion.nav>
-          )}
-        </AnimatePresence>
       </div>
-    </motion.header>
+
+      {/* Mobile Menu - Full-screen overlay */}
+      {isMenuOpen && (
+        <div className="fixed inset-0 bg-white/95 backdrop-blur-sm z-[998] md:hidden overflow-auto">
+          <div className="w-full h-full flex flex-col pt-20 px-6 pb-10">
+            {navLinks.map((link, index) => (
+              <div 
+                key={link.path}
+                className="animate-fadeIn"
+                style={{ animationDelay: `${index * 50}ms` }}
+              >
+                <Link
+                  to={link.path}
+                  className={`block py-4 text-xl font-['Montserrat'] font-medium border-b border-gray-100 relative ${
+                    isActive(link.path) 
+                      ? 'text-blue-600' 
+                      : 'text-gray-700 hover:text-blue-500'
+                  }`}
+                  onClick={() => handleHashLink(link.path)}
+                >
+                  {link.name}
+                  {isActive(link.path) && (
+                    <span className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-red-500 rounded-full"></span>
+                  )}
+                </Link>
+              </div>
+            ))}
+            
+            {/* Extra contact info for mobile menu */}
+            <div 
+              className="mt-8 border-t border-gray-200 pt-6 animate-fadeIn"
+              style={{ animationDelay: `${navLinks.length * 50}ms` }}
+            >
+              <h3 className="text-lg font-medium text-blue-600 mb-4">Contact Us</h3>
+              <p className="text-gray-700 mb-2">info@ccckenya.org</p>
+              <p className="text-gray-700">+254 123 456 789</p>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }

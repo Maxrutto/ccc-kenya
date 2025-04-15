@@ -1,38 +1,69 @@
-import { memo } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 
 function AnimWrapper({ children, delay = 0.5 }) {
-  // Check if we're on mobile for simplified animations
-  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    // Check if we're on mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    // Initial check
+    checkMobile();
+    
+    // Add event listener for resize
+    window.addEventListener('resize', checkMobile);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const variants = {
     hidden: { 
       opacity: 0, 
-      x: isMobile ? 0 : -50, // No horizontal movement on mobile
-      y: isMobile ? 10 : 0   // Small vertical movement on mobile instead
+      y: 10,  // Only use vertical movement to avoid horizontal overflow
     },
     visible: { 
       opacity: 1, 
-      x: 0,
       y: 0,
       transition: {
-        duration: isMobile ? 0.5 : 0.8,
+        duration: isMobile ? 0.3 : 0.6,
         ease: "easeOut",
-        delay: isMobile ? Math.min(delay, 0.3) : delay // Cap delay at 0.3s on mobile
+        delay: isMobile ? Math.min(delay * 0.5, 0.15) : delay // Much shorter delays on mobile
       }
     }
   };
 
-  // On mobile, use simpler animation strategy to improve performance
-  if (isMobile) {
+  // On small mobile, use ultra-simplified animation strategy for better performance
+  if (isMobile && window.innerWidth < 400) {
     return (
       <motion.div
+        className="overflow-visible"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ 
-          duration: 0.5,
-          delay: Math.min(delay, 0.3) // Cap delay at 0.3s on mobile
+          duration: 0.3,
+          delay: Math.min(delay * 0.3, 0.1) // Very minimal delay on small screens
+        }}
+      >
+        {children}
+      </motion.div>
+    );
+  }
+
+  // On larger mobile, use simpler animation strategy
+  if (isMobile) {
+    return (
+      <motion.div
+        className="overflow-visible"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ 
+          duration: 0.4,
+          delay: Math.min(delay * 0.4, 0.2) // Reduced delay on mobile
         }}
       >
         {children}
@@ -43,6 +74,7 @@ function AnimWrapper({ children, delay = 0.5 }) {
   // Full animation for desktop
   return (
     <motion.div
+      className="overflow-visible"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
