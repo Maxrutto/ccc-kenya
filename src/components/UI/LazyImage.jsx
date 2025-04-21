@@ -22,7 +22,7 @@ const LazyImage = ({
   containerClassName = '',
   placeholderClassName = '',
   usePlaceholder = true,
-  placeholderSrc = '',
+  placeholderSrc = 'images/placeholder.jpeg',
   onLoad,
   onError,
 }) => {

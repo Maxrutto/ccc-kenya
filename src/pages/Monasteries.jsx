@@ -21,7 +21,7 @@ const kenyanMonasteries = [
     name: "Discalced Carmelite Nuns",
     location: "Westlands (Archdiocese of Nairobi)",
     country: "Kenya",
-    image: "images/placeholder.jpg",
+    image: "images/placeholder.jpeg",
     coordinates: [-1.2634, 36.8222], // Approximate coordinates
     description: "Westlands monastery of Discalced Carmelite Nuns in the Archdiocese of Nairobi"
   },
@@ -39,7 +39,7 @@ const kenyanMonasteries = [
     name: "Discalced Carmelite Nuns",
     location: "Manga Hills (Diocese of Kisii)",
     country: "Kenya",
-    image: "images/placeholder.jpg",
+    image: "images/placeholder.jpeg",
     coordinates: [-0.6748, 34.7769], // Approximate coordinates
     description: "Manga Hills monastery of Discalced Carmelite Nuns in the Diocese of Kisii"
   },
@@ -48,7 +48,7 @@ const kenyanMonasteries = [
     name: "Carmelite Nuns of the Ancient Observance",
     location: "Machakos (Diocese of Machakos)",
     country: "Kenya",
-    image: "images/placeholder.jpg",
+    image: "images/placeholder.jpeg",
     coordinates: [-1.5176, 37.2663], // Approximate coordinates
     description: "Machakos monastery of Carmelite Nuns of the Ancient Observance in the Diocese of Machakos"
   },
@@ -57,7 +57,7 @@ const kenyanMonasteries = [
     name: "Carmelite Nuns of the Ancient Observance",
     location: "Juja Farm (Archdiocese of Nairobi)",
     country: "Kenya",
-    image: "images/placeholder.jpg",
+    image: "images/placeholder.jpeg",
     coordinates: [-1.1135, 37.0144], // Approximate coordinates
     description: "Juja Farm monastery of Carmelite Nuns of the Ancient Observance in the Archdiocese of Nairobi"
   },
@@ -66,7 +66,7 @@ const kenyanMonasteries = [
     name: "Carmelite Nuns of the Ancient Observance",
     location: "Kitui (Kitui Diocese)",
     country: "Kenya",
-    image: "images/placeholder.jpg",
+    image: "images/placeholder.jpeg",
     coordinates: [-1.3670, 38.0106], // Approximate coordinates
     description: "Kitui monastery of Carmelite Nuns of the Ancient Observance in the Kitui Diocese"
   },
@@ -93,7 +93,7 @@ const kenyanMonasteries = [
     name: "Augustinian Recollect Nuns",
     location: "Wote (Diocese of Wote)",
     country: "Kenya",
-    image: "images/placeholder.jpg",
+    image: "images/placeholder.jpeg",
     coordinates: [-1.7803, 37.6288], // Approximate coordinates
     description: "Wote monastery of Augustinian Recollect Nuns in the Diocese of Wote"
   },
@@ -102,7 +102,7 @@ const kenyanMonasteries = [
     name: "Augustinian Recollect Nuns",
     location: "Nakwamekwi (Diocese of Lodwar)",
     country: "Kenya",
-    image: "images/placeholder.jpg",
+    image: "images/placeholder.jpeg",
     coordinates: [3.1166, 35.5973], // Approximate coordinates
     description: "Nakwamekwi monastery of Augustinian Recollect Nuns in the Diocese of Lodwar"
   },
@@ -111,7 +111,7 @@ const kenyanMonasteries = [
     name: "Dominican Nuns",
     location: "Karen (Archdiocese of Nairobi)",
     country: "Kenya",
-    image: "images/placeholder.jpg",
+    image: "images/placeholder.jpeg",
     coordinates: [-1.3132, 36.7064], // Approximate coordinates
     description: "Karen monastery of Dominican Nuns in the Archdiocese of Nairobi"
   },
@@ -120,7 +120,7 @@ const kenyanMonasteries = [
     name: "Cottolengo Contemplatives",
     location: "Tuuru (Diocese of Meru)",
     country: "Kenya",
-    image: "images/placeholder.jpg",
+    image: "images/placeholder.jpeg",
     coordinates: [0.0858, 37.6538], // Approximate coordinates
     description: "Tuuru monastery of Cottolengo Contemplatives in the Diocese of Meru"
   },
@@ -129,7 +129,7 @@ const kenyanMonasteries = [
     name: "Perpetual Adorers of the Blessed Sacrament",
     location: "Karima (Archdiocese of Nyeri)",
     country: "Kenya",
-    image: "images/placeholder.jpg",
+    image: "images/placeholder.jpeg",
     coordinates: [-0.4167, 36.9500], // Approximate coordinates
     description: "Karima monastery of Perpetual Adorers of the Blessed Sacrament in the Archdiocese of Nyeri"
   },
@@ -165,7 +165,7 @@ const kenyanMonasteries = [
     name: "Discalced Mercedarian Nuns",
     location: "Mwatate (Archdiocese of Mombasa)",
     country: "Kenya",
-    image: "images/placeholder.jpg",
+    image: "images/placeholder.jpeg",
     coordinates: [-3.5050, 38.3872], // Approximate coordinates
     description: "Mwatate monastery of Discalced Mercedarian Nuns in the Archdiocese of Mombasa"
   },
@@ -174,7 +174,7 @@ const kenyanMonasteries = [
     name: "Benedictine Nuns",
     location: "Kiambu (Archdiocese of Nairobi)",
     country: "Kenya",
-    image: "images/placeholder.jpg",
+    image: "images/placeholder.jpeg",
     coordinates: [-1.1694, 36.8290], // Approximate coordinates
     description: "Kiambu monastery of Benedictine Nuns in the Archdiocese of Nairobi"
   },
@@ -183,7 +183,7 @@ const kenyanMonasteries = [
     name: "Benedictine Nuns of Perpetual Adoration",
     location: "Muhoroni (Archdiocese of Kisumu)",
     country: "Kenya",
-    image: "images/placeholder.jpg",
+    image: "images/placeholder.jpeg",
     coordinates: [-0.1540, 35.2073], // Approximate coordinates
     description: "Muhoroni monastery of Benedictine Nuns of Perpetual Adoration in the Archdiocese of Kisumu"
   },
@@ -192,7 +192,7 @@ const kenyanMonasteries = [
     name: "Order of the Holy Spirit [Comendadoras]",
     location: "Resurrection Garden (Archdiocese of Nairobi)",
     country: "Kenya",
-    image: "images/placeholder.jpg",
+    image: "images/placeholder.jpeg",
     coordinates: [-1.2921, 36.8219], // Approximate coordinates
     description: "Resurrection Garden monastery of Order of the Holy Spirit [Comendadoras] in the Archdiocese of Nairobi"
   }
@@ -214,7 +214,7 @@ const otherCountriesMonasteries = [
     name: "Discalced Carmelite Nuns",
     location: "Mafikeng (Diocese of Kimbereley)",
     country: "South Africa",
-    image: "images/placeholder.jpg",
+    image: "images/placeholder.jpeg",
     coordinates: [-25.8560, 25.6403], // Approximate coordinates
     description: "Mafikeng monastery of Discalced Carmelite Nuns in the Diocese of Kimbereley, South Africa"
   },
@@ -223,7 +223,7 @@ const otherCountriesMonasteries = [
     name: "Discalced Carmelite Nuns",
     location: "Weirmouth (Diocese of Mutare)",
     country: "Zimbabwe",
-    image: "images/placeholder.jpg",
+    image: "images/placeholder.jpeg",
     coordinates: [-18.9716, 32.6467], // Approximate coordinates
     description: "Weirmouth monastery of Discalced Carmelite Nuns in the Diocese of Mutare, Zimbabwe"
   },
@@ -232,7 +232,7 @@ const otherCountriesMonasteries = [
     name: "Dominican Nuns",
     location: "Kabwe (Diocese of Kabwe)",
     country: "Zambia",
-    image: "images/placeholder.jpg",
+    image: "images/placeholder.jpeg",
     coordinates: [-14.4469, 28.4464], // Approximate coordinates
     description: "Kabwe monastery of Dominican Nuns in the Diocese of Kabwe, Zambia"
   },
@@ -241,7 +241,7 @@ const otherCountriesMonasteries = [
     name: "Capuchin Nuns (TOR)",
     location: "Maua",
     country: "Tanzania",
-    image: "images/placeholder.jpg",
+    image: "images/placeholder.jpeg",
     coordinates: [-3.5756, 37.3419], // Approximate coordinates
     description: "Maua monastery of Capuchin Nuns (TOR) in Tanzania"
   },
@@ -259,7 +259,7 @@ const otherCountriesMonasteries = [
     name: "Poor Clare Nuns",
     location: "Harare",
     country: "Zimbabwe",
-    image: "images/placeholder.jpg",
+    image: "images/placeholder.jpeg",
     coordinates: [-17.8292, 31.0522], // Approximate coordinates
     description: "Harare monastery of Poor Clare Nuns in Zimbabwe"
   },
@@ -286,7 +286,7 @@ const otherCountriesMonasteries = [
     name: "Capuchin Poor Clare Nuns",
     location: "Melvile",
     country: "South Africa",
-    image: "images/placeholder.jpg",
+    image: "images/placeholder.jpeg",
     coordinates: [-26.1771, 28.0037], // Approximate coordinates
     description: "Melvile monastery of Capuchin Poor Clare Nuns in South Africa"
   },
@@ -295,7 +295,7 @@ const otherCountriesMonasteries = [
     name: "Dominican Nuns",
     location: "Fort Portal - Monastery of the Queen of the Most Holy Rosary",
     country: "Uganda",
-    image: "images/placeholder.jpg",
+    image: "images/placeholder.jpeg",
     coordinates: [0.6682, 30.2794], // Approximate coordinates
     description: "Fort Portal monastery of Dominican Nuns - Monastery of the Queen of the Most Holy Rosary in Uganda"
   },
@@ -304,7 +304,7 @@ const otherCountriesMonasteries = [
     name: "Servants of the Holy Spirit of Perpetual Adoration Nuns",
     location: "Lome",
     country: "Togo",
-    image: "images/placeholder.jpg",
+    image: "images/placeholder.jpeg",
     coordinates: [6.1375, 1.2123], // Approximate coordinates
     description: "Lome monastery of Servants of the Holy Spirit of Perpetual Adoration Nuns in Togo"
   },
@@ -313,7 +313,7 @@ const otherCountriesMonasteries = [
     name: "Poor Clare Nuns",
     location: "Mbarara - Monastery of the Holy Church",
     country: "Uganda",
-    image: "images/placeholder.jpg",
+    image: "images/placeholder.jpeg",
     coordinates: [-0.6166, 30.6549], // Approximate coordinates
     description: "Mbarara monastery of Poor Clare Nuns - Monastery of the Holy Church in Uganda"
   },
@@ -331,7 +331,7 @@ const otherCountriesMonasteries = [
     name: "Dominican Nuns",
     location: "Rweza - Monastere De la Paix",
     country: "Burundi",
-    image: "images/placeholder.jpg",
+    image: "images/placeholder.jpeg",
     coordinates: [-3.3731, 29.3776], // Approximate coordinates
     description: "Rweza monastery of Dominican Nuns - Monastere De la Paix in Burundi"
   },
@@ -340,7 +340,7 @@ const otherCountriesMonasteries = [
     name: "Dominican Nuns",
     location: "Douala - Monastere St. Dominique et N.D. du Rosaire",
     country: "Cameroon",
-    image: "images/placeholder.jpg",
+    image: "images/placeholder.jpeg",
     coordinates: [4.0511, 9.7679], // Approximate coordinates
     description: "Douala monastery of Dominican Nuns - Monastere St. Dominique et N.D. du Rosaire in Cameroon"
   }
@@ -461,7 +461,7 @@ function Monasteries() {
                       onError={(e) => {
                         console.error(`Failed to load image: ${monastery.image}`);
                         e.target.onerror = null;
-                        e.target.src = 'images/placeholder.jpg';
+                        e.target.src = 'images/placeholder.jpeg';
                       }}
                     />
                   </div>
@@ -505,7 +505,7 @@ function Monasteries() {
                       onError={(e) => {
                         console.error(`Failed to load image: ${monastery.image}`);
                         e.target.onerror = null;
-                        e.target.src = 'images/placeholder.jpg';
+                        e.target.src = 'images/placeholder.jpeg';
                       }}
                     />
                   </div>

@@ -98,8 +98,9 @@ export default function Header() {
               <span className="font-['Playfair_Display'] text-lg sm:text-xl md:text-2xl font-bold text-blue-600 tracking-wider transition-all duration-300 group-hover:text-blue-700">
                 <span className="text-blue-700">C</span>
                 <span className="text-blue-600">C</span>
-                <span className="text-red-500">C</span>
-                <span className="font-cursive ml-1 text-blue-700">Kenya</span>
+                <span className="text-blue-500">C</span>
+                <span className="text-red-500">K</span>             
+                <span className="font-cursive ml-1 text-blue-700">Nuns</span>
               </span>
             </div>
           </Link>

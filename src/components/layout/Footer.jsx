@@ -14,7 +14,8 @@ export default function Footer() {
                             <span className="text-blue-700">C</span>
                             <span className="text-blue-600">C</span>
                             <span className="text-blue-500">C</span>
-                            <span className="font-cursive ml-1 text-blue-700">Kenya</span>
+                            <span className="text-red-500">K</span>
+                            <span className="font-cursive ml-1 text-blue-700">Nuns</span>
                         </h3>
                         <div className="flex items-start mb-3">
                             <FaMapMarkerAlt className="text-blue-600 mt-1 mr-3 flex-shrink-0" />
