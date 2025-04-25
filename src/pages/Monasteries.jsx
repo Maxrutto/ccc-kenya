@@ -438,7 +438,7 @@ function Monasteries() {
           <AnimWrapper>
             <h2 className="text-3xl font-['Playfair_Display'] font-bold text-center mb-8 text-blue-600 flex items-center justify-center">
               <FaChurch className="mr-3 text-blue-500" /> 
-              Kenya Monasteries
+              CCCK Monasteries in Kenya
             </h2>
           </AnimWrapper>
           
@@ -482,7 +482,7 @@ function Monasteries() {
           <AnimWrapper>
             <h2 className="text-3xl font-['Playfair_Display'] font-bold text-center mb-8 text-blue-600 flex items-center justify-center">
               <FaGlobeAfrica className="mr-3 text-blue-500" /> 
-              Other African Countries Monasteries
+              Other CCCK Monasteries in Anglophone Africa
             </h2>
           </AnimWrapper>
           

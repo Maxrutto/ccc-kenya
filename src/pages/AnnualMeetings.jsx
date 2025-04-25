@@ -21,7 +21,7 @@ const annualMeetings = [
   {
     id: 2,
     year: 2016,
-    title: "Second Annual Ordinary Meeting",
+    title: "Second Meeting",
     date: "October 2016",
     venue: "Karen, Nairobi",
     participants: "Kenyan monasteries and representatives from Tanzania, Uganda, Zambia, South Africa, and Malawi",
@@ -34,7 +34,7 @@ const annualMeetings = [
   {
     id: 3,
     year: 2017,
-    title: "Third Annual Ordinary Meeting",
+    title: "First Annual Ordinary Meeting",
     date: "October 6, 2017",
     venue: "Nairobi, Kenya",
     participants: "Representatives from Kenya, Cameroon, Nigeria, and Zimbabwe",
@@ -48,7 +48,7 @@ const annualMeetings = [
   {
     id: 4,
     year: 2018,
-    title: "Fourth Annual Ordinary Meeting",
+    title: "Second Annual Ordinary Meeting",
     date: "October 2018",
     venue: "Resurrection Garden, Nairobi",
     participants: "Superiors of contemplative communities from eight African countries",
@@ -61,7 +61,7 @@ const annualMeetings = [
   {
     id: 5,
     year: 2019,
-    title: "Fifth Annual Ordinary Meeting",
+    title: "Third Annual Ordinary Meeting",
     date: "October 2019",
     venue: "Dimesse Sisters, Karen",
     participants: "Superiors and delegates from 24 monasteries",
@@ -74,7 +74,7 @@ const annualMeetings = [
   {
     id: 6,
     year: 2020,
-    title: "Sixth Annual Ordinary Meeting (Virtual)",
+    title: "Virtual Meeting",
     date: "October 2020",
     venue: "Online Zoom Meeting",
     participants: "Representatives from all member monasteries",
@@ -87,7 +87,7 @@ const annualMeetings = [
   {
     id: 7,
     year: 2021,
-    title: "Seventh Annual Ordinary Meeting",
+    title: "Fourth Annual Ordinary Meeting",
     date: "October 2021",
     venue: "Dimesse Sisters, Karen",
     participants: "Limited in-person attendance with virtual participation",
@@ -100,7 +100,7 @@ const annualMeetings = [
   {
     id: 8,
     year: 2022,
-    title: "Eighth Annual Ordinary Meeting",
+    title: "Fifth Annual Ordinary Meeting",
     date: "October 3-7, 2022",
     venue: "Resurrection Garden, Nairobi",
     participants: "Superiors and delegates from member monasteries",
@@ -113,7 +113,7 @@ const annualMeetings = [
   {
     id: 9,
     year: 2023,
-    title: "Ninth Annual Ordinary Meeting",
+    title: "Sixth Annual Ordinary Meeting",
     date: "October 2-6, 2023",
     venue: "Resurrection Garden, Nairobi",
     participants: "Representatives from 26 monasteries across 9 countries",
