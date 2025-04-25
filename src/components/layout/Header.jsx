@@ -99,7 +99,7 @@ export default function Header() {
                 <span className="text-blue-700">C</span>
                 <span className="text-blue-600">C</span>
                 <span className="text-blue-500">C</span>
-                <span className="text-red-500">K</span>             
+                <span className="text-blue-400">K</span>             
                 <span className="font-cursive ml-1 text-blue-700">Nuns</span>
               </span>
             </div>

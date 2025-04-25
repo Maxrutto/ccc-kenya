@@ -53,7 +53,7 @@ export default function Hero() {
               CONFERENCE OF <br className="sm:hidden" />
               CONTEMPLATIVE <br className="sm:hidden" /> 
               COMMUNITIES <br className="sm:hidden" />
-              <span className="whitespace-nowrap">OF <span className="text-red-600">KENYA</span> – CCCK</span>
+              <span className="whitespace-nowrap">OF <span className="text-blue-500">KENYA</span> – CCCK</span>
             </h1>
           </div>
         </div>
