@@ -127,7 +127,25 @@ const annualMeetings = [
 
 function AnnualMeetings() {
   useEffect(() => {
+    // Force scroll to top with multiple approaches to ensure it works
     window.scrollTo(0, 0);
+    
+    // Also use the following as a backup
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'auto'
+      });
+    }, 0);
+    
+    // Add a class to help with CSS scroll behavior
+    document.documentElement.style.scrollBehavior = 'auto';
+    
+    return () => {
+      // Restore scroll behavior
+      document.documentElement.style.scrollBehavior = '';
+    };
   }, []);
 
   return (

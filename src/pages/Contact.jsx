@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import AnimWrapper from '../components/UI/AnimWrapper';
@@ -25,6 +25,23 @@ const ContactSchema = Yup.object().shape({
 });
 
 function Contact() {
+  useEffect(() => {
+    // Force a repaint/reflow to fix blank page issue
+    const forceRepaint = () => {
+      // Reading a property that causes reflow
+      document.body.offsetHeight;
+      
+      // Ensure component is visible
+      document.documentElement.style.visibility = 'visible';
+    };
+    
+    // Execute immediately and after a small delay
+    forceRepaint();
+    const timeoutId = setTimeout(forceRepaint, 50);
+    
+    return () => clearTimeout(timeoutId);
+  }, []);
+
   const handleSubmit = async (values, { setSubmitting, resetForm, setStatus }) => {
     try {
       // In a real app, you'd send the form data to your backend or API
@@ -68,7 +85,7 @@ function Contact() {
                     <FaMapMarkerAlt className="text-red-500 mt-1 mr-4 text-xl flex-shrink-0" />
                     <div>
                       <h3 className="font-['Montserrat'] font-bold mb-1 text-gray-800">Our Location</h3>
-                      <p className="font-['Montserrat'] text-gray-700">Conference of Contemplative Communities of Kenya, Nairobi, Kenya</p>
+                      <p className="font-['Montserrat'] text-gray-700">1244-00502- KAREN, Nairobi, Kenya</p>
                     </div>
                   </div>
                   
@@ -76,8 +93,7 @@ function Contact() {
                     <FaPhone className="text-blue-600 mt-1 mr-4 text-xl flex-shrink-0" />
                     <div>
                       <h3 className="font-['Montserrat'] font-bold mb-1 text-gray-800">Phone</h3>
-                      <p className="font-['Montserrat'] text-gray-700">+254 123 456 789</p>
-                      <p className="font-['Montserrat'] text-gray-700">+254 987 654 321</p>
+                      <p className="font-['Montserrat'] text-gray-700">0757537700</p>
                     </div>
                   </div>
                   
@@ -85,8 +101,7 @@ function Contact() {
                     <FaEnvelope className="text-red-500 mt-1 mr-4 text-xl flex-shrink-0" />
                     <div>
                       <h3 className="font-['Montserrat'] font-bold mb-1 text-gray-800">Email</h3>
-                      <p className="font-['Montserrat'] text-gray-700">info@ccckenya.org</p>
-                      <p className="font-['Montserrat'] text-gray-700">contact@ccckenya.org</p>
+                      <p className="font-['Montserrat'] text-gray-700">ccckmonasteries@gmail.com</p>
                     </div>
                   </div>
                 </div>
@@ -235,4 +250,26 @@ function Contact() {
   );
 }
 
-export default memo(Contact);
+function EnsureRenderedContact() {
+  useEffect(() => {
+    // Force a document repaint to fix blank page issue
+    const repaint = () => {
+      document.body.style.display = 'none';
+      // The browser will flush CSS changes and apply them
+      setTimeout(() => {
+        document.body.style.display = '';
+      }, 0);
+    };
+    
+    // Execute after component mounts
+    repaint();
+    
+    // Also set a small timeout for good measure
+    const timeoutId = setTimeout(repaint, 50);
+    return () => clearTimeout(timeoutId);
+  }, []);
+  
+  return <Contact />;
+}
+
+export default memo(EnsureRenderedContact);

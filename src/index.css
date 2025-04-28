@@ -1,25 +1,46 @@
+/* Minimum CSS reset to help with page rendering */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* Set up main document layout with no nested scrolling */
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  scroll-padding-top: 80px; /* Add padding for fixed header */
+  scroll-behavior: auto; /* Force auto scroll behavior for programmatic scrolling */
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  color: #333;
+  background-color: #f5f8fc;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-y: auto; /* Allow vertical scrolling on body only */
+  position: relative;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  width: 100%;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Global styles to prevent horizontal scrolling */
-html, body {
-  overflow-x: hidden;
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-  color: #333;
-  background-color: #f5f8fc;
-}
 
 /* Container styles */
 .container {
@@ -150,7 +171,7 @@ button {
   }
 }
 
-/* Remove ALL previous Splide-related CSS and add this: */
+/* Splide slider styles */
 .splide {
   @apply w-full h-[40vh] !important;
   margin-bottom: 2rem;
@@ -190,7 +211,7 @@ button {
   filter: blur(0);
 }
 
-/* Add these animation classes at the end of the file */
+/* Animation classes */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -204,4 +225,14 @@ button {
 
 .animate-fadeIn {
   animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Fix for scrolling issues when navigating between pages */
+.new-page-loaded {
+  scroll-behavior: auto !important;
+}
+
+/* Make sure page content doesn't create nested scrollbars */
+main {
+  overflow: visible !important;
 }

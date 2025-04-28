@@ -38,9 +38,9 @@ const work = [
 
 function Work() {
   return (
-    <div className="pt-16 pb-12 w-full overflow-x-hidden">
-      <section className="py-16 md:py-20 w-full">
-        <div className="container mx-auto px-2 sm:px-4 max-w-full">
+    <div className="pt-16 pb-12">
+      <section className="py-16 md:py-20">
+        <div className="container mx-auto px-2 sm:px-4">
           <AnimWrapper>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-['Playfair_Display'] font-bold text-center mb-8 text-blue-600">
               Our Initiatives

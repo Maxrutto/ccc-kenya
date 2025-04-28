@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Hero from '../components/sections/Hero';
 import History from '../components/sections/History';
 import About from '../components/sections/About';
@@ -7,20 +8,33 @@ import Vision from '../components/sections/Vision';
 import Loader from '../components/UI/Loader';
 
 export default function Home() {
+    const location = useLocation();
+    
+    // Handle scrolling to sections on load
+    useEffect(() => {
+        // Check if there's a hash in the URL when component mounts
+        if (location.hash) {
+            const targetId = location.hash.substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                // Add a small delay to ensure the page is fully rendered
+                setTimeout(() => {
+                    // Smooth scroll to the target section
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            }
+        }
+    }, [location]);
+    
     return (
-        <div className="flex flex-col min-h-screen gap-y-8 overflow-x-hidden w-full">
+        <div className="flex flex-col">
             <Hero />
-            <div className="flex-1 flex flex-col gap-y-8">
+            <div className="flex flex-col gap-y-8">
                 <History />
-                <div id="about">
-                    <About />
-                </div>
-                <div id="mission">
-                    <Mission />
-                </div>
-                <div id="vision">
-                    <Vision />
-                </div>
+                <About />
+                <Mission />
+                <Vision />
                 {/* Additional sections will be added here */}
             </div>
         </div>

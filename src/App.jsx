@@ -3,6 +3,7 @@ import { Suspense, lazy, useEffect, useState } from 'react';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Loader from './components/UI/Loader';
+import ScrollToTop from './components/UI/ScrollToTop';
 
 // Custom ErrorBoundary for lazy-loaded components
 const LazyLoadErrorBoundary = ({ children }) => {
@@ -41,52 +42,101 @@ import About from './components/sections/About';
 import Mission from './components/sections/Mission';
 import Vision from './components/sections/Vision';
 
-// Enhanced lazy loading with loading indicators and retry
-const createLazyComponent = (factory, attemptsLeft = 3) => {
-  return lazy(() => factory().catch(err => {
-    if (attemptsLeft === 1) {
-      console.error('Component failed to load after multiple attempts:', err);
-      return Promise.reject(err);
-    }
-    return createLazyComponent(factory, attemptsLeft - 1)();
-  }));
+// Import Contact component directly to avoid lazy loading issues
+import Contact from './pages/Contact';
+
+// Advanced lazy loading with preloading
+const createLazyComponent = (importFunc, options = {}) => {
+  // Start preloading in background for critical components
+  if (options.preload) {
+    const preloadPromise = importFunc();
+  }
+  
+  return lazy(() => {
+    // Create a promise that resolves with the imported module
+    return new Promise((resolve) => {
+      // Immediately start the import
+      importFunc().then(module => {
+        // Add a small delay before resolving to ensure rendering
+        setTimeout(() => {
+          resolve(module);
+        }, 10);
+      }).catch(error => {
+        console.error("Error loading module:", error);
+        // Still resolve with the module even if there was an error to avoid blank screen
+        importFunc().then(resolve);
+      });
+    });
+  });
 };
 
-// Lazy loaded pages with retry mechanism
+// Lazy loaded pages with enhanced loading
 const Home = createLazyComponent(() => import('./pages/Home'));
 const Monasteries = createLazyComponent(() => import('./pages/Monasteries'));
 const Work = createLazyComponent(() => import('./pages/Work'));
 const News = createLazyComponent(() => import('./pages/News'));
 const AnnualMeetings = createLazyComponent(() => import('./pages/AnnualMeetings'));
-const Contact = createLazyComponent(() => import('./pages/Contact'));
+const Partners = createLazyComponent(() => import('./pages/Partners'), { preload: true });
 const NotFound = createLazyComponent(() => import('./pages/NotFound'));
 
-// Loading fallback component with progressive enhancement
-const PageLoadingFallback = () => (
-  <div className="flex-1 flex flex-col items-center justify-center min-h-screen">
-    <div className="text-center">
-      <Loader />
-      <p className="mt-4 text-gray-600 animate-pulse">Loading content...</p>
+// Improved loading fallback component
+const PageLoadingFallback = () => {
+  // Ensure the loader is visible
+  useEffect(() => {
+    document.body.classList.add('loading-page');
+    return () => {
+      document.body.classList.remove('loading-page');
+    };
+  }, []);
+
+  return (
+    <div className="fixed inset-0 flex items-center justify-center z-50 bg-white">
+      <div className="text-center">
+        <Loader />
+        <p className="mt-4 text-gray-600 animate-pulse">Loading content...</p>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 function App() {
   // Detect if we're on a mobile device 
   const [isMobile, setIsMobile] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
   
   useEffect(() => {
+    // Mark as loaded after component mounts
+    setIsLoaded(true);
+    
     const checkMobile = () => setIsMobile(window.innerWidth <= 768);
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // Add special CSS to the document to ensure visibility
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.innerHTML = `
+      .loading-page #root, .loading-page body {
+        min-height: 100vh !important;
+        display: flex !important;
+        flex-direction: column !important;
+      }
+    `;
+    document.head.appendChild(style);
+    
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
+
   return (
     <Router>
-      <div className="flex flex-col min-h-screen overflow-x-hidden relative">
+      <div className="flex flex-col relative">
+        <ScrollToTop />
         <Header />
-        <main className="min-h-screen overflow-x-hidden w-full">
+        <main className="flex-grow">
           <LazyLoadErrorBoundary>
             <Suspense fallback={<PageLoadingFallback />}>
               <Routes>
@@ -96,6 +146,7 @@ function App() {
                 <Route path="/work" element={<Work />} />
                 <Route path="/news" element={<News />} />
                 <Route path="/annual-meetings" element={<AnnualMeetings />} />
+                <Route path="/partners" element={<Partners />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>

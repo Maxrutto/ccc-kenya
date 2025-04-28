@@ -57,7 +57,7 @@ const kenyanMonasteries = [
     name: "Carmelite Nuns of the Ancient Observance",
     location: "Juja Farm (Archdiocese of Nairobi)",
     country: "Kenya",
-    image: "images/placeholder.jpeg",
+    image: "images/Juja farm discalced Carmelite.jpeg",
     coordinates: [-1.1135, 37.0144], // Approximate coordinates
     description: "Juja Farm monastery of Carmelite Nuns of the Ancient Observance in the Archdiocese of Nairobi"
   },
@@ -102,7 +102,7 @@ const kenyanMonasteries = [
     name: "Augustinian Recollect Nuns",
     location: "Nakwamekwi (Diocese of Lodwar)",
     country: "Kenya",
-    image: "images/placeholder.jpeg",
+    image: "images/Augustinian nuns lodwar.jpeg",
     coordinates: [3.1166, 35.5973], // Approximate coordinates
     description: "Nakwamekwi monastery of Augustinian Recollect Nuns in the Diocese of Lodwar"
   },
@@ -129,9 +129,18 @@ const kenyanMonasteries = [
     name: "Perpetual Adorers of the Blessed Sacrament",
     location: "Karima (Archdiocese of Nyeri)",
     country: "Kenya",
-    image: "images/placeholder.jpeg",
+    image: "images/Karima Monastery, Othaya.jpg",
     coordinates: [-0.4167, 36.9500], // Approximate coordinates
     description: "Karima monastery of Perpetual Adorers of the Blessed Sacrament in the Archdiocese of Nyeri"
+  },
+  {
+    id: "perpetual-adorers-isiolo",
+    name: "Perpetual Adorers of the Blessed Sacrament",
+    location: "Isiolo (Diocese of Isiolo)",
+    country: "Kenya",
+    image: "images/Isiolo... Perpetual adorers.jpeg",
+    coordinates: [0.3550, 37.5829], // Approximate coordinates
+    description: "Isiolo monastery of Perpetual Adorers of the Blessed Sacrament in the Diocese of Isiolo"
   },
   {
     id: "poor-clare-myanga",
@@ -183,7 +192,7 @@ const kenyanMonasteries = [
     name: "Benedictine Nuns of Perpetual Adoration",
     location: "Muhoroni (Archdiocese of Kisumu)",
     country: "Kenya",
-    image: "images/placeholder.jpeg",
+    image: "images/Benedictine Tamu,kisumu.jpeg",
     coordinates: [-0.1540, 35.2073], // Approximate coordinates
     description: "Muhoroni monastery of Benedictine Nuns of Perpetual Adoration in the Archdiocese of Kisumu"
   },
@@ -192,7 +201,7 @@ const kenyanMonasteries = [
     name: "Order of the Holy Spirit [Comendadoras]",
     location: "Resurrection Garden (Archdiocese of Nairobi)",
     country: "Kenya",
-    image: "images/placeholder.jpeg",
+    image: "images/Order of the Holy Spirit [Comendadoras].jpg",
     coordinates: [-1.2921, 36.8219], // Approximate coordinates
     description: "Resurrection Garden monastery of Order of the Holy Spirit [Comendadoras] in the Archdiocese of Nairobi"
   }
@@ -259,7 +268,7 @@ const otherCountriesMonasteries = [
     name: "Poor Clare Nuns",
     location: "Harare",
     country: "Zimbabwe",
-    image: "images/placeholder.jpeg",
+    image: "images/Poor Clare's harare Zimbabwe.jpeg",
     coordinates: [-17.8292, 31.0522], // Approximate coordinates
     description: "Harare monastery of Poor Clare Nuns in Zimbabwe"
   },
@@ -286,7 +295,7 @@ const otherCountriesMonasteries = [
     name: "Capuchin Poor Clare Nuns",
     location: "Melvile",
     country: "South Africa",
-    image: "images/placeholder.jpeg",
+    image: "images/Capuchin Poor Clare Sisters.jpeg",
     coordinates: [-26.1771, 28.0037], // Approximate coordinates
     description: "Melvile monastery of Capuchin Poor Clare Nuns in South Africa"
   },

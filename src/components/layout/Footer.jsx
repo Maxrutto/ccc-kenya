@@ -1,8 +1,22 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaInstagram, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
+    const location = useLocation();
+    
+    // Function to handle section navigation
+    const handleSectionNavigation = (e, sectionId) => {
+        // If already on homepage, use smooth scrolling
+        if (location.pathname === '/') {
+            e.preventDefault();
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        // Otherwise let the router and ScrollToTop handle it
+    };
 
     return (
         <footer className="bg-gray-100 pt-12 pb-6 relative z-10">
@@ -15,19 +29,19 @@ export default function Footer() {
                             <span className="text-blue-600">C</span>
                             <span className="text-blue-500">C</span>
                             <span className="text-blue-400">K</span>
-                            <span className="font-cursive ml-1 text-blue-700">Nuns</span>
+                            <span className="font-cursive ml-1 text-xl sm:text-2xl font-bold text-blue-700 italic">Nuns</span>
                         </h3>
                         <div className="flex items-start mb-3">
                             <FaMapMarkerAlt className="text-blue-600 mt-1 mr-3 flex-shrink-0" />
-                            <p className="font-['Montserrat'] text-gray-700 text-sm sm:text-base">Conference of Contemplative Communities of Kenya, Nairobi, Kenya</p>
+                            <p className="font-['Montserrat'] text-gray-700 text-sm sm:text-base">1244-00502- KAREN, Nairobi, Kenya</p>
                         </div>
                         <div className="flex items-center mb-3">
                             <FaPhone className="text-blue-600 mr-3 flex-shrink-0" />
-                            <p className="font-['Montserrat'] text-gray-700 text-sm sm:text-base">+254 123 456 789</p>
+                            <p className="font-['Montserrat'] text-gray-700 text-sm sm:text-base">0757537700</p>
                         </div>
                         <div className="flex items-center">
                             <FaEnvelope className="text-blue-600 mr-3 flex-shrink-0" />
-                            <p className="font-['Montserrat'] text-gray-700 text-sm sm:text-base">info@ccckenya.org</p>
+                            <p className="font-['Montserrat'] text-gray-700 text-sm sm:text-base">ccckmonasteries@gmail.com</p>
                         </div>
                     </div>
 
@@ -35,7 +49,15 @@ export default function Footer() {
                     <div>
                         <h3 className="font-['Playfair_Display'] text-xl font-semibold mb-4 text-blue-600">Quick Links</h3>
                         <ul className="space-y-2 font-['Montserrat']">
-                            <li><Link to="/#about" className="text-gray-700 hover:text-blue-500 transition-all">About Us</Link></li>
+                            <li>
+                                <Link 
+                                    to="/#about" 
+                                    className="text-gray-700 hover:text-blue-500 transition-all"
+                                    onClick={(e) => handleSectionNavigation(e, 'about')}
+                                >
+                                    About Us
+                                </Link>
+                            </li>
                             <li><Link to="/monasteries" className="text-gray-700 hover:text-blue-500 transition-all">Member Monasteries</Link></li>
                             <li><Link to="/work" className="text-gray-700 hover:text-blue-500 transition-all">What We Do</Link></li>
                             <li><Link to="/contact" className="text-gray-700 hover:text-blue-500 transition-all">Contact Us</Link></li>
@@ -48,8 +70,24 @@ export default function Footer() {
                         <ul className="space-y-2 font-['Montserrat']">
                             <li><Link to="/news" className="text-gray-700 hover:text-blue-500 transition-all">News & Events</Link></li>
                             <li><Link to="/annual-meetings" className="text-gray-700 hover:text-blue-500 transition-all">Annual Meetings</Link></li>
-                            <li><Link to="/#mission" className="text-gray-700 hover:text-blue-500 transition-all">Our Mission</Link></li>
-                            <li><Link to="/#vision" className="text-gray-700 hover:text-blue-500 transition-all">Our Vision</Link></li>
+                            <li>
+                                <Link 
+                                    to="/#mission" 
+                                    className="text-gray-700 hover:text-blue-500 transition-all"
+                                    onClick={(e) => handleSectionNavigation(e, 'mission')}
+                                >
+                                    Our Mission
+                                </Link>
+                            </li>
+                            <li>
+                                <Link 
+                                    to="/#vision" 
+                                    className="text-gray-700 hover:text-blue-500 transition-all"
+                                    onClick={(e) => handleSectionNavigation(e, 'vision')}
+                                >
+                                    Our Vision
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { useInView } from 'react-intersection-observer';
@@ -8,6 +8,7 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -18,6 +19,7 @@ export default function Header() {
     { name: 'Initiatives', path: '/work' },
     { name: 'News', path: '/news' },
     { name: 'Annual Meetings', path: '/annual-meetings' },
+    { name: 'Partners', path: '/partners' },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -45,23 +47,28 @@ export default function Header() {
     };
   }, [isMenuOpen]);
 
-  // Handle hash navigation
-  const handleHashLink = (path) => {
+  // Handle navigation - updated to handle section navigation from any page
+  const handleNavigation = (path, e) => {
+    // First, close the mobile menu
+    setIsMenuOpen(false);
+    
+    // Special case for hash links on the same page
     if (path.includes('#')) {
       const [route, hash] = path.split('#');
       
-      // If already on the correct route, just scroll to the element
+      // If we're already on the same page as the hash link
       if (location.pathname === route || (route === '/' && location.pathname === '/')) {
+        e.preventDefault(); // Prevent default link behavior
+        
+        // Directly scroll to the section if we're on the same page
         const element = document.getElementById(hash);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
         }
-        setIsMenuOpen(false);
-        return;
       }
+      // Otherwise, let the router and ScrollToTop component handle it
+      // The updated ScrollToTop will handle section navigation from other pages
     }
-    // For non-hash links, just close the menu
-    setIsMenuOpen(false);
   };
 
   const [inView] = useInView({ 
@@ -72,7 +79,14 @@ export default function Header() {
   // Check if a nav link is active
   const isActive = (path) => {
     if (path.includes('#')) {
-      const [route] = path.split('#');
+      const [route, hash] = path.split('#');
+      
+      // Check if we're on the home page and the hash matches the current section
+      if (location.pathname === '/' && location.hash === `#${hash}`) {
+        return true;
+      }
+      
+      // Otherwise, just highlight based on the route
       return location.pathname === route || (route === '/' && location.pathname === '/');
     }
     return location.pathname === path;
@@ -100,23 +114,23 @@ export default function Header() {
                 <span className="text-blue-600">C</span>
                 <span className="text-blue-500">C</span>
                 <span className="text-blue-400">K</span>             
-                <span className="font-cursive ml-1 text-blue-700">Nuns</span>
+                <span className="font-cursive ml-1 text-xl sm:text-2xl md:text-3xl font-bold text-blue-700 italic">Nuns</span>
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-6 lg:space-x-8">
+          <nav className="hidden lg:flex space-x-4 xl:space-x-8">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-base lg:text-lg font-['Montserrat'] font-medium transition-all duration-200 ${
+                className={`text-sm xl:text-base font-['Montserrat'] font-medium transition-all duration-200 ${
                   isActive(link.path) 
                     ? 'text-blue-600 border-b-2 border-red-500' 
                     : 'text-gray-700 hover:text-blue-600 hover:border-b-2 hover:border-red-400'
                 }`}
-                onClick={() => handleHashLink(link.path)}
+                onClick={(e) => handleNavigation(link.path, e)}
               >
                 {link.name}
               </Link>
@@ -124,12 +138,12 @@ export default function Header() {
           </nav>
 
           {/* Placeholder for mobile menu button (actual button is rendered outside header) */}
-          <div className="md:hidden w-10 h-10 opacity-0"></div>
+          <div className="lg:hidden w-10 h-10 opacity-0"></div>
         </div>
       </motion.header>
 
       {/* Mobile Menu Button - Positioned absolutely outside the header */}
-      <div className="fixed top-3 right-3 z-[999] md:hidden">
+      <div className="fixed top-3 right-3 z-[999] lg:hidden">
         <button
           className="p-2 bg-white/90 backdrop-blur-sm rounded-full shadow-md"
           onClick={toggleMenu}
@@ -148,7 +162,7 @@ export default function Header() {
 
       {/* Mobile Menu - Full-screen overlay */}
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-white/95 backdrop-blur-sm z-[998] md:hidden overflow-auto">
+        <div className="fixed inset-0 bg-white/95 backdrop-blur-sm z-[998] lg:hidden overflow-auto">
           <div className="w-full h-full flex flex-col pt-20 px-6 pb-10">
             {navLinks.map((link, index) => (
               <div 
@@ -163,7 +177,7 @@ export default function Header() {
                       ? 'text-blue-600' 
                       : 'text-gray-700 hover:text-blue-500'
                   }`}
-                  onClick={() => handleHashLink(link.path)}
+                  onClick={(e) => handleNavigation(link.path, e)}
                 >
                   {link.name}
                   {isActive(link.path) && (
@@ -179,8 +193,8 @@ export default function Header() {
               style={{ animationDelay: `${navLinks.length * 50}ms` }}
             >
               <h3 className="text-lg font-medium text-blue-600 mb-4">Contact Us</h3>
-              <p className="text-gray-700 mb-2">info@ccckenya.org</p>
-              <p className="text-gray-700">+254 123 456 789</p>
+              <p className="text-gray-700 mb-2">ccckmonasteries@gmail.com</p>
+              <p className="text-gray-700">0757537700</p>
             </div>
           </div>
         </div>
