@@ -66,7 +66,7 @@ const kenyanMonasteries = [
     name: "Carmelite Nuns of the Ancient Observance",
     location: "Kitui (Kitui Diocese)",
     country: "Kenya",
-    image: "images/placeholder.jpeg",
+    image: "images/Carmelite Monastery Kitui.jpg",
     coordinates: [-1.3670, 38.0106], // Approximate coordinates
     description: "Kitui monastery of Carmelite Nuns of the Ancient Observance in the Kitui Diocese"
   },
@@ -93,7 +93,7 @@ const kenyanMonasteries = [
     name: "Augustinian Recollect Nuns",
     location: "Wote (Diocese of Wote)",
     country: "Kenya",
-    image: "images/placeholder.jpeg",
+    image: "images/Augustinian Recollect nuns, wote machakos.jpeg",
     coordinates: [-1.7803, 37.6288], // Approximate coordinates
     description: "Wote monastery of Augustinian Recollect Nuns in the Diocese of Wote"
   },
@@ -331,7 +331,7 @@ const otherCountriesMonasteries = [
     name: "Dominican Nuns",
     location: "Bamenda",
     country: "Cameroon",
-    image: "images/The monastery of St. Dominic Bambui, Bamenda.jpg",
+    image: "images/Bambui Dominican nuns.jpeg",
     coordinates: [5.9596, 10.1590], // Approximate coordinates
     description: "Bamenda monastery of Dominican Nuns in Cameroon"
   },

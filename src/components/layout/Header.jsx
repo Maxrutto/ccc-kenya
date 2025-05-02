@@ -20,6 +20,7 @@ export default function Header() {
     { name: 'News', path: '/news' },
     { name: 'Annual Meetings', path: '/annual-meetings' },
     { name: 'Partners', path: '/partners' },
+    { name: 'Blog', path: '/blog' },
     { name: 'Contact', path: '/contact' },
   ];
 

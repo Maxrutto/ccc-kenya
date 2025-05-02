@@ -60,6 +60,7 @@ export default function Footer() {
                             </li>
                             <li><Link to="/monasteries" className="text-gray-700 hover:text-blue-500 transition-all">Member Monasteries</Link></li>
                             <li><Link to="/work" className="text-gray-700 hover:text-blue-500 transition-all">What We Do</Link></li>
+                            <li><Link to="/blog" className="text-gray-700 hover:text-blue-500 transition-all">Contemplative Voices</Link></li>
                             <li><Link to="/contact" className="text-gray-700 hover:text-blue-500 transition-all">Contact Us</Link></li>
                         </ul>
                     </div>
@@ -70,6 +71,7 @@ export default function Footer() {
                         <ul className="space-y-2 font-['Montserrat']">
                             <li><Link to="/news" className="text-gray-700 hover:text-blue-500 transition-all">News & Events</Link></li>
                             <li><Link to="/annual-meetings" className="text-gray-700 hover:text-blue-500 transition-all">Annual Meetings</Link></li>
+                            <li><Link to="/blog" className="text-gray-700 hover:text-blue-500 transition-all">Contemplative Voices</Link></li>
                             <li>
                                 <Link 
                                     to="/#mission" 

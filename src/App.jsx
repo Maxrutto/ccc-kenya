@@ -77,6 +77,7 @@ const Work = createLazyComponent(() => import('./pages/Work'));
 const News = createLazyComponent(() => import('./pages/News'));
 const AnnualMeetings = createLazyComponent(() => import('./pages/AnnualMeetings'));
 const Partners = createLazyComponent(() => import('./pages/Partners'), { preload: true });
+const Blog = createLazyComponent(() => import('./pages/Blog'));
 const NotFound = createLazyComponent(() => import('./pages/NotFound'));
 
 // Improved loading fallback component
@@ -147,6 +148,7 @@ function App() {
                 <Route path="/news" element={<News />} />
                 <Route path="/annual-meetings" element={<AnnualMeetings />} />
                 <Route path="/partners" element={<Partners />} />
+                <Route path="/blog" element={<Blog />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
