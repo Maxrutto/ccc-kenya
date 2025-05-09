@@ -125,9 +125,9 @@ const Partners = () => {
   const collaborators = [
     {
       id: 'chemichemi',
-      name: 'CHEMICHEMI YA UZIAM COLLEGE',
+      name: 'CHEMICHEMI YA UZIM COLLEGE',
       description: 'Trains the CCCK nuns in psychospiritual counselling online',
-      details: 'CCCK, collaborated with Chemi Chemi college to train over 30 nuns in certificate in psychospiritual counselling psychology and Catechetical theology online. Institute of Youth Ministry to deliver workshops on Safeguarding and protection of minors for the monasteries in Anglophone Africa.',
+      details: 'CCCK, collaborated with Chemi Chemi college to train over 30 nuns in certificate in psychospiritual counselling psychology and Catechetical theology online.',
       image: 'images/CHEMICHEMI YA UZIAM COLLEGE.jpg'
     },
     {
@@ -141,7 +141,7 @@ const Partners = () => {
       id: 'friends',
       name: 'CCCK FRIENDS',
       description: 'A group of lay people who freely offer support to the nuns\' Conference',
-      details: 'This is a group of lay people who free offer technical, material and professional support to the nun\'s Conference called CCCK. The CCCK Friends also share the contemplative spirituality of the nuns. This group was formed in the year 2023 and was approved by the Executive by a deliberate vote. It operations are outlined in the CCCK Statutes.',
+      details: 'This is a group of lay people who freely offer technical, material and professional support to the nuns\' Conference. The CCCK Friends also share the contemplative spirituality of the nuns. This group was formed in the year 2023 and was approved by the Executive by a deliberate vote. Its operations are outlined in the CCCK Statutes.',
       image: 'images/CCCK FRIENDS.jpg'
     }
   ];

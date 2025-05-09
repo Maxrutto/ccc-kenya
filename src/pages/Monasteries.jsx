@@ -21,7 +21,7 @@ const kenyanMonasteries = [
     name: "Discalced Carmelite Nuns",
     location: "Westlands (Archdiocese of Nairobi)",
     country: "Kenya",
-    image: "images/placeholder.jpeg",
+    image: "images/Carmelite Nairobi Westlands.jpeg",
     coordinates: [-1.2634, 36.8222], // Approximate coordinates
     description: "Westlands monastery of Discalced Carmelite Nuns in the Archdiocese of Nairobi"
   },
@@ -39,7 +39,7 @@ const kenyanMonasteries = [
     name: "Discalced Carmelite Nuns",
     location: "Manga Hills (Diocese of Kisii)",
     country: "Kenya",
-    image: "images/placeholder.jpeg",
+    image: "images/Carmelite kisii.jpeg",
     coordinates: [-0.6748, 34.7769], // Approximate coordinates
     description: "Manga Hills monastery of Discalced Carmelite Nuns in the Diocese of Kisii"
   },
@@ -48,7 +48,7 @@ const kenyanMonasteries = [
     name: "Carmelite Nuns of the Ancient Observance",
     location: "Machakos (Diocese of Machakos)",
     country: "Kenya",
-    image: "images/placeholder.jpeg",
+    image: "images/Carmelite machakos.jpeg",
     coordinates: [-1.5176, 37.2663], // Approximate coordinates
     description: "Machakos monastery of Carmelite Nuns of the Ancient Observance in the Diocese of Machakos"
   },
@@ -111,7 +111,7 @@ const kenyanMonasteries = [
     name: "Dominican Nuns",
     location: "Karen (Archdiocese of Nairobi)",
     country: "Kenya",
-    image: "images/placeholder.jpeg",
+    image: "images/Dominican Nuns Karen.jpeg",
     coordinates: [-1.3132, 36.7064], // Approximate coordinates
     description: "Karen monastery of Dominican Nuns in the Archdiocese of Nairobi"
   },
@@ -120,7 +120,7 @@ const kenyanMonasteries = [
     name: "Cottolengo Contemplatives",
     location: "Tuuru (Diocese of Meru)",
     country: "Kenya",
-    image: "images/placeholder.jpeg",
+    image: "images/Cottolengo.jpeg",
     coordinates: [0.0858, 37.6538], // Approximate coordinates
     description: "Tuuru monastery of Cottolengo Contemplatives in the Diocese of Meru"
   },
@@ -174,7 +174,7 @@ const kenyanMonasteries = [
     name: "Discalced Mercedarian Nuns",
     location: "Mwatate (Archdiocese of Mombasa)",
     country: "Kenya",
-    image: "images/placeholder.jpeg",
+    image: "images/macederian mwatate.jpeg",
     coordinates: [-3.5050, 38.3872], // Approximate coordinates
     description: "Mwatate monastery of Discalced Mercedarian Nuns in the Archdiocese of Mombasa"
   },
@@ -183,7 +183,7 @@ const kenyanMonasteries = [
     name: "Benedictine Nuns",
     location: "Kiambu (Archdiocese of Nairobi)",
     country: "Kenya",
-    image: "images/placeholder.jpeg",
+    image: "images/Kiambu.jpeg",
     coordinates: [-1.1694, 36.8290], // Approximate coordinates
     description: "Kiambu monastery of Benedictine Nuns in the Archdiocese of Nairobi"
   },
@@ -223,7 +223,7 @@ const otherCountriesMonasteries = [
     name: "Discalced Carmelite Nuns",
     location: "Mafikeng (Diocese of Kimbereley)",
     country: "South Africa",
-    image: "images/placeholder.jpeg",
+    image: "images/Mafikeng.jpeg",
     coordinates: [-25.8560, 25.6403], // Approximate coordinates
     description: "Mafikeng monastery of Discalced Carmelite Nuns in the Diocese of Kimbereley, South Africa"
   },
@@ -232,7 +232,7 @@ const otherCountriesMonasteries = [
     name: "Discalced Carmelite Nuns",
     location: "Weirmouth (Diocese of Mutare)",
     country: "Zimbabwe",
-    image: "images/placeholder.jpeg",
+    image: "images/Mutare.jpeg",
     coordinates: [-18.9716, 32.6467], // Approximate coordinates
     description: "Weirmouth monastery of Discalced Carmelite Nuns in the Diocese of Mutare, Zimbabwe"
   },
@@ -241,7 +241,7 @@ const otherCountriesMonasteries = [
     name: "Dominican Nuns",
     location: "Kabwe (Diocese of Kabwe)",
     country: "Zambia",
-    image: "images/placeholder.jpeg",
+    image: "images/Kabwe.jpeg",
     coordinates: [-14.4469, 28.4464], // Approximate coordinates
     description: "Kabwe monastery of Dominican Nuns in the Diocese of Kabwe, Zambia"
   },
@@ -250,7 +250,7 @@ const otherCountriesMonasteries = [
     name: "Capuchin Nuns (TOR)",
     location: "Maua",
     country: "Tanzania",
-    image: "images/placeholder.jpeg",
+    image: "images/Capuchin Tanzania.jpeg",
     coordinates: [-3.5756, 37.3419], // Approximate coordinates
     description: "Maua monastery of Capuchin Nuns (TOR) in Tanzania"
   },
@@ -304,7 +304,7 @@ const otherCountriesMonasteries = [
     name: "Dominican Nuns",
     location: "Fort Portal - Monastery of the Queen of the Most Holy Rosary",
     country: "Uganda",
-    image: "images/placeholder.jpeg",
+    image: "images/Fortportal Dominican nuns Uganda.jpeg",
     coordinates: [0.6682, 30.2794], // Approximate coordinates
     description: "Fort Portal monastery of Dominican Nuns - Monastery of the Queen of the Most Holy Rosary in Uganda"
   },
@@ -313,7 +313,7 @@ const otherCountriesMonasteries = [
     name: "Servants of the Holy Spirit of Perpetual Adoration Nuns",
     location: "Lome",
     country: "Togo",
-    image: "images/placeholder.jpeg",
+    image: "images/Order of the Holy Spirit [Comendadoras].jpg",
     coordinates: [6.1375, 1.2123], // Approximate coordinates
     description: "Lome monastery of Servants of the Holy Spirit of Perpetual Adoration Nuns in Togo"
   },
@@ -322,7 +322,7 @@ const otherCountriesMonasteries = [
     name: "Poor Clare Nuns",
     location: "Mbarara - Monastery of the Holy Church",
     country: "Uganda",
-    image: "images/placeholder.jpeg",
+    image: "images/Poor Clare's mbarara.jpeg",
     coordinates: [-0.6166, 30.6549], // Approximate coordinates
     description: "Mbarara monastery of Poor Clare Nuns - Monastery of the Holy Church in Uganda"
   },
@@ -331,7 +331,7 @@ const otherCountriesMonasteries = [
     name: "Dominican Nuns",
     location: "Bamenda",
     country: "Cameroon",
-    image: "images/Bambui Dominican nuns.jpeg",
+    image: "images/Dominican Bambui Cameroon.jpeg",
     coordinates: [5.9596, 10.1590], // Approximate coordinates
     description: "Bamenda monastery of Dominican Nuns in Cameroon"
   },
@@ -340,7 +340,7 @@ const otherCountriesMonasteries = [
     name: "Dominican Nuns",
     location: "Rweza - Monastere De la Paix",
     country: "Burundi",
-    image: "images/placeholder.jpeg",
+    image: "images/Dominican Burundi.jpeg",
     coordinates: [-3.3731, 29.3776], // Approximate coordinates
     description: "Rweza monastery of Dominican Nuns - Monastere De la Paix in Burundi"
   },
@@ -349,9 +349,18 @@ const otherCountriesMonasteries = [
     name: "Dominican Nuns",
     location: "Douala - Monastere St. Dominique et N.D. du Rosaire",
     country: "Cameroon",
-    image: "images/placeholder.jpeg",
+    image: "images/Douala.jpeg",
     coordinates: [4.0511, 9.7679], // Approximate coordinates
     description: "Douala monastery of Dominican Nuns - Monastere St. Dominique et N.D. du Rosaire in Cameroon"
+  },
+  {
+    id: "dominican-benin",
+    name: "Dominican Nuns",
+    location: "Cotonou",
+    country: "Benin",
+    image: "images/Dominican Benin.jpeg",
+    coordinates: [6.3676, 2.4252], // Approximate coordinates for Cotonou
+    description: "Dominican Nuns' monastery in Cotonou, Benin"
   }
 ];
 
@@ -464,7 +473,9 @@ function Monasteries() {
                     <img 
                       src={monastery.image} 
                       alt={monastery.name}
-                      className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
+                      className={`w-full h-full object-cover transition-transform hover:scale-105 duration-500 ${
+                        monastery.id === "perpetual-adorers-isiolo" || monastery.id === "perpetual-adorers-karima" ? "object-top" : ""
+                      }`}
                       loading="lazy"
                       decoding="async"
                       onError={(e) => {
@@ -508,7 +519,9 @@ function Monasteries() {
                     <img 
                       src={monastery.image} 
                       alt={monastery.name}
-                      className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
+                      className={`w-full h-full object-cover transition-transform hover:scale-105 duration-500 ${
+                        monastery.id === "perpetual-adorers-isiolo" || monastery.id === "perpetual-adorers-karima" ? "object-top" : ""
+                      }`}
                       loading="lazy"
                       decoding="async"
                       onError={(e) => {

@@ -84,7 +84,7 @@ export default function History() {
                 THE BIRTH OF CCCK: <span className="text-red-600">Sept 2015</span>
               </h2>
               <p className={textClass}>
-                The birth of the Conference of Contemplative Communities of Kenya (CCCK) happened within the context of the Year of Consecrated Life and in harmony with the renewal of the life for women contemplatives which Pope Francis has ushered. Conscious of the need to update the theological education of cloistered nuns, the superiors of nineteen monasteries in Kenya collaborated with a few apostolic religious to develop a curriculum for their sisters. After receiving the permission and encouragement of the Congregation for Institutes of Consecrated Life and Societies of Apostolic Life (CICLSAL), they scheduled a month-long program from 28 September to 23 October 2015 at the Subiaco Retreat Centre in Karen, Nairobi.
+                The birth of the Conference of Contemplative Communities of Kenya (CCCK) happened within the context of the Year of Consecrated Life and in harmony with the renewal of the life for women contemplatives which Pope Francis has ushered. Conscious of the need to update the theological education of cloistered nuns, the superiors of the first nineteen monasteries in Kenya collaborated with a few apostolic religious to develop a curriculum for their sisters. After receiving the permission and encouragement of the Congregation for Institutes of Consecrated Life and Societies of Apostolic Life (CICLSAL), they scheduled a month-long program from 28 September to 23 October 2015 at the Subiaco Retreat Centre in Karen, Nairobi.
               </p>
             </div>
           </AnimWrapper>
@@ -118,7 +118,7 @@ export default function History() {
                 <span className="text-red-600">Oct. 2017</span>: Pontifical Approval of CCCK
               </h3>
               <p className={textClass}>
-                The success and fruitfulness of the 2016 programs led other monasteries from Cameroon, Nigeria, and Zimbabwe to participate in both the 2017 Venite Seorsum Progrma and the assembly of the prioresses. In the presence of Fr. Stefano Cañuto, senior official of the CICLSAL section for monastic life, the assembled superiors finalized the confection of the statutes of CCCK on 6 October 2017. On that same day, the Kenyan prioresses elected and nominated the first officials of the conference. The following 26 October, CICLSAL issued a decree approving the aforementioned statutes. By this act, the Holy See effectively erected CCCK as a juridic persons under its direction (can. 709).
+                The success and fruitfulness of the 2016 programs led other monasteries from Cameroon, Nigeria, and Zimbabwe to participate in both the 2017 Venite Seorsum Program and the assembly of the prioresses. In the presence of Fr. Stefano Cañuto, senior official of the CICLSAL section for monastic life, the assembled superiors finalized the confection of the statutes of CCCK on 6 October 2017. On that same day, the Kenyan prioresses elected and nominated the first officials of the conference. The following 26 October, CICLSAL issued a decree approving the aforementioned statutes. By this act, the Holy See effectively erected CCCK as a juridic persons under its direction (can. 709).
               </p>
             </div>
           </AnimWrapper>

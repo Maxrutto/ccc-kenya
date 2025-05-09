@@ -9,7 +9,7 @@ const annualMeetings = [
     id: 1,
     year: 2015,
     title: "First Meeting (Birth of CCCK)",
-    date: "September 28 - October 23, 2015",
+    date: "September 2015",
     venue: "Subiaco Retreat Centre, Karen, Nairobi",
     participants: "Superiors of 19 monasteries in Kenya with a few apostolic religious",
     agenda: [
@@ -22,8 +22,8 @@ const annualMeetings = [
     id: 2,
     year: 2016,
     title: "Second Meeting",
-    date: "October 2016",
-    venue: "Karen, Nairobi",
+    date: "September 2016",
+    venue: "Subiaco Retreat Centre, Karen, Nairobi",
     participants: "Kenyan monasteries and representatives from Tanzania, Uganda, Zambia, South Africa, and Malawi",
     agenda: [
       "Unanimous vote to accept the CICLSAL prefect's proposal",
@@ -34,9 +34,9 @@ const annualMeetings = [
   {
     id: 3,
     year: 2017,
-    title: "First Annual Ordinary Meeting",
-    date: "October 6, 2017",
-    venue: "Nairobi, Kenya",
+    title: "First Annual Executive Meeting",
+    date: "September 2017",
+    venue: "Subiaco Retreat Centre, Karen, Nairobi",
     participants: "Representatives from Kenya, Cameroon, Nigeria, and Zimbabwe",
     agenda: [
       "Finalization of CCCK statutes in the presence of Fr. Stefano Cañuto",
@@ -48,9 +48,9 @@ const annualMeetings = [
   {
     id: 4,
     year: 2018,
-    title: "Second Annual Ordinary Meeting",
-    date: "October 2018",
-    venue: "Resurrection Garden, Nairobi",
+    title: "Second Annual Executive Meeting",
+    date: "September 2018",
+    venue: "Subiaco Retreat Centre, Karen, Nairobi",
     participants: "Superiors of contemplative communities from eight African countries",
     agenda: [
       "Implementation of Cor Orans instructions",
@@ -61,9 +61,9 @@ const annualMeetings = [
   {
     id: 5,
     year: 2019,
-    title: "Third Annual Ordinary Meeting",
-    date: "October 2019",
-    venue: "Dimesse Sisters, Karen",
+    title: "Third Annual Executive Meeting",
+    date: "September 2019",
+    venue: "Rousel House, Karen, Nairobi",
     participants: "Superiors and delegates from 24 monasteries",
     agenda: [
       "Evaluation of the Venite Seorsum program",
@@ -75,7 +75,7 @@ const annualMeetings = [
     id: 6,
     year: 2020,
     title: "Virtual Meeting",
-    date: "October 2020",
+    date: "September 2020",
     venue: "Online Zoom Meeting",
     participants: "Representatives from all member monasteries",
     agenda: [
@@ -87,10 +87,10 @@ const annualMeetings = [
   {
     id: 7,
     year: 2021,
-    title: "Fourth Annual Ordinary Meeting",
-    date: "October 2021",
-    venue: "Dimesse Sisters, Karen",
-    participants: "Limited in-person attendance with virtual participation",
+    title: "Fourth Annual Executive Meeting",
+    date: "September 2021",
+    venue: "Online Zoom Meeting",
+    participants: "Representatives from all member monasteries",
     agenda: [
       "Post-pandemic recovery strategies for monasteries",
       "Strengthening inter-monastic collaboration",
@@ -100,9 +100,9 @@ const annualMeetings = [
   {
     id: 8,
     year: 2022,
-    title: "Fifth Annual Ordinary Meeting",
-    date: "October 3-7, 2022",
-    venue: "Resurrection Garden, Nairobi",
+    title: "Fifth Annual Executive Meeting",
+    date: "September 2022",
+    venue: "Dominican Nuns Guest House, Nairobi",
     participants: "Superiors and delegates from member monasteries",
     agenda: [
       "Celebration of 5 years of Pontifical approval",
@@ -113,14 +113,28 @@ const annualMeetings = [
   {
     id: 9,
     year: 2023,
-    title: "Sixth Annual Ordinary Meeting",
-    date: "October 2-6, 2023",
-    venue: "Resurrection Garden, Nairobi",
+    title: "Sixth Annual Executive Meeting",
+    date: "September 2023",
+    venue: "Dominican Nuns Guest House, Nairobi",
     participants: "Representatives from 26 monasteries across 9 countries",
     agenda: [
       "Evaluation of formation programs",
       "Discussion on financial sustainability of monasteries",
       "Planning for the 2024 Pan-African Contemplative Conference"
+    ]
+  },
+  {
+    id: 10,
+    year: 2024,
+    title: "Seventh Annual Executive Meeting",
+    date: "September 2024",
+    venue: "Dominican Nuns Guest House, Nairobi",
+    participants: "Representatives from 28 monasteries across 10 countries",
+    agenda: [
+      "Pan-African Contemplative Conference outcomes and next steps",
+      "Enhancing digital communication between member monasteries",
+      "Implementing sustainable practices for monastic communities",
+      "Planning collaborative formation initiatives for 2025"
     ]
   }
 ];
@@ -154,10 +168,10 @@ function AnnualMeetings() {
         <div className="container mx-auto px-4">
           <AnimWrapper>
             <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 font-['Playfair_Display'] text-blue-600">
-              Annual Ordinary Meetings
+              Annual Executive Meetings
             </h1>
             <p className="text-xl text-center max-w-4xl mx-auto mb-12 font-['Montserrat']">
-              A chronological record of CCCK's Annual Ordinary Meetings, marking our journey of growth and collaboration since our founding in 2015.
+              A chronological record of CCCK's Annual Executive Meetings, marking our journey of growth and collaboration since our founding in 2015.
             </p>
           </AnimWrapper>
 
