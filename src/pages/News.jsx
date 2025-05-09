@@ -1,81 +1,8 @@
 import { useState, useEffect, useCallback, memo, useRef } from 'react';
 import { client } from '../lib/sanity';
-import { urlFor } from '../lib/imageBuilder';
 import AnimWrapper from '../components/UI/AnimWrapper';
 import Loader from '../components/UI/Loader';
-import { FaCalendarAlt, FaTag, FaImage } from 'react-icons/fa';
-
-// Custom image component with better error handling
-const LazyNewsImage = memo(({ src, alt, title }) => {
-  const [loaded, setLoaded] = useState(false);
-  const [error, setError] = useState(false);
-  const imgRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          const img = imgRef.current;
-          if (img && img.getAttribute('data-src')) {
-            img.src = img.getAttribute('data-src');
-            observer.disconnect();
-          }
-        }
-      },
-      { rootMargin: '100px' }
-    );
-
-    if (imgRef.current) {
-      observer.observe(imgRef.current);
-    }
-
-    return () => {
-      if (observer && imgRef.current) {
-        observer.disconnect();
-      }
-    };
-  }, []);
-
-  const handleLoad = () => setLoaded(true);
-  const handleError = () => {
-    console.warn(`Image failed to load: ${title}`);
-    setError(true);
-    setLoaded(true);
-  };
-
-  return (
-    <div className="relative w-full h-full aspect-video overflow-hidden">
-      {!loaded && (
-        <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
-          <FaImage className="text-gray-400 text-3xl" />
-        </div>
-      )}
-      
-      {error ? (
-        <div className="w-full h-full flex items-center justify-center bg-gray-100">
-          <div className="text-center p-4">
-            <FaImage className="mx-auto text-3xl text-gray-400 mb-2" />
-            <p className="text-gray-500 text-sm">{alt || 'Image unavailable'}</p>
-          </div>
-        </div>
-      ) : (
-        <img
-          ref={imgRef}
-          src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-          data-src={src}
-          alt={alt}
-          className={`w-full h-full object-cover transition-all duration-500 ${
-            loaded ? 'opacity-100' : 'opacity-0'
-          } hover:scale-105`}
-          onLoad={handleLoad}
-          onError={handleError}
-        />
-      )}
-    </div>
-  );
-});
-
-LazyNewsImage.displayName = 'LazyNewsImage';
+import { FaCalendarAlt, FaTag } from 'react-icons/fa';
 
 // Custom component for rendering Portable Text
 const CustomPortableText = ({ value }) => {
@@ -119,7 +46,6 @@ function News() {
             slug,
             excerpt,
             body,
-            mainImage,
             publishedAt,
             categories[]->{
               _id,
@@ -227,13 +153,6 @@ function News() {
                     className="card break-inside-avoid mb-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
                     style={{ animationDelay: `${0.1 * index}s` }}
                   >
-                    <div className="overflow-hidden rounded-t-lg aspect-video">
-                      <LazyNewsImage 
-                        src={urlFor(item.mainImage).width(600).url()}
-                        alt={item.title}
-                        title={item.title}
-                      />
-                    </div>
                     <div className="p-6">
                       <h3 className="text-xl font-['Playfair_Display'] font-bold mb-3 text-blue-700">{item.title}</h3>
                       

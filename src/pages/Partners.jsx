@@ -125,10 +125,10 @@ const Partners = () => {
   const collaborators = [
     {
       id: 'chemichemi',
-      name: 'CHEMICHEMI YA UZIM COLLEGE',
+      name: 'CHEMICHEMI PASTORAL COLLEGE',
       description: 'Trains the CCCK nuns in psychospiritual counselling online',
       details: 'CCCK, collaborated with Chemi Chemi college to train over 30 nuns in certificate in psychospiritual counselling psychology and Catechetical theology online.',
-      image: 'images/CHEMICHEMI YA UZIAM COLLEGE.jpg'
+      image: 'images/Graduates of Chemchemi pastoral college.jpeg'
     },
     {
       id: 'tangaza',
