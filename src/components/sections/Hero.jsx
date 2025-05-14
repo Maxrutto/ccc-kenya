@@ -59,7 +59,7 @@ export default function Hero() {
         </div>
         
         <p className="text-xs sm:text-base md:text-lg font-['Montserrat'] text-gray-700 mb-6 md:mb-10 max-w-full sm:max-w-2xl mx-auto leading-relaxed italic tracking-wide border-l-4 border-blue-600/40 pl-2 sm:pl-4 py-2 bg-blue-50/30 rounded-r-lg shadow-sm">
-          Founded on 22 Sept 2015, the conference of the contemplative communities of Kenya -CCCK, is an association of Nuns from different monastic traditions established in Kenya and other English speaking countries in Africa.
+          Founded on 22 Sept 2015, the conference of the contemplative communities of Kenya -CCCK, is a conference of Nuns from different monastic traditions established in Kenya and other English speaking countries in Africa.
         </p>
 
         {/* Image Slider */}

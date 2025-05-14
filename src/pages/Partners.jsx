@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import AnimWrapper from '../components/UI/AnimWrapper';
 import LazyImage from '../components/UI/LazyImage';
-import { FaHandshake, FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { FaHandshake, FaChevronDown, FaChevronUp, FaEnvelope, FaPhone, FaUserPlus } from 'react-icons/fa';
 
 const Partners = () => {
   const [activePartner, setActivePartner] = useState(null);
@@ -38,37 +38,6 @@ const Partners = () => {
 
   // Main partners data
   const mainPartners = [
-    {
-      id: 'hilton',
-      name: 'HILTON FOUNDATION',
-      description: 'Through the support of Hilton Foundation, CCCK is currently engaged in the following activities:',
-      activities: [
-        {
-          title: 'Theological formation for nuns',
-          details: 'The Venite Seorsum Theology program for nuns - first cohort (2023-2025).'
-        },
-        {
-          title: 'Training of nuns on Safeguarding',
-          details: 'Training of nuns on Safeguarding and protection of minors and vulnerable adults.'
-        },
-        {
-          title: 'Workshops on Magisterial documents',
-          details: 'Yearly workshop on the recent Magisterial documents on contemplative life for entire women communities.'
-        },
-        {
-          title: 'Annual workshops on Safeguarding',
-          details: 'Annual workshops for all CCCK member monastery on the official Church teaching on Safeguarding and protection of minors and vulnerable adults.'
-        }
-      ],
-      images: [
-        'images/Hilton foundation 1.jpg',
-        'images/Hilton foundation 2.jpg',
-        'images/Hilton foundation 3.jpg',
-        'images/Hilton foundation 4.jpg',
-        'images/Hilton foundation 5.jpg',
-        'images/Hilton foundation 6.jpg'
-      ]
-    },
     {
       id: 'porticus',
       name: 'PORTICUS AFRICA',
@@ -110,6 +79,37 @@ const Partners = () => {
       ]
     },
     {
+      id: 'hilton',
+      name: 'HILTON FOUNDATION',
+      description: 'Through the support of Hilton Foundation, CCCK is currently engaged in the following activities:',
+      activities: [
+        {
+          title: 'Theological formation for nuns',
+          details: 'The Venite Seorsum Theology program for nuns - first cohort (2023-2025).'
+        },
+        {
+          title: 'Training of nuns on Safeguarding',
+          details: 'Training of nuns on Safeguarding and protection of minors and vulnerable adults.'
+        },
+        {
+          title: 'Workshops on Magisterial documents',
+          details: 'Yearly workshop on the recent Magisterial documents on contemplative life for entire women communities.'
+        },
+        {
+          title: 'Annual workshops on Safeguarding',
+          details: 'Annual workshops for all CCCK member monastery on the official Church teaching on Safeguarding and protection of minors and vulnerable adults.'
+        }
+      ],
+      images: [
+        'images/Hilton foundation 1.jpg',
+        'images/Hilton foundation 2.jpg',
+        'images/Hilton foundation 3.jpg',
+        'images/Hilton foundation 4.jpg',
+        'images/Hilton foundation 5.jpg',
+        'images/Hilton foundation 6.jpg'
+      ]
+    },
+    {
       id: 'dicastery',
       name: 'THE DICASTERY FOR THE CONSECRATED LIFE - DICLSAL – ROME',
       description: 'The Roman Dicastery (DICLSAL) co-funded CCCK with Porticus Africa in running the above activities between the years 2015-2021.',
@@ -126,8 +126,8 @@ const Partners = () => {
     {
       id: 'chemichemi',
       name: 'CHEMICHEMI PASTORAL COLLEGE',
-      description: 'Trains the CCCK nuns in psychospiritual counselling online',
-      details: 'CCCK, collaborated with Chemi Chemi college to train over 30 nuns in certificate in psychospiritual counselling psychology and Catechetical theology online.',
+      description: 'Trains the CCCK nuns in Integrative spiritual counselling and catechetics online',
+      details: 'CCCK, collaborated with Chemi Chemi college to train over 30 nuns in certificate in Integrative spiritual counselling and Catechetical theology online.',
       image: 'images/Graduates of Chemchemi pastoral college.jpeg'
     },
     {
@@ -142,7 +142,13 @@ const Partners = () => {
       name: 'CCCK FRIENDS',
       description: 'A group of lay people who freely offer support to the nuns\' Conference',
       details: 'This is a group of lay people who freely offer technical, material and professional support to the nuns\' Conference. The CCCK Friends also share the contemplative spirituality of the nuns. This group was formed in the year 2023 and was approved by the Executive by a deliberate vote. Its operations are outlined in the CCCK Statutes.',
-      image: 'images/CCCK FRIENDS.jpg'
+      image: 'images/CCCK FRIENDS.jpg',
+      contact: {
+        title: 'Become a CCCK Friend',
+        info: 'If you would like to become a CCCK Friend and support our mission, please contact the coordinator using the information below:',
+        email: 'ccckmonasteries@gmail.com',
+        phone: '0757537700'
+      }
     }
   ];
 
@@ -257,6 +263,27 @@ const Partners = () => {
                   <div className="p-6 flex flex-col flex-grow">
                     <h3 className="text-xl font-['Playfair_Display'] font-bold text-blue-600 mb-2">{item.name}</h3>
                     <p className="font-['Montserrat'] font-medium text-blue-500 mb-3">{item.description}</p>
+                    
+                    {item.id === 'friends' && item.contact && (
+                      <div className="mt-2 mb-4 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <h4 className="flex items-center font-['Montserrat'] font-semibold text-blue-700 mb-2">
+                          <FaUserPlus className="mr-2" /> {item.contact.title}
+                        </h4>
+                        <p className="text-gray-700 mb-3">{item.contact.info}</p>
+                        <div className="flex items-center mb-2">
+                          <FaEnvelope className="text-blue-600 mr-2" />
+                          <a href={`mailto:${item.contact.email}`} className="text-blue-600 hover:underline">
+                            {item.contact.email}
+                          </a>
+                        </div>
+                        <div className="flex items-center">
+                          <FaPhone className="text-blue-600 mr-2" />
+                          <a href={`tel:${item.contact.phone}`} className="text-blue-600 hover:underline">
+                            {item.contact.phone}
+                          </a>
+                        </div>
+                      </div>
+                    )}
                     
                     <div className="mt-auto">
                       <button

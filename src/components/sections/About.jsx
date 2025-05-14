@@ -27,7 +27,7 @@ export default function About() {
                 FOUNDATION OF CCCK
               </h3>
               <p className="text-xs sm:text-base md:text-lg font-['Montserrat'] text-gray-700 mb-4 md:mb-6 leading-relaxed">
-                The Conference of Contemplative Communities of Kenya -CCCK, is an association of <span className="font-semibold text-blue-700">Nuns</span> from different monastic traditions established in Kenya and other English-speaking countries in Africa.
+                The Conference of Contemplative Communities of Kenya -CCCK, is a conference of <span className="font-semibold text-blue-700">Nuns</span> from different monastic traditions established in Kenya and other English-speaking countries in Africa.
               </p>
               <p className="text-xs sm:text-base md:text-lg font-['Montserrat'] text-gray-700 leading-relaxed">
                 CCCK was founded in Sept 2015. This happened within the context of the Year of Consecrated Life and in harmony with the renewal of the life for women contemplatives which Pope Francis had ushered. Conscious of the need to update the theological education of cloistered nuns, the nuns welcomed the idea of forming their own Conference to help them actualize their dream of having monasteries in Africa that are united, capable of offering solid formation to their sisters and able to work together to establish financial and spiritual stability of women monastic communities in Anglophone Africa. CCCK is registered with the government of Kenya as a Charitable Trust. It received its juridical status from the Holy See on 26 October 2017.

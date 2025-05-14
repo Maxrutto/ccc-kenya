@@ -23,7 +23,7 @@ const kenyanMonasteries = [
     country: "Kenya",
     image: "images/Carmelite Nairobi Westlands.jpeg",
     coordinates: [-1.2634, 36.8222], // Approximate coordinates
-    description: "Westlands monastery of Discalced Carmelite Nuns in the Archdiocese of Nairobi"
+    description: "Our Lady of Mt. Carmel Monastery, Westlands (Archdiocese of Nairobi)"
   },
   {
     id: "carmelite-tindinyo",
@@ -32,7 +32,7 @@ const kenyanMonasteries = [
     country: "Kenya",
     image: "images/CARMELITE NUNS - TINDINYO.jpg",
     coordinates: [0.5143, 35.2698], // Approximate coordinates
-    description: "Tindinyo monastery of Discalced Carmelite Nuns in the Diocese of Eldoret"
+    description: "Our Lady of Mt. Carmel Monastery, Tindinyo (Diocese of Eldoret)"
   },
   {
     id: "carmelite-manga",
@@ -41,7 +41,7 @@ const kenyanMonasteries = [
     country: "Kenya",
     image: "images/Carmelite kisii.jpeg",
     coordinates: [-0.6748, 34.7769], // Approximate coordinates
-    description: "Manga Hills monastery of Discalced Carmelite Nuns in the Diocese of Kisii"
+    description: "Our Lady of Mt. Carmel Monastery, Kisii (Diocese of Kisii)"
   },
   {
     id: "carmelite-ancient-machakos",
@@ -59,7 +59,7 @@ const kenyanMonasteries = [
     country: "Kenya",
     image: "images/Juja farm discalced Carmelite.jpeg",
     coordinates: [-1.1135, 37.0144], // Approximate coordinates
-    description: "Juja Farm monastery of Carmelite Nuns of the Ancient Observance in the Archdiocese of Nairobi"
+    description: "Monastery of Mary Mother of God, Juja Farm (Archdiocese of Nairobi)"
   },
   {
     id: "carmelite-ancient-kitui",
@@ -77,7 +77,7 @@ const kenyanMonasteries = [
     country: "Kenya",
     image: "images/AUGUSTINIAN CONTEMPLATIVE MONASTERY HOLY TRINITY ISHIARA.jpg",
     coordinates: [-0.4574, 37.7803], // Approximate coordinates
-    description: "Ishiara monastery of Augustinian Nuns in the Diocese of Embu"
+    description: "Holy Trinity Monastery, Ishiara (Diocese of Embu)"
   },
   {
     id: "augustinian-kitale",
@@ -86,7 +86,7 @@ const kenyanMonasteries = [
     country: "Kenya",
     image: "images/Augustinian Contemplative Nuns in Kitale Diocese, Kaplamai parish.jpg",
     coordinates: [1.0124, 35.0020], // Approximate coordinates
-    description: "Kitale monastery of Augustinian Nuns in the Diocese of Kitale"
+    description: "St. Rita Monastery, Kitale (Diocese of Kitale)"
   },
   {
     id: "augustinian-recollect-wote",
@@ -113,7 +113,7 @@ const kenyanMonasteries = [
     country: "Kenya",
     image: "images/Dominican Nuns Karen.jpeg",
     coordinates: [-1.3132, 36.7064], // Approximate coordinates
-    description: "Karen monastery of Dominican Nuns in the Archdiocese of Nairobi"
+    description: "Corpus Christi Monastery, Karen (Archdiocese of Nairobi)"
   },
   {
     id: "cottolengo-tuuru",
@@ -122,7 +122,7 @@ const kenyanMonasteries = [
     country: "Kenya",
     image: "images/Cottolengo.jpeg",
     coordinates: [0.0858, 37.6538], // Approximate coordinates
-    description: "Tuuru monastery of Cottolengo Contemplatives in the Diocese of Meru"
+    description: "Cottolengo Monastery of Jesus the Priest, Tuuru (Diocese of Meru)"
   },
   {
     id: "perpetual-adorers-karima",
@@ -131,7 +131,7 @@ const kenyanMonasteries = [
     country: "Kenya",
     image: "images/Karima Monastery, Othaya.jpg",
     coordinates: [-0.4167, 36.9500], // Approximate coordinates
-    description: "Karima monastery of Perpetual Adorers of the Blessed Sacrament in the Archdiocese of Nyeri"
+    description: "Karima Monastery, Othaya (Archdiocese of Nyeri)"
   },
   {
     id: "perpetual-adorers-isiolo",
@@ -140,7 +140,7 @@ const kenyanMonasteries = [
     country: "Kenya",
     image: "images/Isiolo... Perpetual adorers.jpeg",
     coordinates: [0.3550, 37.5829], // Approximate coordinates
-    description: "Isiolo monastery of Perpetual Adorers of the Blessed Sacrament in the Diocese of Isiolo"
+    description: "PERPETUAL ADORERS OF THE BLESSED SACRAMENT, ISIOLO MONASTERY (Diocese of Isiolo)"
   },
   {
     id: "poor-clare-myanga",
@@ -149,7 +149,7 @@ const kenyanMonasteries = [
     country: "Kenya",
     image: "images/MONASTERY OF OUR LADY OF LIGHT, MYANGA - BUNGOMA - KENYA.jpg",
     coordinates: [0.5708, 34.5606], // Approximate coordinates
-    description: "Myanga monastery of Poor Clare Nuns in the Diocese of Bungoma"
+    description: "Our Lady of Light Monastery, Myanga (Diocese of Bungoma)"
   },
   {
     id: "poor-clare-colettine-mpeketoni",
@@ -158,7 +158,7 @@ const kenyanMonasteries = [
     country: "Kenya",
     image: "images/POOR CLARES COLETTINESS (MPEKETONI-MALINDI DIOCESE –KENYA.jpg",
     coordinates: [-2.4003, 40.6861], // Approximate coordinates
-    description: "Mpeketoni monastery of Poor Clare Colettine Nuns in the Diocese of Malindi"
+    description: "Our Lady of Fatima Monastery, Mpeketoni (Diocese of Malindi)"
   },
   {
     id: "good-shepherd-ngong",
@@ -189,21 +189,21 @@ const kenyanMonasteries = [
   },
   {
     id: "benedictine-muhoroni",
-    name: "Benedictine Nuns of Perpetual Adoration",
+    name: "Benedctine Nuns - Tamu",
     location: "Muhoroni (Archdiocese of Kisumu)",
     country: "Kenya",
     image: "images/Benedictine Tamu,kisumu.jpeg",
     coordinates: [-0.1540, 35.2073], // Approximate coordinates
-    description: "Muhoroni monastery of Benedictine Nuns of Perpetual Adoration in the Archdiocese of Kisumu"
+    description: "Immaculate Conception Monastery, Tamu (Archdiocese of Kisumu)"
   },
   {
     id: "holy-spirit-nairobi",
     name: "Order of the Holy Spirit [Comendadoras]",
     location: "Resurrection Garden (Archdiocese of Nairobi)",
     country: "Kenya",
-    image: "images/Order of the Holy Spirit [Comendadoras].jpg",
+    image: "images/Karen.jpeg",
     coordinates: [-1.2921, 36.8219], // Approximate coordinates
-    description: "Resurrection Garden monastery of Order of the Holy Spirit [Comendadoras] in the Archdiocese of Nairobi"
+    description: "Sacred Heart Monastery, Resurrection Garden (Archdiocese of Nairobi)"
   }
 ];
 
@@ -216,7 +216,7 @@ const otherCountriesMonasteries = [
     country: "Malawi",
     image: "images/Discalced Carmelite Nuns of the Holy Family Monastery zomba malawi.jpg",
     coordinates: [-15.3833, 35.3333], // Approximate coordinates
-    description: "Zomba monastery of Discalced Carmelite Nuns in the Diocese of Zomba, Malawi"
+    description: "Holy Family Monastery, Zomba (Diocese of Zomba, Malawi)"
   },
   {
     id: "carmelite-mafikeng-southafrica",
@@ -234,7 +234,7 @@ const otherCountriesMonasteries = [
     country: "Zimbabwe",
     image: "images/Mutare.jpeg",
     coordinates: [-18.9716, 32.6467], // Approximate coordinates
-    description: "Weirmouth monastery of Discalced Carmelite Nuns in the Diocese of Mutare, Zimbabwe"
+    description: "Monastery of the Holy Family, Mutare (Diocese of Mutare, Zimbabwe)"
   },
   {
     id: "dominican-kabwe-zambia",
@@ -243,7 +243,7 @@ const otherCountriesMonasteries = [
     country: "Zambia",
     image: "images/Kabwe.jpeg",
     coordinates: [-14.4469, 28.4464], // Approximate coordinates
-    description: "Kabwe monastery of Dominican Nuns in the Diocese of Kabwe, Zambia"
+    description: "Divine Mercy Monastery, Kabwe (Diocese of Kabwe, Zambia)"
   },
   {
     id: "capuchin-maua-tanzania",
@@ -252,7 +252,7 @@ const otherCountriesMonasteries = [
     country: "Tanzania",
     image: "images/Capuchin Tanzania.jpeg",
     coordinates: [-3.5756, 37.3419], // Approximate coordinates
-    description: "Maua monastery of Capuchin Nuns (TOR) in Tanzania"
+    description: "Mary Mother of God Monastery, Maua (Tanzania)"
   },
   {
     id: "benedictine-tororo-uganda",
@@ -261,7 +261,7 @@ const otherCountriesMonasteries = [
     country: "Uganda",
     image: "images/Benedictine Nuns of Perpetual Adoration tororo Uganda.jpg",
     coordinates: [0.6925, 34.1814], // Approximate coordinates
-    description: "Tororo monastery of Benedictine Nuns of Perpetual Adoration in Uganda"
+    description: "St. Benedict's Priory Monastery, Tororo (Uganda)"
   },
   {
     id: "poor-clare-harare-zimbabwe",
@@ -270,7 +270,7 @@ const otherCountriesMonasteries = [
     country: "Zimbabwe",
     image: "images/Poor Clare's harare Zimbabwe.jpeg",
     coordinates: [-17.8292, 31.0522], // Approximate coordinates
-    description: "Harare monastery of Poor Clare Nuns in Zimbabwe"
+    description: "St. Clare's Monastery, Harare (Zimbabwe)"
   },
   {
     id: "poor-clare-colettine-bukoba-tanzania",
@@ -288,7 +288,7 @@ const otherCountriesMonasteries = [
     country: "Tanzania",
     image: "images/The Cloistered Carmelite Monastery bunda tanzania.jpg",
     coordinates: [-2.0024, 33.8346], // Approximate coordinates
-    description: "Bunda monastery of Discalced Carmelite Nuns in Tanzania"
+    description: "Our Lady of Mt. Carmel Monastery, Bunda (Tanzania)"
   },
   {
     id: "capuchin-poor-clare-melville-southafrica",
@@ -297,7 +297,7 @@ const otherCountriesMonasteries = [
     country: "South Africa",
     image: "images/Capuchin Poor Clare Sisters.jpeg",
     coordinates: [-26.1771, 28.0037], // Approximate coordinates
-    description: "Melvile monastery of Capuchin Poor Clare Nuns in South Africa"
+    description: "Our Lady of the Blessed Sacrament Monastery, Melvile (South Africa)"
   },
   {
     id: "dominican-fortportal-uganda",
@@ -324,7 +324,7 @@ const otherCountriesMonasteries = [
     country: "Uganda",
     image: "images/Poor Clare's mbarara.jpeg",
     coordinates: [-0.6166, 30.6549], // Approximate coordinates
-    description: "Mbarara monastery of Poor Clare Nuns - Monastery of the Holy Church in Uganda"
+    description: "Monastery of the Holy Church, Mbarara (Uganda)"
   },
   {
     id: "dominican-bamenda-cameroon",
@@ -342,7 +342,7 @@ const otherCountriesMonasteries = [
     country: "Burundi",
     image: "images/Dominican Burundi.jpeg",
     coordinates: [-3.3731, 29.3776], // Approximate coordinates
-    description: "Rweza monastery of Dominican Nuns - Monastere De la Paix in Burundi"
+    description: "Monastery Notre Dame de la Paix, Rweza (Burundi)"
   },
   {
     id: "dominican-douala-cameroon",
@@ -360,7 +360,7 @@ const otherCountriesMonasteries = [
     country: "Benin",
     image: "images/Dominican Benin.jpeg",
     coordinates: [6.3676, 2.4252], // Approximate coordinates for Cotonou
-    description: "Dominican Nuns' monastery in Cotonou, Benin"
+    description: "Monastery de l'Annonciation Soclogbo, Diocese de Dassa (Benin)"
   }
 ];
 
@@ -474,7 +474,9 @@ function Monasteries() {
                       src={monastery.image} 
                       alt={monastery.name}
                       className={`w-full h-full object-cover transition-transform hover:scale-105 duration-500 ${
-                        monastery.id === "perpetual-adorers-isiolo" || monastery.id === "perpetual-adorers-karima" ? "object-top" : ""
+                        monastery.id === "perpetual-adorers-isiolo" || monastery.id === "perpetual-adorers-karima" ? "object-top" : 
+                        monastery.id === "holy-spirit-nairobi" ? "object-top" : 
+                        monastery.id === "carmelite-ancient-juja" ? "object-top" : ""
                       }`}
                       loading="lazy"
                       decoding="async"
@@ -520,7 +522,8 @@ function Monasteries() {
                       src={monastery.image} 
                       alt={monastery.name}
                       className={`w-full h-full object-cover transition-transform hover:scale-105 duration-500 ${
-                        monastery.id === "perpetual-adorers-isiolo" || monastery.id === "perpetual-adorers-karima" ? "object-top" : ""
+                        monastery.id === "perpetual-adorers-isiolo" || monastery.id === "perpetual-adorers-karima" ? "object-top" : 
+                        monastery.id === "holy-spirit-nairobi" ? "object-top" : ""
                       }`}
                       loading="lazy"
                       decoding="async"
