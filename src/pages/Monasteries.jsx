@@ -189,7 +189,7 @@ const kenyanMonasteries = [
   },
   {
     id: "benedictine-muhoroni",
-    name: "Benedictine Nuns of Perpetual Adoration",
+    name: "Benedctine Nuns - Tamu",
     location: "Muhoroni (Archdiocese of Kisumu)",
     country: "Kenya",
     image: "images/Benedictine Tamu,kisumu.jpeg",
@@ -201,7 +201,7 @@ const kenyanMonasteries = [
     name: "Order of the Holy Spirit [Comendadoras]",
     location: "Resurrection Garden (Archdiocese of Nairobi)",
     country: "Kenya",
-    image: "images/Order of the Holy Spirit [Comendadoras].jpg",
+    image: "images/Karen.jpeg",
     coordinates: [-1.2921, 36.8219], // Approximate coordinates
     description: "Sacred heart monastery, resurrection garden Nairobi"
   }
@@ -252,7 +252,7 @@ const otherCountriesMonasteries = [
     country: "Tanzania",
     image: "images/Capuchin Tanzania.jpeg",
     coordinates: [-3.5756, 37.3419], // Approximate coordinates
-    description: "Capuchin sisters of Tanzania. The monastery is called Mary mother of God."
+    description: "Mary Mother of God Monastery, Maua (Tanzania)"
   },
   {
     id: "benedictine-tororo-uganda",
@@ -297,7 +297,7 @@ const otherCountriesMonasteries = [
     country: "South Africa",
     image: "images/Capuchin Poor Clare Sisters.jpeg",
     coordinates: [-26.1771, 28.0037], // Approximate coordinates
-    description: "Our Lady of the Blessed Sacrament ( Capuchin south Africa)"
+    description: "Our Lady of the Blessed Sacrament Monastery, Melvile (South Africa)"
   },
   {
     id: "dominican-fortportal-uganda",
@@ -474,7 +474,9 @@ function Monasteries() {
                       src={monastery.image} 
                       alt={monastery.name}
                       className={`w-full h-full object-cover transition-transform hover:scale-105 duration-500 ${
-                        monastery.id === "perpetual-adorers-isiolo" || monastery.id === "perpetual-adorers-karima" ? "object-top" : ""
+                        monastery.id === "perpetual-adorers-isiolo" || monastery.id === "perpetual-adorers-karima" ? "object-top" : 
+                        monastery.id === "holy-spirit-nairobi" ? "object-top" : 
+                        monastery.id === "carmelite-ancient-juja" ? "object-top" : ""
                       }`}
                       loading="lazy"
                       decoding="async"
@@ -520,7 +522,8 @@ function Monasteries() {
                       src={monastery.image} 
                       alt={monastery.name}
                       className={`w-full h-full object-cover transition-transform hover:scale-105 duration-500 ${
-                        monastery.id === "perpetual-adorers-isiolo" || monastery.id === "perpetual-adorers-karima" ? "object-top" : ""
+                        monastery.id === "perpetual-adorers-isiolo" || monastery.id === "perpetual-adorers-karima" ? "object-top" : 
+                        monastery.id === "holy-spirit-nairobi" ? "object-top" : ""
                       }`}
                       loading="lazy"
                       decoding="async"
