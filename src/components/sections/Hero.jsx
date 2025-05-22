@@ -9,18 +9,14 @@ const images = [
   { url: 'images/Picture homepage3.jpg', alt: 'CCC Kenya Homepage Picture 3' },
   { url: 'images/Picturehomepage4.jpg', alt: 'CCC Kenya Homepage Picture 4' },
   { url: 'images/Picture homepage5.jpg', alt: 'CCC Kenya Homepage Picture 5' },
+  { url: 'images/New image 1.jpeg', alt: 'CCC Kenya New Image 1' },
+  { url: 'images/New image 2.jpeg', alt: 'CCC Kenya New Image 2' },
+  { url: 'images/New image 3.jpeg', alt: 'CCC Kenya New Image 3' },
+  { url: 'images/New image 4.jpeg', alt: 'CCC Kenya New Image 4' },
+  { url: 'images/New image 5.jpeg', alt: 'CCC Kenya New Image 5' },
   { url: 'images/image2.jpeg', alt: 'CCC Kenya Community' },
   { url: 'images/image3.jpeg', alt: 'CCC Kenya Community' },
-  { url: 'images/image4.jpeg', alt: 'CCC Kenya Community' },
-  { url: 'images/image6.jpeg', alt: 'CCC Kenya Community' },
-  { url: 'images/image7.jpeg', alt: 'CCC Kenya Community' },
-  { url: 'images/image9.jpeg', alt: 'CCC Kenya Community' },
-  { url: 'images/image11.jpeg', alt: 'CCC Kenya Community' },
-  { url: 'images/image12.jpeg', alt: 'CCC Kenya Community' },
-  { url: 'images/image13.jpeg', alt: 'CCC Kenya Community' },
-  { url: 'images/image14.jpeg', alt: 'CCC Kenya Community' },
-  { url: 'images/image15.jpeg', alt: 'CCC Kenya Community' },
-  { url: 'images/image17.jpeg', alt: 'CCC Kenya Community' }
+  { url: 'images/image6.jpeg', alt: 'CCC Kenya Community' }
 ];
 
 export default function Hero() {
@@ -53,7 +49,7 @@ export default function Hero() {
               CONFERENCE OF <br className="sm:hidden" />
               CONTEMPLATIVE <br className="sm:hidden" /> 
               COMMUNITIES <br className="sm:hidden" />
-              <span className="whitespace-nowrap">OF <span className="text-blue-500">KENYA</span> – CCCK</span>
+              <span className="whitespace-nowrap">OF <span className="text-red-600">KENYA</span> – CCCK</span>
             </h1>
           </div>
         </div>

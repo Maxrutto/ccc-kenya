@@ -44,6 +44,7 @@ import Vision from './components/sections/Vision';
 
 // Import Contact component directly to avoid lazy loading issues
 import Contact from './pages/Contact';
+import Donate from './pages/Donate';
 
 // Advanced lazy loading with preloading
 const createLazyComponent = (importFunc, options = {}) => {
@@ -150,6 +151,7 @@ function App() {
                 <Route path="/partners" element={<Partners />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/donate" element={<Donate />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>

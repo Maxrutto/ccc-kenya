@@ -21,6 +21,7 @@ export default function Header() {
     { name: 'Annual Meetings', path: '/annual-meetings' },
     { name: 'Partners', path: '/partners' },
     { name: 'Blog', path: '/blog' },
+    { name: 'Donate', path: '/donate' },
     { name: 'Contact', path: '/contact' },
   ];
 
