@@ -41,6 +41,7 @@ const Partners = () => {
     {
       id: 'porticus',
       name: 'PORTICUS AFRICA',
+      logo: 'images/Porticus Africa.jpg',
       description: 'In the first 5 years of the inception of CCCK (2015-2019), Porticus Africa gave the Nuns\' Conference a gigantic haul which enabled them to carry out the following capacity building activities for the nuns Superiors, formators, and bursars.',
       activities: [
         {
@@ -81,6 +82,7 @@ const Partners = () => {
     {
       id: 'hilton',
       name: 'HILTON FOUNDATION',
+      logo: 'images/Hilton foundation.jpg',
       description: 'Through the support of Hilton Foundation, CCCK is currently engaged in the following activities:',
       activities: [
         {
@@ -112,12 +114,59 @@ const Partners = () => {
     {
       id: 'dicastery',
       name: 'THE DICASTERY FOR THE CONSECRATED LIFE - DICLSAL – ROME',
+      logo: 'images/Secretariat for the Assistance of nuns (SAM).jpg',
       description: 'The Roman Dicastery (DICLSAL) co-funded CCCK with Porticus Africa in running the above activities between the years 2015-2021.',
       activities: [],
       images: [
         'images/THE DICASTERY FOR THE CONSECRATED LIFE - DICLSAL – ROME 1.jpg',
         'images/THE DICASTERY FOR THE CONSECRATED LIFE - DICLSAL – ROME 2.jpg'
       ]
+    },
+    {
+      id: 'sam',
+      name: 'SECRETARIAT FOR THE ASSISTANCE OF NUNS (SAM)',
+      logo: 'images/Secretariat for the Assistance of nuns (SAM).jpg',
+      description: 'The Secretariat for the Assistance of Nuns (SAM) provides ongoing support and guidance to contemplative communities through the Dicastery for the Institutes of Consecrated Life and Societies of Apostolic Life.',
+      activities: [
+        {
+          title: 'Formation guidance',
+          details: 'Provides guidance on formation programs and spiritual development for contemplative nuns.'
+        },
+        {
+          title: 'Canonical support',
+          details: 'Offers canonical advice and support for the proper governance of monastic communities.'
+        },
+        {
+          title: 'Inter-monastic coordination',
+          details: 'Facilitates collaboration and communication between different contemplative communities worldwide.'
+        }
+      ],
+      images: []
+    },
+    {
+      id: 'magisterium',
+      name: 'ONLINE FORMATION - MAGISTERIUM, CANONICAL NORMS AND PRACTICE FOR CONSECRATED LIFE',
+      logo: 'images/Magisterium, canonical norms and practice for consecrated Life.jpg',
+      description: 'An online formation platform providing comprehensive education on Church Magisterium, canonical norms, and best practices for consecrated life communities.',
+      activities: [
+        {
+          title: 'Online theological courses',
+          details: 'Comprehensive online courses covering Church doctrine, theology, and spirituality for consecrated persons.'
+        },
+        {
+          title: 'Canonical formation',
+          details: 'Education on canonical norms and legal frameworks governing religious institutes and consecrated life.'
+        },
+        {
+          title: 'Best practices sharing',
+          details: 'Platform for sharing successful practices and experiences among different religious communities globally.'
+        },
+        {
+          title: 'Virtual workshops and seminars',
+          details: 'Regular online workshops and seminars on current issues in consecrated life and religious formation.'
+        }
+      ],
+      images: []
     }
   ];
 
@@ -126,6 +175,7 @@ const Partners = () => {
     {
       id: 'chemichemi',
       name: 'CHEMICHEMI PASTORAL COLLEGE',
+      logo: 'images/Chemichemi ya Uzima College 2.jpg',
       description: 'Trains the CCCK nuns in Integrative spiritual counselling and catechetics online',
       details: 'CCCK, collaborated with Chemi Chemi college to train over 30 nuns in certificate in Integrative spiritual counselling and Catechetical theology online.',
       image: 'images/Graduates of Chemchemi pastoral college.jpeg'
@@ -133,6 +183,7 @@ const Partners = () => {
     {
       id: 'tangaza',
       name: 'TANGAZA UNIVERSITY',
+      logo: 'images/Tangaza University College 2.jpg',
       description: 'Academic collaboration for theological formation',
       details: 'Lecturers from the University teach in the Venite Seorsum Theology program for nuns either online and in-person. The Institute of Youth Ministry collaborates with CCCK in the training of the nuns on Safeguarding and protection of minors and vulnerable persons.',
       image: 'images/TANGAZA UNIVERSITY.jpg'
@@ -140,6 +191,7 @@ const Partners = () => {
     {
       id: 'friends',
       name: 'CCCK FRIENDS',
+      logo: null,
       description: 'A group of lay people who freely offer support to the nuns\' Conference',
       details: 'This is a group of lay people who freely offer technical, material and professional support to the nuns\' Conference. The CCCK Friends also share the contemplative spirituality of the nuns. This group was formed in the year 2023 and was approved by the Executive by a deliberate vote. Its operations are outlined in the CCCK Statutes.',
       image: 'images/CCCK FRIENDS.jpg',
@@ -178,20 +230,34 @@ const Partners = () => {
               {mainPartners.map((partner, index) => (
                 <AnimWrapper key={partner.id} delay={0.2 + index * 0.1}>
                   <div className="bg-white rounded-xl shadow-md overflow-hidden">
-                    {/* Partner Header */}
+                    {/* Partner Header with Logo */}
                     <div 
                       className={`px-6 py-4 cursor-pointer transition-all ${activePartner === partner.id ? 'bg-blue-50' : 'hover:bg-gray-50'}`}
                       onClick={(e) => togglePartner(partner.id, e)}
                     >
                       <div className="flex justify-between items-center">
-                        <h3 className="text-2xl font-['Playfair_Display'] font-bold text-blue-600">
-                          {partner.name}
-                        </h3>
-                        <div className="text-blue-600">
+                        <div className="flex items-center">
+                          {/* Partner Logo */}
+                          {partner.logo && (
+                            <div className="w-16 h-16 mr-4 flex-shrink-0 bg-white rounded-lg shadow-sm p-2 border border-gray-100">
+                              <img
+                                src={partner.logo}
+                                alt={`${partner.name} logo`}
+                                className="w-full h-full object-contain"
+                              />
+                            </div>
+                          )}
+                          <div>
+                            <h3 className="text-xl md:text-2xl font-['Playfair_Display'] font-bold text-blue-600">
+                              {partner.name}
+                            </h3>
+                          </div>
+                        </div>
+                        <div className="text-blue-600 flex-shrink-0 ml-4">
                           {activePartner === partner.id ? <FaChevronUp /> : <FaChevronDown />}
                         </div>
                       </div>
-                      <p className="mt-2 text-gray-700 font-['Montserrat']">{partner.description}</p>
+                      <p className="mt-2 text-gray-700 font-['Montserrat'] ml-20">{partner.description}</p>
                     </div>
 
                     {/* Partner Content (Expanded) */}
@@ -213,22 +279,26 @@ const Partners = () => {
                         )}
 
                         {/* Image Gallery */}
-                        <h4 className="text-xl font-['Playfair_Display'] font-semibold mb-4 text-blue-700">Gallery</h4>
-                        <div className={`grid grid-cols-1 ${partner.id === 'dicastery' ? 'sm:grid-cols-1 md:grid-cols-2' : 'sm:grid-cols-2'} gap-6`}>
-                          {partner.images.map((image, imgIndex) => (
-                            <div 
-                              key={imgIndex} 
-                              className={`rounded-lg overflow-hidden shadow-sm max-w-full ${partner.id === 'dicastery' ? 'bg-gray-50 p-2' : ''}`}
-                            >
-                              <img
-                                src={image}
-                                alt={`${partner.name} - Image ${imgIndex + 1}`}
-                                className={`w-full ${partner.id === 'dicastery' ? 'max-h-[500px]' : 'max-h-[400px]'} object-contain transition-transform hover:scale-105 duration-300 mx-auto`}
-                                style={{ display: 'block' }}
-                              />
+                        {partner.images.length > 0 && (
+                          <>
+                            <h4 className="text-xl font-['Playfair_Display'] font-semibold mb-4 text-blue-700">Gallery</h4>
+                            <div className={`grid grid-cols-1 ${partner.id === 'dicastery' ? 'sm:grid-cols-1 md:grid-cols-2' : 'sm:grid-cols-2'} gap-6`}>
+                              {partner.images.map((image, imgIndex) => (
+                                <div 
+                                  key={imgIndex} 
+                                  className={`rounded-lg overflow-hidden shadow-sm max-w-full ${partner.id === 'dicastery' ? 'bg-gray-50 p-2' : ''}`}
+                                >
+                                  <img
+                                    src={image}
+                                    alt={`${partner.name} - Image ${imgIndex + 1}`}
+                                    className={`w-full ${partner.id === 'dicastery' ? 'max-h-[500px]' : 'max-h-[400px]'} object-contain transition-transform hover:scale-105 duration-300 mx-auto`}
+                                    style={{ display: 'block' }}
+                                  />
+                                </div>
+                              ))}
                             </div>
-                          ))}
-                        </div>
+                          </>
+                        )}
                       </div>
                     )}
                   </div>
@@ -249,6 +319,19 @@ const Partners = () => {
             {collaborators.map((item, index) => (
               <AnimWrapper key={item.id} delay={0.4 + index * 0.1}>
                 <div className="bg-white rounded-xl shadow-md overflow-hidden h-full flex flex-col">
+                  {/* Logo Header */}
+                  {item.logo && (
+                    <div className="p-4 border-b border-gray-100 bg-gray-50 flex justify-center">
+                      <div className="w-20 h-20 bg-white rounded-lg shadow-sm p-2 border border-gray-200">
+                        <img
+                          src={item.logo}
+                          alt={`${item.name} logo`}
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                    </div>
+                  )}
+                  
                   {/* Image */}
                   <div className="h-56 overflow-hidden">
                     <LazyImage

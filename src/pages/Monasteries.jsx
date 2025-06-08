@@ -204,6 +204,15 @@ const kenyanMonasteries = [
     image: "images/Karen.jpeg",
     coordinates: [-1.2921, 36.8219], // Approximate coordinates
     description: "Sacred heart monastery, resurrection garden Nairobi"
+  },
+  {
+    id: "contemplative-small-hosts-eldoret",
+    name: "Contemplative Small Hosts",
+    location: "Eldoret (Diocese of Eldoret)",
+    country: "Kenya",
+    image: "images/placeholder.jpeg",
+    coordinates: [0.5143, 35.2698], // Approximate coordinates for Eldoret
+    description: "New foundation in Eldoret Diocese - canonical status pending"
   }
 ];
 
@@ -334,6 +343,15 @@ const otherCountriesMonasteries = [
     image: "images/Dominican Bambui Cameroon.jpeg",
     coordinates: [5.9596, 10.1590], // Approximate coordinates
     description: ""
+  },
+  {
+    id: "dominican-bambui-cameroon",
+    name: "Dominican Nuns - Monastery of St. Dominic",
+    location: "Bambui, Bamenda",
+    country: "Cameroon",
+    image: "images/The monastery of St. Dominic Bambui, Bamenda.jpg",
+    coordinates: [5.9596, 10.1590], // Approximate coordinates for Bamenda area
+    description: "Monastery of St. Dominic Bambui, Bamenda"
   },
   {
     id: "dominican-rweza-burundi",

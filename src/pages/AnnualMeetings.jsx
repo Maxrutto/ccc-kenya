@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaCalendarAlt, FaMapMarkerAlt, FaUsers, FaListUl } from 'react-icons/fa';
+import { FaCalendarAlt, FaMapMarkerAlt, FaUsers, FaListUl, FaHandshake, FaVoteYea, FaUserTie } from 'react-icons/fa';
 import AnimWrapper from '../components/UI/AnimWrapper';
 
 // Annual Meetings data
@@ -139,6 +139,23 @@ const annualMeetings = [
   }
 ];
 
+// Monasteries that received provisional approval in 2023
+const approvedMonasteries2023 = [
+  "Capuchin nuns (TOR) - Maua, Tanzania",
+  "Benedictine Nuns of Perpetual Adoration in Tororo - Uganda",
+  "Poor Clare Nuns - Harare, Zimbabwe",
+  "Poor Clare Colettine Nuns in Bukoba – Tanzania",
+  "Discalced Carmelite Nuns in Bunda - Tanzania",
+  "Capuchin Poor Clare Nuns in Melville – S. Africa",
+  "Dominican Nuns – Monastery of the Queen of the Most Holy Rosary – Fort Portal Uganda",
+  "Servants of the Holy Spirit of Perpetual Adoration Nuns in Lomé – Togo",
+  "Discalced Carmelite Nuns in Zomba – Malawi",
+  "Poor Clare Nuns – Monastery of the Holy Church – Mbarara in Uganda",
+  "Dominican Nuns in Bamenda, Cameroon",
+  "Dominican Nuns – Monastère De la Paix – Rweza – Burundi",
+  "Dominican Nuns – Monastère St. Dominique et N.D. du Rosaire, Douala - Cameroon"
+];
+
 function AnnualMeetings() {
   useEffect(() => {
     // Force scroll to top with multiple approaches to ensure it works
@@ -168,12 +185,124 @@ function AnnualMeetings() {
         <div className="container mx-auto px-4">
           <AnimWrapper>
             <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 font-['Playfair_Display'] text-blue-600">
-              Annual Executive Meetings
+              Annual Meetings
             </h1>
             <p className="text-xl text-center max-w-4xl mx-auto mb-12 font-['Montserrat']">
-              A chronological record of CCCK's Annual Executive Meetings, marking our journey of growth and collaboration since our founding in 2015.
+              A comprehensive overview of CCCK's Annual Ordinary and Executive Meetings, marking our journey of growth and collaboration since our founding in 2015.
             </p>
           </AnimWrapper>
+
+          {/* CCCK Annual Ordinary Meetings Section */}
+          <div className="mb-16">
+            <AnimWrapper delay={0.1}>
+              <h2 className="text-3xl font-['Playfair_Display'] font-bold mb-10 text-center text-blue-700 flex items-center justify-center">
+                <FaHandshake className="mr-3 text-red-500" />
+                CCCK Annual Ordinary Meetings
+              </h2>
+            </AnimWrapper>
+
+            <div className="max-w-4xl mx-auto space-y-8">
+              <AnimWrapper delay={0.2}>
+                <div className="bg-white rounded-xl shadow-lg p-6 md:p-8 border-l-4 border-blue-600">
+                  <p className="text-lg font-['Montserrat'] text-gray-700 mb-4">
+                    Every year CCCK holds an Annual Ordinary Meeting. From its foundation in 2015 to the year 2024, CCCK has held 6 Annual Ordinary meetings.
+                  </p>
+                  <p className="text-lg font-['Montserrat'] text-gray-700">
+                    During these meetings, each member monastery is represented by its Superior or a delegate.
+                  </p>
+                </div>
+              </AnimWrapper>
+
+              <AnimWrapper delay={0.3}>
+                <div className="bg-blue-50 rounded-xl shadow-lg p-6 md:p-8 border-l-4 border-red-500">
+                  <h3 className="text-2xl font-['Playfair_Display'] font-bold mb-6 text-blue-700 flex items-center">
+                    <FaListUl className="mr-3 text-red-500" />
+                    Functions and Competence of the Annual Ordinary Meeting
+                  </h3>
+                  <ul className="space-y-4 text-lg font-['Montserrat'] text-gray-700">
+                    <li className="flex items-start">
+                      <span className="font-bold text-blue-600 mr-2">a)</span>
+                      <span>to provide an opportunity for discussions among the members which enables them to experience solidarity and to extend mutual encouragement;</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="font-bold text-blue-600 mr-2">b)</span>
+                      <span>to foster and coordinate, when appropriate, initiatives and project of mutual concern which would strengthen the Church's contemplative vision and values;</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="font-bold text-blue-600 mr-2">c)</span>
+                      <span>to elect officials;</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="font-bold text-blue-600 mr-2">d)</span>
+                      <span>to address in a spirit of synodality any arising concern affecting a member monastery;</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="font-bold text-blue-600 mr-2">e)</span>
+                      <span>when possible, to have some suitable inputs on the contemplative life and other relevant topics;</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="font-bold text-blue-600 mr-2">f)</span>
+                      <span>to share areas of on-going interests and concerns among the contemplative communities; and</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="font-bold text-blue-600 mr-2">g)</span>
+                      <span>to address any arising issues within the Conference.</span>
+                    </li>
+                  </ul>
+                </div>
+              </AnimWrapper>
+
+              <AnimWrapper delay={0.4}>
+                <div className="bg-white rounded-xl shadow-lg p-6 md:p-8 border-l-4 border-blue-600">
+                  <h3 className="text-2xl font-['Playfair_Display'] font-bold mb-6 text-blue-700 flex items-center">
+                    <FaUserTie className="mr-3 text-red-500" />
+                    Governance of CCCK
+                  </h3>
+                  <p className="text-lg font-['Montserrat'] text-gray-700">
+                    CCCK is governed by a Council composed of a chairperson and 4 councilors who are elected by the Conference Executive Committee by secret ballot every four years during the Annual Executive Meeting.
+                  </p>
+                </div>
+              </AnimWrapper>
+
+              <AnimWrapper delay={0.5}>
+                <div className="bg-green-50 rounded-xl shadow-lg p-6 md:p-8 border-l-4 border-green-500">
+                  <h3 className="text-2xl font-['Playfair_Display'] font-bold mb-6 text-blue-700 flex items-center">
+                    <FaVoteYea className="mr-3 text-green-500" />
+                    2023 Provisional Approvals
+                  </h3>
+                  <p className="text-lg font-['Montserrat'] text-gray-700 mb-6">
+                    The CCCK Executive Committee, during the Annual Ordinary Meeting held on 29/09/2023 voted unanimously positive and granted provisional approval to the following monasteries:
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {approvedMonasteries2023.map((monastery, index) => (
+                      <div key={index} className="bg-white p-4 rounded-lg shadow-sm border border-green-200">
+                        <span className="font-bold text-green-600 mr-2">{index + 1}.</span>
+                        <span className="text-gray-700 font-['Montserrat']">{monastery}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-6 p-4 bg-blue-100 rounded-lg border-l-4 border-blue-500">
+                    <p className="text-sm font-['Montserrat'] text-blue-800 font-medium">
+                      <strong>NB:</strong> The list above received membership confirmation from the Dicastery (DICLSAL) in the year 2024.
+                    </p>
+                  </div>
+                </div>
+              </AnimWrapper>
+            </div>
+          </div>
+
+          {/* Annual Executive Meetings Timeline Section */}
+          <div className="mb-8">
+            <AnimWrapper delay={0.6}>
+              <h2 className="text-3xl font-['Playfair_Display'] font-bold mb-10 text-center text-blue-700 flex items-center justify-center">
+                <FaCalendarAlt className="mr-3 text-red-500" />
+                Annual Executive Meetings Timeline
+              </h2>
+              <p className="text-lg text-center max-w-4xl mx-auto mb-12 font-['Montserrat'] text-gray-600">
+                A chronological record of CCCK's Annual Executive Meetings, marking our journey of growth and collaboration since our founding in 2015.
+              </p>
+            </AnimWrapper>
+          </div>
 
           <div className="relative">
             {/* Timeline line */}
@@ -181,7 +310,7 @@ function AnnualMeetings() {
 
             {/* Timeline items */}
             {annualMeetings.map((meeting, index) => (
-              <AnimWrapper key={meeting.id} delay={0.1 * index}>
+              <AnimWrapper key={meeting.id} delay={0.7 + 0.1 * index}>
                 <div className={`flex flex-col md:flex-row items-center mb-16 relative ${
                   index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                 }`}>
