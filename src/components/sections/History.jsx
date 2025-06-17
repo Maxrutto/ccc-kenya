@@ -73,7 +73,7 @@ export default function History() {
               </h2>
               <p className={`${textClass} text-left md:text-center`}>
                 With the encouragement and help of the Holy See, our monasteries chose to come together so that, by
-                combined effort, we can truly live our primary common vocation as intercessors before God for the needs of member of the church, as well as those who are outside our Catholic faith. In this synodal journey, we are also able to help each other to achieve more fully the purpose of our respective religious institutes.
+                combined effort, we can truly live our primary common vocation as intercessors before God for the needs of the church, as well as those who are outside our Catholic faith. In this synodal journey, we are also able to help each other to achieve more fully the purpose of our respective religious institutes.
               </p>
             </div>
           </AnimWrapper>
@@ -84,7 +84,7 @@ export default function History() {
                 THE BIRTH OF CCCK: <span className="text-red-600">Sept 2015</span>
               </h2>
               <p className={textClass}>
-                The birth of the Conference of Contemplative Communities of Kenya (CCCK) happened within the context of the Year of Consecrated Life and in harmony with the renewal of the life for women contemplatives which Pope Francis has ushered. Conscious of the need to update the theological education of cloistered nuns, the superiors of the first nineteen monasteries in Kenya collaborated with a few apostolic religious to develop a curriculum for their sisters. After receiving the permission and encouragement of the Congregation for Institutes of Consecrated Life and Societies of Apostolic Life (CICLSAL), they scheduled a month-long program from 28 September to 23 October 2015 at the Subiaco Retreat Centre in Karen, Nairobi.
+                The birth of the Conference of Contemplative Communities of Kenya (CCCK) happened within the context of the Year of Consecrated Life and in harmony with the renewal of the life for women contemplatives which Pope Francis had ushered. Conscious of the need to update the theological education of cloistered nuns, the superiors of the first nineteen monasteries in Kenya collaborated with a few apostolic religious to develop a curriculum for their sisters. After receiving the permission and encouragement of the Congregation for Institutes of Consecrated Life and Societies of Apostolic Life (CICLSAL), they scheduled a month-long program from 28 September to 23 October 2015 at the Subiaco Retreat Centre in Karen, Nairobi.
               </p>
             </div>
           </AnimWrapper>

@@ -74,7 +74,7 @@ export default function About() {
                   OUR VISION
                 </h3>
                 <p className="text-sm sm:text-base md:text-lg font-['Montserrat'] text-gray-700 leading-relaxed">
-                  To ensure that the contemplative sisters have access to solid, updated and appropriated theological and human formation which will enable them to effectively give a united witness to the Church's prayerful face in Africa
+                  To ensure that the contemplative nuns have access to solid, updated and appropriate theological and human formation which will enable them to effectively give a united witness to the Church's prayerful face in Africa
                 </p>
               </div>
             </AnimWrapper>
@@ -101,7 +101,7 @@ export default function About() {
                 LEADERSHIP
               </h3>
               <p className="text-sm sm:text-base md:text-lg font-['Montserrat'] text-gray-700 leading-relaxed">
-                CCCK is has a leadership body composed of the President and 4 Council members
+                CCCK has a leadership body composed of the Chairperson and 4 Council members
                 and an executive committee which comprises the superiors of the member monasteries
               </p>
             </div>

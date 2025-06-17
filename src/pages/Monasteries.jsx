@@ -31,7 +31,7 @@ const kenyanMonasteries = [
     location: "Tindinyo (Diocese of Eldoret)",
     country: "Kenya",
     image: "images/CARMELITE NUNS - TINDINYO.jpg",
-    coordinates: [0.5143, 35.2698], // Approximate coordinates
+    coordinates: [0.5200, 35.2650], // Adjusted coordinates for Tindinyo area
     description: "Our Lady of Mt. Carmel monastery Tindinyo"
   },
   {
@@ -211,7 +211,7 @@ const kenyanMonasteries = [
     location: "Eldoret (Diocese of Eldoret)",
     country: "Kenya",
     image: "images/placeholder.jpeg",
-    coordinates: [0.5143, 35.2698], // Approximate coordinates for Eldoret
+    coordinates: [0.5100, 35.2750], // Adjusted coordinates for Eldoret area
     description: "New foundation in Eldoret Diocese - canonical status pending"
   }
 ];

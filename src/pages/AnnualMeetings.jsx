@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaCalendarAlt, FaMapMarkerAlt, FaUsers, FaListUl, FaHandshake, FaVoteYea, FaUserTie } from 'react-icons/fa';
+import { FaCalendarAlt, FaMapMarkerAlt, FaUsers, FaListUl, FaHandshake, FaUserTie } from 'react-icons/fa';
 import AnimWrapper from '../components/UI/AnimWrapper';
 
 // Annual Meetings data
@@ -11,12 +11,7 @@ const annualMeetings = [
     title: "First Meeting (Birth of CCCK)",
     date: "September 2015",
     venue: "Subiaco Retreat Centre, Karen, Nairobi",
-    participants: "Superiors of 19 monasteries in Kenya with a few apostolic religious",
-    agenda: [
-      "Development of curriculum for theological education of cloistered nuns",
-      "Meeting with Cardinal João Braz de Avís, prefect of CICLSAL",
-      "Initial discussions on forming a conference of major superiors"
-    ]
+    participants: "Superiors of 19 monasteries in Kenya with a few apostolic religious"
   },
   {
     id: 2,
@@ -24,12 +19,7 @@ const annualMeetings = [
     title: "Second Meeting",
     date: "September 2016",
     venue: "Subiaco Retreat Centre, Karen, Nairobi",
-    participants: "Kenyan monasteries and representatives from Tanzania, Uganda, Zambia, South Africa, and Malawi",
-    agenda: [
-      "Unanimous vote to accept the CICLSAL prefect's proposal",
-      "Beginning the development of proper law for CCCK",
-      "Establishment of the annual Venite Seorsum Theology program"
-    ]
+    participants: "Kenyan monasteries and representatives from Tanzania, Uganda, Zambia, South Africa, and Malawi"
   },
   {
     id: 3,
@@ -37,13 +27,7 @@ const annualMeetings = [
     title: "First Annual Executive Meeting",
     date: "September 2017",
     venue: "Subiaco Retreat Centre, Karen, Nairobi",
-    participants: "Representatives from Kenya, Cameroon, Nigeria, and Zimbabwe",
-    agenda: [
-      "Finalization of CCCK statutes in the presence of Fr. Stefano Cañuto",
-      "Election and nomination of the first officials of the conference",
-      "Approval of statutes by CICLSAL on October 26, 2017",
-      "Official erection of CCCK as a juridic person under Holy See direction"
-    ]
+    participants: "Representatives from Kenya, Cameroon, Nigeria, and Zimbabwe"
   },
   {
     id: 4,
@@ -51,12 +35,7 @@ const annualMeetings = [
     title: "Second Annual Executive Meeting",
     date: "September 2018",
     venue: "Subiaco Retreat Centre, Karen, Nairobi",
-    participants: "Superiors of contemplative communities from eight African countries",
-    agenda: [
-      "Implementation of Cor Orans instructions",
-      "Discussion on challenges facing contemplative communities in Africa",
-      "Planning for collaborative formation programs"
-    ]
+    participants: "Superiors of contemplative communities from eight African countries"
   },
   {
     id: 5,
@@ -64,12 +43,7 @@ const annualMeetings = [
     title: "Third Annual Executive Meeting",
     date: "September 2019",
     venue: "Rousel House, Karen, Nairobi",
-    participants: "Superiors and delegates from 24 monasteries",
-    agenda: [
-      "Evaluation of the Venite Seorsum program",
-      "Sharing of best practices in monastic formation",
-      "Discussion on sustainability challenges facing monasteries"
-    ]
+    participants: "Superiors and delegates from 24 monasteries"
   },
   {
     id: 6,
@@ -77,83 +51,40 @@ const annualMeetings = [
     title: "Virtual Meeting",
     date: "September 2020",
     venue: "Online Zoom Meeting",
-    participants: "Representatives from all member monasteries",
-    agenda: [
-      "Addressing challenges posed by the COVID-19 pandemic",
-      "Adaptation of formation programs to virtual platforms",
-      "Strategies for maintaining contemplative life during lockdowns"
-    ]
+    participants: "Representatives from all member monasteries"
   },
   {
     id: 7,
     year: 2021,
-    title: "Fourth Annual Executive Meeting",
+    title: "Virtual Meeting",
     date: "September 2021",
     venue: "Online Zoom Meeting",
-    participants: "Representatives from all member monasteries",
-    agenda: [
-      "Post-pandemic recovery strategies for monasteries",
-      "Strengthening inter-monastic collaboration",
-      "Formation program planning for 2022"
-    ]
+    participants: "Representatives from all member monasteries"
   },
   {
     id: 8,
     year: 2022,
-    title: "Fifth Annual Executive Meeting",
+    title: "Fourth Annual Executive Meeting",
     date: "September 2022",
     venue: "Dominican Nuns Guest House, Nairobi",
-    participants: "Superiors and delegates from member monasteries",
-    agenda: [
-      "Celebration of 5 years of Pontifical approval",
-      "Review of the implementation of Cor Orans",
-      "Planning for expansion of CCCK membership"
-    ]
+    participants: "Superiors and delegates from member monasteries"
   },
   {
     id: 9,
     year: 2023,
-    title: "Sixth Annual Executive Meeting",
+    title: "Fifth Annual Executive Meeting",
     date: "September 2023",
     venue: "Dominican Nuns Guest House, Nairobi",
-    participants: "Representatives from 26 monasteries across 9 countries",
-    agenda: [
-      "Evaluation of formation programs",
-      "Discussion on financial sustainability of monasteries",
-      "Planning for the 2024 Pan-African Contemplative Conference"
-    ]
+    participants: "Representatives from 26 monasteries across 9 countries"
   },
   {
     id: 10,
     year: 2024,
-    title: "Seventh Annual Executive Meeting",
+    title: "Sixth Annual Executive Meeting",
     date: "September 2024",
     venue: "Dominican Nuns Guest House, Nairobi",
-    participants: "Representatives from 28 monasteries across 10 countries",
-    agenda: [
-      "Pan-African Contemplative Conference outcomes and next steps",
-      "Enhancing digital communication between member monasteries",
-      "Implementing sustainable practices for monastic communities",
-      "Planning collaborative formation initiatives for 2025"
-    ]
+    participants: "Representatives from 28 monasteries across 10 countries"
   }
-];
-
-// Monasteries that received provisional approval in 2023
-const approvedMonasteries2023 = [
-  "Capuchin nuns (TOR) - Maua, Tanzania",
-  "Benedictine Nuns of Perpetual Adoration in Tororo - Uganda",
-  "Poor Clare Nuns - Harare, Zimbabwe",
-  "Poor Clare Colettine Nuns in Bukoba – Tanzania",
-  "Discalced Carmelite Nuns in Bunda - Tanzania",
-  "Capuchin Poor Clare Nuns in Melville – S. Africa",
-  "Dominican Nuns – Monastery of the Queen of the Most Holy Rosary – Fort Portal Uganda",
-  "Servants of the Holy Spirit of Perpetual Adoration Nuns in Lomé – Togo",
-  "Discalced Carmelite Nuns in Zomba – Malawi",
-  "Poor Clare Nuns – Monastery of the Holy Church – Mbarara in Uganda",
-  "Dominican Nuns in Bamenda, Cameroon",
-  "Dominican Nuns – Monastère De la Paix – Rweza – Burundi",
-  "Dominican Nuns – Monastère St. Dominique et N.D. du Rosaire, Douala - Cameroon"
 ];
 
 function AnnualMeetings() {
@@ -188,7 +119,7 @@ function AnnualMeetings() {
               Annual Meetings
             </h1>
             <p className="text-xl text-center max-w-4xl mx-auto mb-12 font-['Montserrat']">
-              A comprehensive overview of CCCK's Annual Ordinary and Executive Meetings, marking our journey of growth and collaboration since our founding in 2015.
+              A comprehensive overview of CCCK's Annual Ordinary Executive Meetings, marking our journey of growth and collaboration since our founding in 2015.
             </p>
           </AnimWrapper>
 
@@ -263,37 +194,12 @@ function AnnualMeetings() {
                   </p>
                 </div>
               </AnimWrapper>
-
-              <AnimWrapper delay={0.5}>
-                <div className="bg-green-50 rounded-xl shadow-lg p-6 md:p-8 border-l-4 border-green-500">
-                  <h3 className="text-2xl font-['Playfair_Display'] font-bold mb-6 text-blue-700 flex items-center">
-                    <FaVoteYea className="mr-3 text-green-500" />
-                    2023 Provisional Approvals
-                  </h3>
-                  <p className="text-lg font-['Montserrat'] text-gray-700 mb-6">
-                    The CCCK Executive Committee, during the Annual Ordinary Meeting held on 29/09/2023 voted unanimously positive and granted provisional approval to the following monasteries:
-                  </p>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {approvedMonasteries2023.map((monastery, index) => (
-                      <div key={index} className="bg-white p-4 rounded-lg shadow-sm border border-green-200">
-                        <span className="font-bold text-green-600 mr-2">{index + 1}.</span>
-                        <span className="text-gray-700 font-['Montserrat']">{monastery}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-6 p-4 bg-blue-100 rounded-lg border-l-4 border-blue-500">
-                    <p className="text-sm font-['Montserrat'] text-blue-800 font-medium">
-                      <strong>NB:</strong> The list above received membership confirmation from the Dicastery (DICLSAL) in the year 2024.
-                    </p>
-                  </div>
-                </div>
-              </AnimWrapper>
             </div>
           </div>
 
           {/* Annual Executive Meetings Timeline Section */}
           <div className="mb-8">
-            <AnimWrapper delay={0.6}>
+            <AnimWrapper delay={0.5}>
               <h2 className="text-3xl font-['Playfair_Display'] font-bold mb-10 text-center text-blue-700 flex items-center justify-center">
                 <FaCalendarAlt className="mr-3 text-red-500" />
                 Annual Executive Meetings Timeline
@@ -310,7 +216,7 @@ function AnnualMeetings() {
 
             {/* Timeline items */}
             {annualMeetings.map((meeting, index) => (
-              <AnimWrapper key={meeting.id} delay={0.7 + 0.1 * index}>
+              <AnimWrapper key={meeting.id} delay={0.6 + 0.1 * index}>
                 <div className={`flex flex-col md:flex-row items-center mb-16 relative ${
                   index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                 }`}>
@@ -341,21 +247,9 @@ function AnnualMeetings() {
                         <span>{meeting.venue}</span>
                       </div>
                       
-                      <div className="mb-4 flex items-start text-gray-600">
+                      <div className="flex items-start text-gray-600">
                         <FaUsers className="mr-2 mt-1 text-blue-500" />
                         <span>{meeting.participants}</span>
-                      </div>
-                      
-                      <div className="flex items-start text-gray-600">
-                        <FaListUl className="mr-2 mt-1 text-blue-500" />
-                        <div>
-                          <p className="font-semibold mb-2">Agenda:</p>
-                          <ul className="list-disc pl-5 space-y-1">
-                            {meeting.agenda.map((item, i) => (
-                              <li key={i}>{item}</li>
-                            ))}
-                          </ul>
-                        </div>
                       </div>
                     </motion.div>
                   </div>

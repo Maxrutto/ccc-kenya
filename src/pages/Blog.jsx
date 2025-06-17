@@ -24,7 +24,7 @@ const blogPosts = [
       },
       {
         type: "paragraph",
-        text: "This words of encouragement of the prior general Rubeo to St Teresa of Avila finds an echo in the nuns who are filled with zeal to spread the silent apostolate of a cloistered contemplative way of life to the whole world. It is with this zeal that the Monastery of our Lady of Mount Carmel, Machakos responded to the request of Rt. Rev. Antony Muheria who by then was the Bishop of Diocese of Kitui to make a foundation in His diocese."
+        text: "These words of encouragement of the prior general Rubeo to St Teresa of Avila finds an echo in the nuns who are filled with zeal to spread the silent apostolate of a cloistered contemplative way of life to the whole world. It is with this zeal that the Monastery of our Lady of Mount Carmel, Machakos responded to the request of Rt. Rev. Antony Muheria who by then was the Bishop of Diocese of Kitui to make a foundation in his diocese."
       },
       {
         type: "paragraph",
@@ -36,7 +36,7 @@ const blogPosts = [
       },
       {
         type: "paragraph",
-        text: "The Nuns of the Monastery of our Lady of Mount Carmel, Machakos, after obtaining permission from the Dicastry of Institutes of Consecrated life and Societies of Apostolic life, for the establishment of the new foundation, gladly sent six sisters to start this new foundation and It was on 1st of September 2023 that the monastery was officially opened by his lordship Joseph Mwongela, Bishop Catholic Diocese of Kitui."
+        text: "The Nuns of the Monastery of our Lady of Mount Carmel, Machakos, after obtaining permission from the Dicastery of Institutes of Consecrated life and Societies of Apostolic life, for the establishment of the new foundation, gladly sent six sisters to start this new foundation and It was on 1st of September 2023 that the monastery was officially opened by his Lordship Joseph Mwongela, Bishop of the Catholic Diocese of Kitui."
       }
     ]
   }

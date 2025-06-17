@@ -29,7 +29,7 @@ function Donate() {
               Donate to <span className="text-red-600">CCCK Nuns</span>
             </h1>
             <p className="text-lg md:text-xl text-center max-w-4xl mx-auto mb-12 font-['Montserrat'] text-gray-700">
-              The Conference of Contemplative communities of Kenya (CCCK) is a charitable NGO composed of over 35 monasteries of women spread in 8 English-speaking countries in Africa.
+              The Conference of Contemplative communities of Kenya (CCCK) is a charitable NGO composed of over 35 monasteries of women spread in over 10 English-speaking countries in Africa.
             </p>
           </AnimWrapper>
 
@@ -75,7 +75,7 @@ function Donate() {
                     <div>
                       <h3 className="text-xl font-bold mb-3 text-blue-700">2. Join a formidable force of prayer warriors</h3>
                       <p className="text-gray-700">
-                        Through your donation, you join that formidable force of prayer warriors who work to transform the world from inside. Your donation makes you join throngs of women monastics who dedicate their existence to divine search and in this way powerfully impact the society powerfully.
+                        Through your donation, you join that formidable force of prayer warriors who work to transform the world from inside. Your donation makes you join throngs of women monastics who dedicate their existence to divine search and in this way powerfully impact the society.
                       </p>
                     </div>
                   </div>
@@ -91,7 +91,7 @@ function Donate() {
                     <div>
                       <h3 className="text-xl font-bold mb-3 text-blue-700">3. Express your gratitude for prayers answered</h3>
                       <p className="text-gray-700">
-                        The CCCK NUNS commit all their life to interceding for Gods people. Your donation is a confirmation of your undauntable believe in the transformative and healing power of prayer and spirituality which you have experienced personally.
+                        The CCCK NUNS commit all their life to interceding for Gods people. Your donation is a confirmation of your undauntable belief in the transformative and healing power of prayer and spirituality which you have experienced personally.
                       </p>
                     </div>
                   </div>
@@ -107,7 +107,7 @@ function Donate() {
                     <div>
                       <h3 className="text-xl font-bold mb-3 text-blue-700">4. Boost financial sustainability</h3>
                       <p className="text-gray-700">
-                        Your donation will boost the financial sustainability of women monasteries in Anglophone Africa. The CCCK member monasteries are spread across sub-Sahara Africa. The nuns carry out different income generating activities such as agriculture, baking alter bread, hospitality, spiritual accompaniment and counselling, production of sacred vestment to mention but a few. These income generating businesses have been affected by climate change, drought, high market competition with producers of same items and lose of property due political instability in some countries. Your donation will directly be channeled to the CCCK monasteries most affected by the above conditions.
+                        Your donation will boost the financial sustainability of women monasteries in Anglophone Africa. The CCCK member monasteries are spread across sub-Sahara Africa. The nuns carry out different income generating activities such as agriculture, baking alter bread, hospitality, spiritual accompaniment and counselling, production of sacred vestment to mention but a few. These income generating businesses have been affected by climate change, drought, high market competition with producers of same items and loss of property due political instability in some countries. Your donation will directly be channeled to the CCCK monasteries most affected by the above conditions.
                       </p>
                     </div>
                   </div>
@@ -131,7 +131,7 @@ function Donate() {
                       You can make a donation through bank transfer to our account:
                     </p>
                     <div className="bg-gray-50 p-4 rounded-lg">
-                      <p className="font-bold text-blue-800">Account Number: 34 80 11 004</p>
+                      <p className="font-bold text-blue-800">Account Number: 34 80 11 00 14</p>
                       <p className="font-bold text-blue-800">Bank: NCBA Bank</p>
                     </div>
                   </div>

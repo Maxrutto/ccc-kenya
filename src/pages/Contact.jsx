@@ -93,7 +93,7 @@ function Contact() {
                     <FaPhone className="text-blue-600 mt-1 mr-4 text-xl flex-shrink-0" />
                     <div>
                       <h3 className="font-['Montserrat'] font-bold mb-1 text-gray-800">Phone</h3>
-                      <p className="font-['Montserrat'] text-gray-700">0757537700</p>
+                      <p className="font-['Montserrat'] text-gray-700">+254 757 537 700</p>
                     </div>
                   </div>
                   

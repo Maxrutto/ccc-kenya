@@ -22,7 +22,7 @@ export default function Vision() {
                     </h2>
                     <p className="text-lg sm:text-xl md:text-2xl italic font-['Montserrat'] leading-relaxed relative px-3 sm:px-0">
                         <span className="absolute -left-2 sm:-left-4 top-0 text-red-500 text-2xl sm:text-4xl font-serif">"</span>
-                        We strive to ensure that the contemplative Sisters have access to solid, 
+                        We strive to ensure that the contemplative nuns have access to solid, 
                         appropriate and updated theological and human formation which enables them 
                         to effectively give a united witness to the Church's prayerful face in Africa
                         <span className="absolute -bottom-4 right-0 text-red-500 text-2xl sm:text-4xl font-serif">"</span>

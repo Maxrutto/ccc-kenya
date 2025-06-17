@@ -12,7 +12,7 @@ const work = [
   {
     icon: <FaBook className="text-4xl text-blue-600" />,
     title: "Theological Formation",
-    description: "We provide solid theological education and formation for contemplative sisters across English-speaking Africa."
+    description: "We provide solid theological education and formation for contemplative nuns across English-speaking Africa."
   },
   {
     icon: <FaHandHoldingHeart className="text-4xl text-blue-600" />,
