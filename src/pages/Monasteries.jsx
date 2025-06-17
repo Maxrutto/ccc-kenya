@@ -437,7 +437,7 @@ function Monasteries() {
                   />
                   
                   {allMonasteries.map(monastery => (
-                    <Marker 
+                    <Marker
                       key={monastery.id} 
                       position={monastery.coordinates}
                       eventHandlers={{
