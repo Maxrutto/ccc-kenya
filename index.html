@@ -2,12 +2,52 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/jpeg" href="/src/assets/images/logo.jpeg" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Conference of Contemplative Communities of Kenya</title>
+    
+    <!-- Preconnect to Google Fonts for better performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Load Google Fonts directly in HTML for better reliability -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Inline critical font CSS to ensure immediate application -->
+    <style>
+      /* Ensure fonts load immediately with proper hierarchy */
+      * {
+        font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+      }
+      
+      /* Override any potential conflicts for Montserrat */
+      .font-montserrat, 
+      [class*="font-['Montserrat']"],
+      [class*="font-montserrat"] {
+        font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+      }
+      
+      /* Playfair Display for headings */
+      .font-playfair,
+      [class*="font-['Playfair_Display']"],
+      [class*="font-playfair"] {
+        font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif !important;
+      }
+      
+      /* Dancing Script for cursive elements */
+      .font-cursive,
+      [class*="font-cursive"] {
+        font-family: 'Dancing Script', cursive, 'Brush Script MT', fantasy !important;
+        font-style: italic !important;
+        font-weight: 600 !important;
+      }
+      
+      /* Ensure body and html use Montserrat */
+      html, body {
+        font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+      }
+    </style>
+    
+    <title>CCCK Nuns - Conference of Contemplative Communities of Kenya</title>
     <meta name="description" content="Conference of Contemplative Communities of Kenya - An association of Nuns from different monastic traditions established in Kenya">
   </head>
   <body>

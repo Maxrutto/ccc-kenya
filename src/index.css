@@ -1,7 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');
+/* Fonts are now loaded directly in index.html for better reliability */
+
+/* Ensure fonts have fallbacks and load properly */
+@font-face {
+  font-family: 'Montserrat-fallback';
+  src: local('system-ui'), local('-apple-system'), local('BlinkMacSystemFont'), local('Segoe UI'), local('Roboto'), local('Helvetica Neue'), local('Arial');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Playfair-fallback';
+  src: local('Georgia'), local('Times New Roman'), local('Times');
+  font-display: swap;
+}
 
 /* Minimum CSS reset to help with page rendering */
 *, *:before, *:after {
@@ -16,6 +26,7 @@ html {
   width: 100%;
   scroll-padding-top: 80px; /* Add padding for fixed header */
   scroll-behavior: auto; /* Force auto scroll behavior for programmatic scrolling */
+  font-family: 'Montserrat', 'Montserrat-fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
 
 body {
@@ -23,7 +34,7 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Montserrat', 'Montserrat-fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
   color: #333;
   background-color: #f5f8fc;
   overflow-x: hidden; /* Prevent horizontal scrolling */
@@ -36,7 +47,10 @@ body {
   flex-direction: column;
   min-height: 100%;
   width: 100%;
+  font-family: 'Montserrat', 'Montserrat-fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
+
+/* Apply Montserrat as default font family */
 
 @tailwind base;
 @tailwind components;
@@ -71,15 +85,18 @@ body {
 /* Forms styling */
 input, textarea, select {
   @apply bg-white border border-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600;
+  font-family: 'Montserrat', 'Montserrat-fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
 
 label {
   @apply text-gray-700 font-medium mb-1 block;
+  font-family: 'Montserrat', 'Montserrat-fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
 
 /* Button styling */
 button {
   @apply cursor-pointer;
+  font-family: 'Montserrat', 'Montserrat-fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .btn-primary {
@@ -133,6 +150,7 @@ button {
 
   body {
     @apply bg-gradient-to-b from-[var(--primary-blue)] to-white;
+    font-family: 'Montserrat', 'Montserrat-fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
   }
 
   /* Custom Animations */
@@ -153,11 +171,47 @@ button {
   }
 
   .font-cursive {
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Dancing Script', cursive, 'Brush Script MT', fantasy !important;
+    font-style: italic !important;
+    font-weight: 600 !important;
   }
 }
 
+/* Font fallback utilities - these will be used by Tailwind's font-family utilities */
 @layer utilities {
+  /* Override Tailwind's font utilities with proper fallbacks */
+  .font-\[\'Montserrat\'\] {
+    font-family: 'Montserrat', 'Montserrat-fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+  }
+  
+  .font-\[\'Playfair_Display\'\] {
+    font-family: 'Playfair Display', 'Playfair-fallback', Georgia, 'Times New Roman', Times, serif !important;
+  }
+  
+  .font-\[\'Cinzel\'\] {
+    font-family: 'Cinzel', Georgia, 'Times New Roman', Times, serif !important;
+  }
+
+  /* Montserrat fallbacks */
+  .font-montserrat {
+    font-family: 'Montserrat', 'Montserrat-fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+  }
+  
+  /* Playfair Display fallbacks */
+  .font-playfair {
+    font-family: 'Playfair Display', 'Playfair-fallback', Georgia, 'Times New Roman', Times, serif !important;
+  }
+  
+  /* Cinzel fallbacks */
+  .font-cinzel {
+    font-family: 'Cinzel', Georgia, 'Times New Roman', Times, serif !important;
+  }
+  
+  /* Dancing Script fallbacks */
+  .font-dancing {
+    font-family: 'Dancing Script', cursive, 'Brush Script MT', fantasy !important;
+  }
+
   /* Image Loading Animation */
   .blur-up {
     @apply animate-pulse bg-gray-200;
