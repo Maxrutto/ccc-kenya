@@ -1,6 +1,6 @@
 # Conference of Contemplative Communities of Kenya (CCCK)
 
-A website for the Conference of Contemplative Communities of Kenya, featuring information about member monasteries, news, events, and annual meetings.
+A website for the Conference of Contemplative Communities of Kenya, featuring information about member monasteries, news, events, annual meetings, and many more.
 
 ## Features
 
