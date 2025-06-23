@@ -27,7 +27,7 @@ A website for the Conference of Contemplative Communities of Kenya, featuring in
 
 ## Installation
 
-1. Clone the repository:
+1. Cloning the repository:
    ```
    git clone https://github.com/your-username/ccc-kenya.git
    cd ccc-kenya
