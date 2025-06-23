@@ -16,8 +16,8 @@ jobs:
     - name: FTP Deploy
       uses: SamKirkland/FTP-Deploy-Action@v4.3.0
       with:
-        server: ${{ secrets.ftp.cccknunsconference.org }}
-        username: ${{ secrets.feiiqhux }}
-        password: ${{ secrets.IY-BV2vl+052tu }}
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./   # adjust if your site files are in a subfolder
         server-dir: /public_html/  # adjust if your hosting uses a different folder
