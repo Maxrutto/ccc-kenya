@@ -336,15 +336,6 @@ const otherCountriesMonasteries = [
     description: "Monastery of the Holy Church Mbarara Uganda."
   },
   {
-    id: "dominican-bamenda-cameroon",
-    name: "Dominican Nuns",
-    location: "Bamenda",
-    country: "Cameroon",
-    image: "images/Dominican Bambui Cameroon.jpeg",
-    coordinates: [5.9596, 10.1590], // Approximate coordinates
-    description: ""
-  },
-  {
     id: "dominican-bambui-cameroon",
     name: "Dominican Nuns - Monastery of St. Dominic",
     location: "Bambui, Bamenda",
