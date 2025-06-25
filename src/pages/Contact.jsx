@@ -60,11 +60,9 @@ function Contact() {
         reply_to: values.email
       };
 
-      // For now, we'll use a fallback method that works without EmailJS setup
-      // This creates a mailto link that opens the user's email client
-      const mailtoLink = `mailto:ccckmonasteries@gmail.com?subject=${encodeURIComponent(values.subject)}&body=${encodeURIComponent(
-        `From: ${values.name} (${values.email})\n\nMessage:\n${values.message}`
-      )}`;
+      // Create a properly formatted mailto link
+      const emailBody = `From: ${values.name} (${values.email})\n\nMessage:\n${values.message}`;
+      const mailtoLink = `mailto:ccckmonasteries@gmail.com?subject=${encodeURIComponent(values.subject)}&body=${encodeURIComponent(emailBody)}`;
       
       // Try to send via EmailJS first (will fail gracefully if not configured)
       try {
@@ -74,26 +72,50 @@ function Contact() {
           message: 'Thank you! Your message has been sent successfully via our email service.' 
         });
         resetForm();
-             } catch (emailjsError) {
-         // Fallback to mailto if EmailJS fails
-         console.log('EmailJS not configured, using mailto fallback');
-         
-         // Check if the browser supports mailto
-         try {
-           window.open(mailtoLink, '_blank');
-           setStatus({ 
-             success: true, 
-             message: 'Your email client has been opened with a pre-filled message. Please send the email to complete your contact request. If your email client didn\'t open, you can copy this email: ccckmonasteries@gmail.com' 
-           });
-         } catch (mailtoError) {
-           // If mailto also fails, provide manual instructions
-           setStatus({ 
-             success: true, 
-             message: `Please send your message manually to: ccckmonasteries@gmail.com\n\nSubject: ${values.subject}\nFrom: ${values.name} (${values.email})\nMessage: ${values.message}` 
-           });
-         }
-         resetForm();
-       }
+      } catch (emailjsError) {
+        // Fallback to mailto if EmailJS fails
+        console.log('EmailJS not configured, using mailto fallback');
+        
+        // Use multiple approaches to ensure email client opens
+        try {
+          // Method 1: Direct location change (most reliable)
+          window.location.href = mailtoLink;
+          
+          // Show success message with additional instructions
+          setStatus({ 
+            success: true, 
+            message: 'Your email client should open with a pre-filled message. Please send the email to complete your contact request. If no email client opens, please email us directly at ccckmonasteries@gmail.com' 
+          });
+          resetForm();
+          
+        } catch (mailtoError) {
+          console.log('Primary mailto method failed, trying alternative');
+          
+          // Method 2: Create a temporary link and click it
+          try {
+            const tempLink = document.createElement('a');
+            tempLink.href = mailtoLink;
+            tempLink.style.display = 'none';
+            document.body.appendChild(tempLink);
+            tempLink.click();
+            document.body.removeChild(tempLink);
+            
+                         setStatus({ 
+               success: true, 
+               message: 'Your email client should open with a pre-filled message. Please send the email to complete your contact request. If no email client opens, please email us directly at ccckmonasteries@gmail.com' 
+             });
+            resetForm();
+            
+          } catch (linkError) {
+            // Method 3: Provide manual instructions as final fallback
+            setStatus({ 
+              success: true, 
+              message: `Please send your message manually to: ccckmonasteries@gmail.com\n\nSubject: ${values.subject}\nFrom: ${values.name} (${values.email})\nMessage: ${values.message}` 
+            });
+            resetForm();
+          }
+        }
+      }
       
     } catch (error) {
       setStatus({ 
