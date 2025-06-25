@@ -1,9 +1,14 @@
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaFacebook, FaTwitter, FaInstagram, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaInstagram, FaEnvelope, FaPhone, FaMapMarkerAlt, FaCheck } from 'react-icons/fa';
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
     const location = useLocation();
+    const [email, setEmail] = useState('');
+    const [isSubscribed, setIsSubscribed] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [error, setError] = useState('');
     
     // Function to handle section navigation
     const handleSectionNavigation = (e, sectionId) => {
@@ -16,6 +21,64 @@ export default function Footer() {
             }
         }
         // Otherwise let the router and ScrollToTop handle it
+    };
+
+    // Email validation function
+    const validateEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+
+    // Handle newsletter subscription
+    const handleNewsletterSubmit = async (e) => {
+        e.preventDefault();
+        setError('');
+        
+        // Validate email
+        if (!email.trim()) {
+            setError('Please enter your email address');
+            return;
+        }
+        
+        if (!validateEmail(email)) {
+            setError('Please enter a valid email address');
+            return;
+        }
+
+        setIsSubmitting(true);
+
+        try {
+            // Check if already subscribed (using localStorage)
+            const subscribers = JSON.parse(localStorage.getItem('ccck_newsletter_subscribers') || '[]');
+            
+            if (subscribers.includes(email.toLowerCase())) {
+                setError('This email is already subscribed');
+                setIsSubmitting(false);
+                return;
+            }
+
+            // Simulate API call delay for better UX
+            await new Promise(resolve => setTimeout(resolve, 1000));
+
+            // Add to localStorage (simulating backend storage)
+            subscribers.push(email.toLowerCase());
+            localStorage.setItem('ccck_newsletter_subscribers', JSON.stringify(subscribers));
+
+            // Show success state
+            setIsSubscribed(true);
+            setEmail('');
+
+            // Reset success state after 3 seconds
+            setTimeout(() => {
+                setIsSubscribed(false);
+            }, 3000);
+
+        } catch (error) {
+            setError('Something went wrong. Please try again.');
+            console.error('Newsletter subscription error:', error);
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -109,16 +172,52 @@ export default function Footer() {
                         </div>
                         <div className="mt-6">
                             <h4 className="font-['Montserrat'] font-semibold mb-2 text-gray-700">Newsletter</h4>
-                            <div className="flex">
-                                <input 
-                                    type="email" 
-                                    placeholder="Your email"
-                                    className="py-2 px-3 border border-gray-300 rounded-l focus:outline-none focus:border-blue-500 font-['Montserrat']"
-                                />
-                                <button className="bg-blue-600 text-white py-2 px-4 rounded-r hover:bg-blue-700 transition-all font-['Montserrat']">
-                                    Subscribe
-                                </button>
-                            </div>
+                            
+                            {/* Success notification */}
+                            {isSubscribed && (
+                                <div className="mb-3 p-3 bg-green-100 border border-green-300 rounded-lg flex items-center">
+                                    <FaCheck className="text-green-600 mr-2" />
+                                    <span className="text-green-800 font-['Montserrat'] text-sm font-medium">
+                                        Subscribed! Thank you for joining our newsletter.
+                                    </span>
+                                </div>
+                            )}
+
+                            {/* Error message */}
+                            {error && (
+                                <div className="mb-3 p-2 bg-red-100 border border-red-300 rounded text-red-700 text-sm font-['Montserrat']">
+                                    {error}
+                                </div>
+                            )}
+
+                            <form onSubmit={handleNewsletterSubmit} className="space-y-3">
+                                <div className="flex">
+                                    <input 
+                                        type="email" 
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        placeholder="Your email"
+                                        disabled={isSubmitting || isSubscribed}
+                                        className={`flex-1 py-2 px-3 border rounded-l focus:outline-none focus:border-blue-500 font-['Montserrat'] text-sm transition-all ${
+                                            error ? 'border-red-300' : 'border-gray-300'
+                                        } ${isSubmitting || isSubscribed ? 'bg-gray-100 cursor-not-allowed' : 'bg-white'}`}
+                                    />
+                                    <button 
+                                        type="submit"
+                                        disabled={isSubmitting || isSubscribed}
+                                        className={`py-2 px-4 rounded-r transition-all font-['Montserrat'] text-sm font-medium ${
+                                            isSubmitting || isSubscribed 
+                                                ? 'bg-gray-400 cursor-not-allowed' 
+                                                : 'bg-blue-600 hover:bg-blue-700'
+                                        } text-white`}
+                                    >
+                                        {isSubmitting ? 'Subscribing...' : isSubscribed ? 'Subscribed!' : 'Subscribe'}
+                                    </button>
+                                </div>
+                                <p className="text-xs text-gray-500 font-['Montserrat']">
+                                    Stay updated with our latest news and events
+                                </p>
+                            </form>
                         </div>
                     </div>
                 </div>

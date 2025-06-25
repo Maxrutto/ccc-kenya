@@ -322,7 +322,7 @@ const otherCountriesMonasteries = [
     name: "Servants of the Holy Spirit of Perpetual Adoration Nuns",
     location: "Lome",
     country: "Togo",
-    image: "images/Order of the Holy Spirit [Comendadoras].jpg",
+    image: "images/placeholder.jpeg",
     coordinates: [6.1375, 1.2123], // Approximate coordinates
     description: ""
   },
@@ -482,10 +482,12 @@ function Monasteries() {
                     <img 
                       src={monastery.image} 
                       alt={monastery.name}
-                      className={`w-full h-full object-cover transition-transform hover:scale-105 duration-500 ${
-                        monastery.id === "perpetual-adorers-isiolo" || monastery.id === "perpetual-adorers-karima" ? "object-top" : 
-                        monastery.id === "holy-spirit-nairobi" ? "object-top" : 
-                        monastery.id === "carmelite-ancient-juja" ? "object-top" : ""
+                      className={`w-full h-full transition-transform hover:scale-105 duration-500 ${
+                        monastery.id === "carmelite-ancient-kitui" ? "object-cover object-center" : 
+                        monastery.id === "perpetual-adorers-isiolo" || monastery.id === "perpetual-adorers-karima" ? "object-cover object-top" : 
+                        monastery.id === "holy-spirit-nairobi" ? "object-cover object-top" : 
+                        monastery.id === "carmelite-ancient-juja" ? "object-cover object-top" : 
+                        "object-cover"
                       }`}
                       loading="lazy"
                       decoding="async"
@@ -530,9 +532,11 @@ function Monasteries() {
                     <img 
                       src={monastery.image} 
                       alt={monastery.name}
-                      className={`w-full h-full object-cover transition-transform hover:scale-105 duration-500 ${
-                        monastery.id === "perpetual-adorers-isiolo" || monastery.id === "perpetual-adorers-karima" ? "object-top" : 
-                        monastery.id === "holy-spirit-nairobi" ? "object-top" : ""
+                      className={`w-full h-full transition-transform hover:scale-105 duration-500 ${
+                        monastery.id === "carmelite-ancient-kitui" ? "object-cover object-center" : 
+                        monastery.id === "perpetual-adorers-isiolo" || monastery.id === "perpetual-adorers-karima" ? "object-cover object-top" : 
+                        monastery.id === "holy-spirit-nairobi" ? "object-cover object-top" : 
+                        "object-cover"
                       }`}
                       loading="lazy"
                       decoding="async"

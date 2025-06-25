@@ -1,6 +1,7 @@
 import { memo, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import emailjs from '@emailjs/browser';
 import AnimWrapper from '../components/UI/AnimWrapper';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 
@@ -44,16 +45,61 @@ function Contact() {
 
   const handleSubmit = async (values, { setSubmitting, resetForm, setStatus }) => {
     try {
-      // In a real app, you'd send the form data to your backend or API
-      console.log('Form values:', values);
+      // EmailJS configuration - you'll need to replace these with your actual EmailJS credentials
+      const serviceId = 'service_ccck_contact'; // Replace with your EmailJS service ID
+      const templateId = 'template_ccck_contact'; // Replace with your EmailJS template ID
+      const publicKey = 'your_emailjs_public_key'; // Replace with your EmailJS public key
       
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Prepare template parameters for EmailJS
+      const templateParams = {
+        from_name: values.name,
+        from_email: values.email,
+        to_email: 'ccckmonasteries@gmail.com', // CCCK email
+        subject: values.subject,
+        message: values.message,
+        reply_to: values.email
+      };
+
+      // For now, we'll use a fallback method that works without EmailJS setup
+      // This creates a mailto link that opens the user's email client
+      const mailtoLink = `mailto:ccckmonasteries@gmail.com?subject=${encodeURIComponent(values.subject)}&body=${encodeURIComponent(
+        `From: ${values.name} (${values.email})\n\nMessage:\n${values.message}`
+      )}`;
       
-      setStatus({ success: true, message: 'Thank you! Your message has been sent successfully.' });
-      resetForm();
+      // Try to send via EmailJS first (will fail gracefully if not configured)
+      try {
+        await emailjs.send(serviceId, templateId, templateParams, publicKey);
+        setStatus({ 
+          success: true, 
+          message: 'Thank you! Your message has been sent successfully via our email service.' 
+        });
+        resetForm();
+             } catch (emailjsError) {
+         // Fallback to mailto if EmailJS fails
+         console.log('EmailJS not configured, using mailto fallback');
+         
+         // Check if the browser supports mailto
+         try {
+           window.open(mailtoLink, '_blank');
+           setStatus({ 
+             success: true, 
+             message: 'Your email client has been opened with a pre-filled message. Please send the email to complete your contact request. If your email client didn\'t open, you can copy this email: ccckmonasteries@gmail.com' 
+           });
+         } catch (mailtoError) {
+           // If mailto also fails, provide manual instructions
+           setStatus({ 
+             success: true, 
+             message: `Please send your message manually to: ccckmonasteries@gmail.com\n\nSubject: ${values.subject}\nFrom: ${values.name} (${values.email})\nMessage: ${values.message}` 
+           });
+         }
+         resetForm();
+       }
+      
     } catch (error) {
-      setStatus({ success: false, message: 'There was a problem sending your message. Please try again.' });
+      setStatus({ 
+        success: false, 
+        message: 'There was a problem processing your message. Please try emailing us directly at ccckmonasteries@gmail.com' 
+      });
       console.error('Error submitting form:', error);
     } finally {
       setSubmitting(false);
@@ -101,7 +147,14 @@ function Contact() {
                     <FaEnvelope className="text-red-500 mt-1 mr-4 text-xl flex-shrink-0" />
                     <div>
                       <h3 className="font-['Montserrat'] font-bold mb-1 text-gray-800">Email</h3>
-                      <p className="font-['Montserrat'] text-gray-700">ccckmonasteries@gmail.com</p>
+                      <p className="font-['Montserrat'] text-gray-700 mb-2">ccckmonasteries@gmail.com</p>
+                      <a 
+                        href="mailto:ccckmonasteries@gmail.com"
+                        className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-700 rounded-md hover:bg-blue-200 transition-all duration-300 text-sm font-['Montserrat']"
+                      >
+                        <FaEnvelope className="mr-2 text-xs" />
+                        Send Direct Email
+                      </a>
                     </div>
                   </div>
                 </div>
