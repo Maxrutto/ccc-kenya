@@ -84,7 +84,7 @@ function Work() {
                   {
                     icon: <FaUsers className="text-3xl text-blue-600 mt-1 mr-4 flex-shrink-0" />,
                     title: "Capacity Building Courses for Superiors",
-                    content: "Every year the superiors from all the 34 plus monasteries in Africa meet in Nairobi for a week of study and sharing. Helped by an expert, the superiors explore different topics to keep themselves updated and possibly learn new ways of leadership and administration."
+                    content: "Every year the superiors and formators from all the 34 plus member monasteries in Africa meet in Nairobi to study and share. Helped by an expert, the superiors and formators explore different topics to keep themselves updated and possibly learn new ways of leadership and administration."
                   },
                   {
                     icon: <FaShieldAlt className="text-3xl text-blue-600 mt-1 mr-4 flex-shrink-0" />,
