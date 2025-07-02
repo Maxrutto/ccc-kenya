@@ -18,13 +18,8 @@ const Partners = () => {
     },
     {
       id: 'hilton',
-      name: 'HILTON FOUNDATION',
+      name: 'CONRAD N. HILTON FOUNDATION',
       logo: 'images/Hilton foundation.jpg',
-    },
-    {
-      id: 'dicastery',
-      name: 'THE DICASTERY FOR THE CONSECRATED LIFE - DICLSAL – ROME',
-      logo: 'images/Secretariat for the Assistance of nuns (SAM).jpg',
     },
     {
       id: 'sam',
@@ -41,11 +36,6 @@ const Partners = () => {
       name: 'CHEMICHEMI PASTORAL COLLEGE',
       logo: 'images/Chemichemi ya Uzima College 2.jpg',
     },
-    {
-      id: 'tangaza',
-      name: 'TANGAZA UNIVERSITY',
-      logo: 'images/Tangaza University College 2.jpg',
-    }
   ];
 
   // CCCK Friends data (detailed section)
