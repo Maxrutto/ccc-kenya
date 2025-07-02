@@ -42,6 +42,79 @@ const categories = [
 // Static list of news articles
 const newsArticles = [
   {
+    _id: 'news-new-1',
+    title: 'CCCK Annual Executive Meeting Begins September 23rd',
+    slug: { current: 'ccck-annual-meeting-2024' },
+    excerpt: 'From the 23rd of September, CCCK will begin its annual executive meeting at Dimese Sisters with opening mass by Rev. Bishop Dominic Kimengich.',
+    body: [
+      { 
+        _type: 'block', 
+        children: [
+          { _type: 'span', text: 'From the 23rd of September, the conference of contemplative communities of Kenya -CCCK will begin its annual executive meeting at Dimese Sisters with the opening mass by Rev. Bishop Dominic Kimengich of the Catholic Diocese of Eldoret.' }
+        ] 
+      }
+    ],
+    mainImage: { asset: { _ref: 'image-1' } },
+    publishedAt: '2024-09-20T00:00:00Z',
+    categories: [
+      { _id: 'cat-1', title: 'Events' },
+      { _id: 'cat-4', title: 'Announcements' }
+    ],
+    author: {
+      name: 'CCCK Communications',
+      image: { asset: { _ref: 'image-1' } }
+    }
+  },
+  {
+    _id: 'news-new-2',
+    title: 'CCCK 10th Anniversary Celebration - September 29, 2025',
+    slug: { current: 'ccck-10th-anniversary-2025' },
+    excerpt: 'The celebration for the 10th anniversary of CCCK foundation will be on September 29th, 2025, with mass presided by Archbishop Philip Anyolo.',
+    body: [
+      { 
+        _type: 'block', 
+        children: [
+          { _type: 'span', text: 'The celebration for the 10th anniversary of the foundation of CCCK will be on the 29th September 2025. The mass will be presided over by the arch bishop of Nairobi, His Grace Archbishop Philip Anyolo.' }
+        ] 
+      }
+    ],
+    mainImage: { asset: { _ref: 'image-2' } },
+    publishedAt: '2024-09-19T00:00:00Z',
+    categories: [
+      { _id: 'cat-1', title: 'Events' },
+      { _id: 'cat-4', title: 'Announcements' }
+    ],
+    author: {
+      name: 'CCCK Communications',
+      image: { asset: { _ref: 'image-1' } }
+    }
+  },
+  {
+    _id: 'news-new-3',
+    title: 'First VENITE SEORSUM Program Graduates to Receive Certificates',
+    slug: { current: 'venite-seorsum-graduates-2024' },
+    excerpt: 'The first group of sisters completing the three-year VENITE SEORSUM THEOLOGY PROGRAM will receive certificates on September 29th.',
+    body: [
+      { 
+        _type: 'block', 
+        children: [
+          { _type: 'span', text: 'On 29th September the first group of sisters, the beneficiaries of the VENITE SEORSUM THEOLOGY PROGRAM for contemplative nuns will be gifted and given certificates upon completion of their three year program which began in 2023.' }
+        ] 
+      }
+    ],
+    mainImage: { asset: { _ref: 'image-3' } },
+    publishedAt: '2024-09-18T00:00:00Z',
+    categories: [
+      { _id: 'cat-1', title: 'Events' },
+      { _id: 'cat-2', title: 'Formation' },
+      { _id: 'cat-4', title: 'Announcements' }
+    ],
+    author: {
+      name: 'CCCK Communications',
+      image: { asset: { _ref: 'image-1' } }
+    }
+  },
+  {
     _id: 'news-1',
     title: 'Annual Contemplative Conference 2023',
     slug: { current: 'annual-conference-2023' },

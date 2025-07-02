@@ -186,10 +186,6 @@ function News() {
                       {item.excerpt && (
                         <p className="text-gray-600 mb-4 font-['Montserrat']">{item.excerpt}</p>
                       )}
-                      
-                      <button className="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300 text-sm font-['Montserrat']">
-                        Read More
-                      </button>
                     </div>
                   </div>
                 ))
