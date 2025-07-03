@@ -33,13 +33,15 @@ jobs:
         echo "Total build size:"
         du -sh dist/
 
-    - name: SFTP Deploy to Truehost
-      uses: pressidium/lftp-mirror-action@v1
-      with:
-        host: 102.212.247.186
-        user: ${{ secrets.FTP_USERNAME }}
-        pass: ${{ secrets.FTP_PASSWORD }}
-        port: 1624
-        localDir: './dist/'
-        remoteDir: '/public_html/'
-        options: '--verbose --only-newer'
+    - name: Install sshpass for password authentication
+      run: sudo apt-get update && sudo apt-get install -y sshpass
+
+    - name: Deploy to Truehost via SFTP
+      run: |
+        echo "Testing connection to Truehost..."
+        sshpass -p "${{ secrets.FTP_PASSWORD }}" ssh -o StrictHostKeyChecking=no -p 1624 ${{ secrets.FTP_USERNAME }}@102.212.247.186 "pwd && ls -la"
+        
+        echo "Uploading files via rsync over SSH..."
+        sshpass -p "${{ secrets.FTP_PASSWORD }}" rsync -avz -e "ssh -o StrictHostKeyChecking=no -p 1624" ./dist/ ${{ secrets.FTP_USERNAME }}@102.212.247.186:/public_html/
+        
+        echo "Deployment completed!"
