@@ -1,16 +1,14 @@
 # Conference of Contemplative Communities of Kenya (CCCK)
 
-A website for the Conference of Contemplative Communities of Kenya, featuring information about member monasteries, news, events, annual meetings, and many more.
+A React website for the Conference of Contemplative Communities of Kenya, showcasing member monasteries, news, and spiritual resources.
 
 ## Features
 
-- Responsive design for all device sizes
-- Beautiful typography with custom fonts
-- Image slider with automatic and manual navigation
-- Interactive monasteries map
-- News and events section
-- Annual meetings timeline
-- Contact form
+- Responsive design optimized for all devices
+- Image galleries and interactive maps
+- News and events management
+- Contact forms with email integration
+- Multi-language support preparation
 
 ## Tech Stack
 
@@ -42,7 +40,8 @@ A website for the Conference of Contemplative Communities of Kenya, featuring in
 
 To run the project in development mode:
 
-```
+```bash
+npm install
 npm run dev
 ```
 
@@ -62,13 +61,9 @@ This will:
 
 ## Deployment
 
-To preview the production build locally:
+The site automatically deploys to Truehost hosting via GitHub Actions when pushing to the main branch.
 
-```
-npm run preview
-```
-
-To deploy to a server, upload the contents of the `dist` folder to your hosting provider.
+<!-- Deployment trigger: 2024-12-19 -->
 
 ## Project Structure
 
