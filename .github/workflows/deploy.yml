@@ -1,37 +1,55 @@
-name: Build and Deploy to Truehost
+name: Deploy to Truehost
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
-
+    
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-
+    - uses: actions/checkout@v4
+    
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '18'
         cache: 'npm'
-
+    
     - name: Install dependencies
       run: npm ci
-
-    - name: Build project
+    
+    - name: Build
       run: npm run build
-
-    - name: Deploy via SFTP using lftp
+    
+    - name: Deploy via SFTP (Primary)
+      id: sftp_deploy
+      continue-on-error: true
       run: |
         sudo apt-get update && sudo apt-get install -y lftp
+        echo "Attempting SFTP deployment to 102.212.247.186:1624"
         lftp -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} -p 1624 sftp://102.212.247.186 <<EOF
         set sftp:auto-confirm yes
         set ssl:verify-certificate no
+        set net:timeout 60
+        set net:max-retries 3
+        debug 3
+        mirror -R ./dist/ /public_html/
+        bye
+        EOF
+    
+    - name: Deploy via FTP (Fallback)
+      if: steps.sftp_deploy.outcome == 'failure'
+      run: |
+        echo "SFTP failed, trying FTP fallback to ftp.cccknunsconference.org:21"
+        lftp -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ftp://ftp.cccknunsconference.org <<EOF
+        set ssl:verify-certificate no
+        set net:timeout 60
+        set net:max-retries 3
+        debug 3
         mirror -R ./dist/ /public_html/
         bye
         EOF
