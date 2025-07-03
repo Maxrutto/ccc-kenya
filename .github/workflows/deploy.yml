@@ -25,15 +25,91 @@ jobs:
     - name: Build project
       run: npm run build
     
-    - name: Deploy via SFTP
+    - name: Test server connectivity
       run: |
-        sudo apt-get update && sudo apt-get install -y lftp
-        echo "Deploying to SFTP server 102.212.247.186:1624"
+        echo "Testing connectivity to servers..."
+        echo "Testing SFTP server 102.212.247.186:1624"
+        timeout 30 bash -c "</dev/tcp/102.212.247.186/1624" && echo "SFTP port 1624 is reachable" || echo "SFTP port 1624 is NOT reachable"
+        
+        echo "Testing FTP server ftp.cccknunsconference.org:21"
+        timeout 30 bash -c "</dev/tcp/ftp.cccknunsconference.org/21" && echo "FTP port 21 is reachable" || echo "FTP port 21 is NOT reachable"
+    
+    - name: Deploy with enhanced SFTP
+      id: enhanced_sftp
+      continue-on-error: true
+      run: |
+        sudo apt-get update && sudo apt-get install -y lftp openssh-client
+        echo "Attempting enhanced SFTP deployment..."
+        
         lftp -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} -p 1624 sftp://102.212.247.186 <<EOF
         set sftp:auto-confirm yes
         set ssl:verify-certificate no
-        set net:timeout 60
-        set net:max-retries 3
+        set net:timeout 30
+        set net:max-retries 1
+        set net:reconnect-interval-base 5
+        set net:reconnect-interval-max 10
+        set cmd:parallel 1
+        debug 9
+        open sftp://102.212.247.186:1624
+        user ${{ secrets.FTP_USERNAME }} ${{ secrets.FTP_PASSWORD }}
+        mirror -R --delete --verbose ./dist/ /public_html/
+        bye
+        EOF
+    
+    - name: Deploy with basic SFTP (fallback 1)
+      if: steps.enhanced_sftp.outcome == 'failure'
+      id: basic_sftp
+      continue-on-error: true
+      run: |
+        echo "Enhanced SFTP failed, trying basic SFTP..."
+        lftp <<EOF
+        set sftp:auto-confirm yes
+        set ssl:verify-certificate no
+        open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} sftp://102.212.247.186:1624
         mirror -R ./dist/ /public_html/
         bye
         EOF
+    
+    - name: Deploy with FTP (fallback 2)
+      if: steps.basic_sftp.outcome == 'failure'
+      id: ftp_deploy
+      continue-on-error: true
+      run: |
+        echo "SFTP failed, trying regular FTP..."
+        lftp -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ftp://ftp.cccknunsconference.org <<EOF
+        set ssl:verify-certificate no
+        set ftp:passive-mode on
+        set net:timeout 30
+        debug 3
+        mirror -R --delete --verbose ./dist/ /public_html/
+        bye
+        EOF
+    
+    - name: Deploy with FTP alternative server (fallback 3)
+      if: steps.ftp_deploy.outcome == 'failure'
+      id: ftp_alt
+      continue-on-error: true
+      run: |
+        echo "Regular FTP failed, trying alternative FTP approach..."
+        lftp <<EOF
+        set ssl:verify-certificate no
+        set ftp:passive-mode off
+        open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ftp://102.212.247.186:21
+        mirror -R ./dist/ /public_html/
+        bye
+        EOF
+    
+    - name: Check deployment status
+      run: |
+        if [ "${{ steps.enhanced_sftp.outcome }}" = "success" ]; then
+          echo "✅ Deployment successful via Enhanced SFTP"
+        elif [ "${{ steps.basic_sftp.outcome }}" = "success" ]; then
+          echo "✅ Deployment successful via Basic SFTP"  
+        elif [ "${{ steps.ftp_deploy.outcome }}" = "success" ]; then
+          echo "✅ Deployment successful via FTP"
+        elif [ "${{ steps.ftp_alt.outcome }}" = "success" ]; then
+          echo "✅ Deployment successful via Alternative FTP"
+        else
+          echo "❌ All deployment methods failed"
+          exit 1
+        fi
