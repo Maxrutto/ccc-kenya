@@ -1,17 +1,17 @@
-name: Deploy to Truehost
+name: Build and Deploy to Truehost
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
     
     - name: Setup Node.js
       uses: actions/setup-node@v4
@@ -22,34 +22,14 @@ jobs:
     - name: Install dependencies
       run: npm ci
     
-    - name: Build
+    - name: Build project
       run: npm run build
     
-    - name: Deploy via SFTP (Primary)
-      id: sftp_deploy
-      continue-on-error: true
-      run: |
-        sudo apt-get update && sudo apt-get install -y lftp
-        echo "Attempting SFTP deployment to 102.212.247.186:1624"
-        lftp -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} -p 1624 sftp://102.212.247.186 <<EOF
-        set sftp:auto-confirm yes
-        set ssl:verify-certificate no
-        set net:timeout 60
-        set net:max-retries 3
-        debug 3
-        mirror -R ./dist/ /public_html/
-        bye
-        EOF
-    
-    - name: Deploy via FTP (Fallback)
-      if: steps.sftp_deploy.outcome == 'failure'
-      run: |
-        echo "SFTP failed, trying FTP fallback to ftp.cccknunsconference.org:21"
-        lftp -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ftp://ftp.cccknunsconference.org <<EOF
-        set ssl:verify-certificate no
-        set net:timeout 60
-        set net:max-retries 3
-        debug 3
-        mirror -R ./dist/ /public_html/
-        bye
-        EOF
+    - name: Deploy to Truehost
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./dist/
+        server-dir: /public_html/
