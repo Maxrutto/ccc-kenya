@@ -33,14 +33,14 @@ jobs:
         echo "Total build size:"
         du -sh dist/
 
-    - name: SFTP Deploy to Truehost
+    - name: FTPS Deploy to Truehost
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: 102.212.247.186
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         port: 1624
-        protocol: sftp
+        protocol: ftps
         local-dir: ./dist/
         server-dir: /public_html/
         state-name: sync-state.json
