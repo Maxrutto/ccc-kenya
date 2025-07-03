@@ -8,6 +8,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 20  # Reasonable timeout for the entire job
 
     steps:
     - name: Checkout code
@@ -26,6 +27,8 @@ jobs:
       run: npm run build
 
     - name: FTP Deploy Built Files
+      id: ftp-deploy
+      continue-on-error: true  # Allow job to continue if this fails
       uses: SamKirkland/FTP-Deploy-Action@v4.3.0
       with:
         server: ${{ secrets.FTP_SERVER }}
@@ -33,7 +36,34 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./dist/   # Vite builds to 'dist' folder
         server-dir: /public_html/  # adjust if your hosting uses a different folder
+        protocol: ftp
+        port: 21
+        log-level: verbose  # Enable verbose logging for debugging
+        dangerous-clean-slate: false  # Don't delete everything first
+        dry-run: false
         exclude: |
           **/.git*
           **/.git*/**
           **/node_modules/**
+          **/.env*
+          **/README.md
+          **/*.log
+          **/*.DS_Store
+
+    - name: Alternative FTP Deploy (if first attempt failed)
+      if: steps.ftp-deploy.outcome == 'failure'
+      uses: sebastianpopp/ftp-action@releases/v2
+      with:
+        host: ${{ secrets.FTP_SERVER }}
+        user: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        localDir: "dist"
+        remoteDir: "/public_html"
+
+    - name: Deployment Status
+      run: |
+        if [ "${{ steps.ftp-deploy.outcome }}" == "success" ]; then
+          echo "✅ Primary FTP deployment successful"
+        elif [ "${{ steps.ftp-deploy.outcome }}" == "failure" ]; then
+          echo "⚠️ Primary FTP deployment failed, attempted alternative method"
+        fi
