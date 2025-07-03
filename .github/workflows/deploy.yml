@@ -8,7 +8,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 15
 
     steps:
     - name: Checkout code
@@ -33,12 +33,14 @@ jobs:
         echo "Total build size:"
         du -sh dist/
 
-    - name: FTP Deploy to Truehost
+    - name: SFTP Deploy to Truehost
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        server: ${{ secrets.FTP_SERVER }}
+        server: 102.212.247.186
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
+        port: 1624
+        protocol: sftp
         local-dir: ./dist/
         server-dir: /public_html/
         state-name: sync-state.json
@@ -47,3 +49,5 @@ jobs:
           **/node_modules/**
           **/.DS_Store
           **/Thumbs.db
+        timeout: 60000
+        log-level: verbose
