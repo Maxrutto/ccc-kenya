@@ -12,7 +12,6 @@ const images = [
   { url: 'images/New image 1.jpeg', alt: 'CCC Kenya New Image 1' },
   { url: 'images/New image 2.jpeg', alt: 'CCC Kenya New Image 2' },
   { url: 'images/New image 3.jpeg', alt: 'CCC Kenya New Image 3' },
-  { url: 'images/New image 4.jpeg', alt: 'CCC Kenya New Image 4' },
   { url: 'images/New image 5.jpeg', alt: 'CCC Kenya New Image 5' },
   { url: 'images/image2.jpeg', alt: 'CCC Kenya Community' },
   { url: 'images/image3.jpeg', alt: 'CCC Kenya Community' },
