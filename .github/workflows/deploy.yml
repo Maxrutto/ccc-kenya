@@ -8,7 +8,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 15  # Shorter timeout
+    timeout-minutes: 20
 
     steps:
     - name: Checkout code
@@ -26,14 +26,24 @@ jobs:
     - name: Build project
       run: npm run build
 
-    - name: Simple FTP Deploy
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.0
+    - name: Verify build output
+      run: |
+        echo "Build completed. Checking output:"
+        ls -la dist/
+        echo "Total build size:"
+        du -sh dist/
+
+    - name: FTP Deploy to Truehost
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./dist/
         server-dir: /public_html/
+        state-name: sync-state.json
         exclude: |
           **/.git*
           **/node_modules/**
+          **/.DS_Store
+          **/Thumbs.db

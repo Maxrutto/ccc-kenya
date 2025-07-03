@@ -63,7 +63,7 @@ This will:
 
 The site automatically deploys to Truehost hosting via GitHub Actions when pushing to the main branch.
 
-<!-- Deployment trigger: 2024-12-19 -->
+<!-- Deployment test: 2024-12-19 - Testing FTP connectivity -->
 
 ## Project Structure
 
