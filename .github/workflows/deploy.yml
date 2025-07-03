@@ -33,21 +33,13 @@ jobs:
         echo "Total build size:"
         du -sh dist/
 
-    - name: FTPS Deploy to Truehost
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+    - name: SFTP Deploy to Truehost
+      uses: pressidium/lftp-mirror-action@v1
       with:
-        server: 102.212.247.186
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
+        host: 102.212.247.186
+        user: ${{ secrets.FTP_USERNAME }}
+        pass: ${{ secrets.FTP_PASSWORD }}
         port: 1624
-        protocol: ftps
-        local-dir: ./dist/
-        server-dir: /public_html/
-        state-name: sync-state.json
-        exclude: |
-          **/.git*
-          **/node_modules/**
-          **/.DS_Store
-          **/Thumbs.db
-        timeout: 60000
-        log-level: verbose
+        localDir: './dist/'
+        remoteDir: '/public_html/'
+        options: '--verbose --only-newer'
