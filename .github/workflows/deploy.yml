@@ -25,11 +25,15 @@ jobs:
     - name: Build project
       run: npm run build
     
-    - name: Deploy to Truehost
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-      with:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./dist/
-        server-dir: /public_html/
+    - name: Deploy via SFTP
+      run: |
+        sudo apt-get update && sudo apt-get install -y lftp
+        echo "Deploying to SFTP server 102.212.247.186:1624"
+        lftp -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} -p 1624 sftp://102.212.247.186 <<EOF
+        set sftp:auto-confirm yes
+        set ssl:verify-certificate no
+        set net:timeout 60
+        set net:max-retries 3
+        mirror -R ./dist/ /public_html/
+        bye
+        EOF
