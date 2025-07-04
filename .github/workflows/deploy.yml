@@ -1,4 +1,4 @@
-name: Build and Deploy to Truehost
+name: Build and Deploy to Truehost.
 
 on:
   push:
