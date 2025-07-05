@@ -12,7 +12,7 @@ A React website for the Conference of Contemplative Communities of Kenya, showca
 - Image galleries and interactive maps
 - News and events management
 - Contact forms with email integration
-- Multi-language support preparation
+- Multi-language support preparations
 
 ## Tech Stack
 
