@@ -8,11 +8,11 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    
+
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
@@ -41,7 +41,7 @@ jobs:
         sudo apt-get update && sudo apt-get install -y lftp openssh-client
         echo "Attempting enhanced SFTP deployment..."
         
-        lftp -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} -p 1624 sftp://102.212.247.186 <<EOF
+        lftp <<EOF
         set sftp:auto-confirm yes
         set ssl:verify-certificate no
         set net:timeout 30
@@ -50,8 +50,7 @@ jobs:
         set net:reconnect-interval-max 10
         set cmd:parallel 1
         debug 9
-        open sftp://102.212.247.186:1624
-        user ${{ secrets.FTP_USERNAME }} ${{ secrets.FTP_PASSWORD }}
+        open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} sftp://102.212.247.186:1624
         mirror -R --delete --verbose ./dist/ /public_html/
         bye
         EOF
