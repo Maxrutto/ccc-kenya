@@ -191,12 +191,12 @@ export default function Footer() {
                             )}
 
                             <form onSubmit={handleNewsletterSubmit} className="space-y-3">
-                                <div className="flex">
-                                    <input 
-                                        type="email" 
+                            <div className="flex">
+                                <input 
+                                    type="email" 
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
-                                        placeholder="Your email"
+                                    placeholder="Your email"
                                         disabled={isSubmitting || isSubscribed}
                                         className={`flex-1 py-2 px-3 border rounded-l focus:outline-none focus:border-blue-500 font-['Montserrat'] text-sm transition-all ${
                                             error ? 'border-red-300' : 'border-gray-300'
@@ -212,8 +212,8 @@ export default function Footer() {
                                         } text-white`}
                                     >
                                         {isSubmitting ? 'Subscribing...' : isSubscribed ? 'Subscribed!' : 'Subscribe'}
-                                    </button>
-                                </div>
+                                </button>
+                            </div>
                                 <p className="text-xs text-gray-500 font-['Montserrat']">
                                     Stay updated with our latest news and events
                                 </p>

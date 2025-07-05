@@ -59,7 +59,7 @@ function Contact() {
         message: values.message,
         reply_to: values.email
       };
-
+      
       // Create a properly formatted mailto link
       const emailBody = `From: ${values.name} (${values.email})\n\nMessage:\n${values.message}`;
       const mailtoLink = `mailto:ccckmonasteries@gmail.com?subject=${encodeURIComponent(values.subject)}&body=${encodeURIComponent(emailBody)}`;
@@ -112,7 +112,7 @@ function Contact() {
               success: true, 
               message: `Please send your message manually to: ccckmonasteries@gmail.com\n\nSubject: ${values.subject}\nFrom: ${values.name} (${values.email})\nMessage: ${values.message}` 
             });
-            resetForm();
+      resetForm();
           }
         }
       }

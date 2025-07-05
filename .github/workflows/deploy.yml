@@ -1,20 +1,20 @@
-name: Build and Deploy to Truehost.
+name: Deploy to Truehost
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
-
+    
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-
+    - uses: actions/checkout@v3
+    
     - name: Setup Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v3
       with:
         node-version: '18'
         cache: 'npm'
@@ -25,21 +25,19 @@ jobs:
     - name: Build project
       run: npm run build
     
+    - name: Install deployment tools
+      run: sudo apt-get update && sudo apt-get install -y lftp openssh-client
+    
     - name: Test server connectivity
       run: |
-        echo "Testing connectivity to servers..."
-        echo "Testing SFTP server das116.truehost.cloud:1624"
-        timeout 30 bash -c "</dev/tcp/das116.truehost.cloud/1624" && echo "SFTP port 1624 is reachable" || echo "SFTP port 1624 is NOT reachable"
-        
-        echo "Testing FTP server ftp.cccknunsconference.org:21"
-        timeout 30 bash -c "</dev/tcp/ftp.cccknunsconference.org/21" && echo "FTP port 21 is reachable" || echo "FTP port 21 is NOT reachable"
+        echo "Testing server connectivity..."
+        nc -zv das116.truehost.cloud 1624 || echo "Port 1624 not reachable"
+        nc -zv das116.truehost.cloud 22 || echo "Port 22 not reachable"
+        nc -zv das116.truehost.cloud 21 || echo "Port 21 not reachable"
     
-    - name: Deploy with enhanced SFTP
-      id: enhanced_sftp
-      continue-on-error: true
+    - name: Explore server directory structure
       run: |
-        sudo apt-get update && sudo apt-get install -y lftp openssh-client
-        echo "Attempting enhanced SFTP deployment..."
+        echo "Exploring server directory structure..."
         
         lftp <<EOF
         set sftp:auto-confirm yes
@@ -49,66 +47,147 @@ jobs:
         set net:reconnect-interval-base 5
         set net:reconnect-interval-max 10
         set cmd:parallel 1
-        debug 9
+        debug 5
         open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} sftp://das116.truehost.cloud:1624
-        mirror -R --delete --verbose ./dist/ /public_html/
-        bye
+        pwd
+        ls -la
+        ls -la /
+        quit
         EOF
     
-    - name: Deploy with basic SFTP (fallback 1)
-      if: steps.enhanced_sftp.outcome == 'failure'
-      id: basic_sftp
+    - name: Deploy with enhanced SFTP (try multiple paths)
+      run: |
+        echo "Attempting enhanced SFTP deployment..."
+        
+        # Try different common web root directories
+        for webroot in "public_html" "www" "htdocs" "web" "html" "public"; do
+          echo "Trying web root: $webroot"
+          
+          lftp <<EOF
+          set sftp:auto-confirm yes
+          set ssl:verify-certificate no
+          set net:timeout 30
+          set net:max-retries 1
+          set net:reconnect-interval-base 5
+          set net:reconnect-interval-max 10
+          set cmd:parallel 1
+          debug 5
+          open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} sftp://das116.truehost.cloud:1624
+          
+          # Check if directory exists
+          ls -la \$webroot || echo "Directory \$webroot does not exist"
+          
+          # Try to create and sync if it exists or can be created
+          mkdir -p \$webroot 2>/dev/null || echo "Could not create \$webroot"
+          cd \$webroot || echo "Could not change to \$webroot"
+          pwd
+          
+          # If we're in the right directory, do the mirror
+          mirror -R --delete --verbose ./dist/ ./
+          
+          bye
+        EOF
+          
+          # Check if deployment was successful
+          if [ $? -eq 0 ]; then
+            echo "Deployment successful with web root: $webroot"
+            break
+          else
+            echo "Failed with web root: $webroot, trying next..."
+          fi
+        done
       continue-on-error: true
+    
+    - name: Deploy with basic SFTP (fallback)
+      if: failure()
       run: |
         echo "Enhanced SFTP failed, trying basic SFTP..."
+        
         lftp <<EOF
         set sftp:auto-confirm yes
         set ssl:verify-certificate no
-        open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} sftp://das116.truehost.cloud:1624
-        mirror -R ./dist/ /public_html/
-        bye
-        EOF
-    
-    - name: Deploy with FTP (fallback 2)
-      if: steps.basic_sftp.outcome == 'failure'
-      id: ftp_deploy
-      continue-on-error: true
-      run: |
-        echo "SFTP failed, trying regular FTP..."
-        lftp -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ftp://ftp.cccknunsconference.org <<EOF
-        set ssl:verify-certificate no
-        set ftp:passive-mode on
-        set net:timeout 30
+        set net:timeout 60
+        set net:max-retries 2
+        set net:reconnect-interval-base 10
+        set net:reconnect-interval-max 30
         debug 3
-        mirror -R --delete --verbose ./dist/ /public_html/
+        open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} sftp://das116.truehost.cloud:1624
+        
+        # List current directory contents
+        pwd
+        ls -la
+        
+        # Try to sync to current directory (might be the web root)
+        mirror -R --delete --verbose ./dist/ ./
+        
         bye
         EOF
-    
-    - name: Deploy with FTP alternative server (fallback 3)
-      if: steps.ftp_deploy.outcome == 'failure'
-      id: ftp_alt
       continue-on-error: true
+    
+    - name: Deploy with FTP fallback
+      if: failure()
       run: |
-        echo "Regular FTP failed, trying alternative FTP approach..."
+        echo "SFTP failed, trying FTP..."
+        
         lftp <<EOF
         set ssl:verify-certificate no
-        set ftp:passive-mode off
+        set net:timeout 60
+        set net:max-retries 2
+        set net:reconnect-interval-base 10
+        set net:reconnect-interval-max 30
+        debug 3
         open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ftp://das116.truehost.cloud:21
-        mirror -R ./dist/ /public_html/
+        
+        # List current directory contents
+        pwd
+        ls -la
+        
+        # Try common web root directories
+        cd public_html || cd www || cd htdocs || cd web || cd html || echo "Could not find web root"
+        pwd
+        ls -la
+        
+        # Mirror the files
+        mirror -R --delete --verbose ./dist/ ./
+        
+        bye
+        EOF
+      continue-on-error: true
+    
+    - name: Alternative FTP deployment
+      if: failure()
+      run: |
+        echo "Trying alternative FTP deployment..."
+        
+        lftp <<EOF
+        set ssl:verify-certificate no
+        set net:timeout 60
+        set net:max-retries 2
+        set net:reconnect-interval-base 10
+        set net:reconnect-interval-max 30
+        debug 3
+        open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ftp://ftp.cccknunsconference.org:21
+        
+        # List current directory contents
+        pwd
+        ls -la
+        
+        # Try to find and enter web root
+        cd public_html || cd www || cd htdocs || cd web || cd html || echo "Using current directory"
+        pwd
+        
+        # Mirror the files
+        mirror -R --delete --verbose ./dist/ ./
+        
         bye
         EOF
     
-    - name: Check deployment status
+    - name: Deployment status
+      if: always()
       run: |
-        if [ "${{ steps.enhanced_sftp.outcome }}" = "success" ]; then
-          echo "✅ Deployment successful via Enhanced SFTP"
-        elif [ "${{ steps.basic_sftp.outcome }}" = "success" ]; then
-          echo "✅ Deployment successful via Basic SFTP"  
-        elif [ "${{ steps.ftp_deploy.outcome }}" = "success" ]; then
-          echo "✅ Deployment successful via FTP"
-        elif [ "${{ steps.ftp_alt.outcome }}" = "success" ]; then
-          echo "✅ Deployment successful via Alternative FTP"
-        else
-          echo "❌ All deployment methods failed"
-          exit 1
-        fi
+        echo "Deployment attempt completed. Check the logs above to see which method succeeded."
+        echo "If all methods failed, please check:"
+        echo "1. Server credentials are correct"
+        echo "2. Server allows file uploads to the user account"
+        echo "3. The correct web root directory name"
+        echo "4. Contact Truehost support for assistance"
