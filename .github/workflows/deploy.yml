@@ -28,8 +28,8 @@ jobs:
     - name: Test server connectivity
       run: |
         echo "Testing connectivity to servers..."
-        echo "Testing SFTP server 102.212.247.186:1624"
-        timeout 30 bash -c "</dev/tcp/102.212.247.186/1624" && echo "SFTP port 1624 is reachable" || echo "SFTP port 1624 is NOT reachable"
+        echo "Testing SFTP server das116.truehost.cloud:1624"
+        timeout 30 bash -c "</dev/tcp/das116.truehost.cloud/1624" && echo "SFTP port 1624 is reachable" || echo "SFTP port 1624 is NOT reachable"
         
         echo "Testing FTP server ftp.cccknunsconference.org:21"
         timeout 30 bash -c "</dev/tcp/ftp.cccknunsconference.org/21" && echo "FTP port 21 is reachable" || echo "FTP port 21 is NOT reachable"
@@ -50,7 +50,7 @@ jobs:
         set net:reconnect-interval-max 10
         set cmd:parallel 1
         debug 9
-        open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} sftp://102.212.247.186:1624
+        open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} sftp://das116.truehost.cloud:1624
         mirror -R --delete --verbose ./dist/ /public_html/
         bye
         EOF
@@ -64,7 +64,7 @@ jobs:
         lftp <<EOF
         set sftp:auto-confirm yes
         set ssl:verify-certificate no
-        open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} sftp://102.212.247.186:1624
+        open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} sftp://das116.truehost.cloud:1624
         mirror -R ./dist/ /public_html/
         bye
         EOF
@@ -93,7 +93,7 @@ jobs:
         lftp <<EOF
         set ssl:verify-certificate no
         set ftp:passive-mode off
-        open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ftp://102.212.247.186:21
+        open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ftp://das116.truehost.cloud:21
         mirror -R ./dist/ /public_html/
         bye
         EOF
