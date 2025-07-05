@@ -1,6 +1,6 @@
 # Conference of Contemplative Communities of Kenya (CCCK)
 
-<!-- Test successful deployment verification - 2024-12-19 -->
+<!-- Test fixed deployment targeting - 2024-12-19 -->
 
 Founded on 22 September 2015, the Conference of Contemplative Communities of Kenya (CCCK) is a conference of Nuns from different monastic traditions established in Kenya and other English-speaking countries in Africa.
 
