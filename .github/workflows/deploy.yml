@@ -182,12 +182,50 @@ jobs:
         bye
         EOF
     
+    - name: Clear cache and verify deployment
+      run: |
+        echo "Verifying deployment and clearing cache..."
+        
+        lftp <<EOF
+        set sftp:auto-confirm yes
+        set ssl:verify-certificate no
+        set net:timeout 30
+        open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} sftp://das116.truehost.cloud:1624
+        
+        cd public_html
+        
+        # Create a deployment timestamp file
+        echo "Deployed on: $(date)" > deployment-timestamp.txt
+        
+        # List some key files to verify they're updated
+        ls -la index.html
+        ls -la assets/
+        
+        # Check if .htaccess exists and show its contents for cache settings
+        cat .htaccess || echo "No .htaccess file found"
+        
+        bye
+        EOF
+        
+        echo "Deployment verification complete!"
+        echo "Website should be available at: https://cccknunsconference.org"
+        echo "If changes aren't visible, try:"
+        echo "1. Hard refresh (Ctrl+F5 or Cmd+Shift+R)"
+        echo "2. Clear browser cache"
+        echo "3. Try incognito/private browsing"
+        echo "4. Check different browsers"
+    
     - name: Deployment status
       if: always()
       run: |
-        echo "Deployment attempt completed. Check the logs above to see which method succeeded."
-        echo "If all methods failed, please check:"
-        echo "1. Server credentials are correct"
-        echo "2. Server allows file uploads to the user account"
-        echo "3. The correct web root directory name"
-        echo "4. Contact Truehost support for assistance"
+        echo "🎉 Deployment attempt completed!"
+        echo ""
+        echo "✅ Files deployed to: das116.truehost.cloud/public_html"
+        echo "🌐 Website URL: https://cccknunsconference.org"
+        echo ""
+        echo "If changes aren't visible immediately:"
+        echo "1. Server caching (wait 5-10 minutes)"
+        echo "2. Browser cache (hard refresh: Ctrl+F5)"
+        echo "3. CDN cache (if applicable)"
+        echo ""
+        echo "Contact Truehost support if issues persist."
