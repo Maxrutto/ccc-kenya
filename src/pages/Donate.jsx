@@ -29,7 +29,7 @@ function Donate() {
               Donate to <span className="text-red-600">CCCK Nuns</span>
             </h1>
             <p className="text-lg md:text-xl text-center max-w-4xl mx-auto mb-12 font-['Montserrat'] text-gray-700">
-              The Conference of Contemplative communities of Kenya (CCCK) is a charitable NGO composed of over 35 monasteries of women spread in over 10 English-speaking countries in Africa.
+              The Conference of Contemplative communities of Kenya (CCCK) is a charitable trust composed of over 35 monasteries of women spread in over 10 English-speaking countries in Africa.
             </p>
           </AnimWrapper>
 
