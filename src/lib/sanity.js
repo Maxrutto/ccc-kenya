@@ -43,19 +43,19 @@ const categories = [
 const newsArticles = [
   {
     _id: 'news-new-1',
-    title: 'CCCK Annual Executive Meeting Begins September 23rd',
-    slug: { current: 'ccck-annual-meeting-2024' },
-    excerpt: 'From the 23rd of September, CCCK will begin its annual executive meeting at Dimese Sisters with opening mass by Rev. Bishop Dominic Kimengich.',
+    title: 'CCCK Annual Executive Meeting Begins September 23rd, 2025',
+    slug: { current: 'ccck-annual-meeting-2025' },
+    excerpt: 'From the 23rd of September 2025, CCCK will begin its annual executive meeting at Dimese Sisters with opening mass by Rev. Bishop Dominic Kimengich.',
     body: [
       { 
         _type: 'block', 
         children: [
-          { _type: 'span', text: 'From the 23rd of September, the conference of contemplative communities of Kenya -CCCK will begin its annual executive meeting at Dimese Sisters with the opening mass by Rev. Bishop Dominic Kimengich of the Catholic Diocese of Eldoret.' }
+          { _type: 'span', text: 'From the 23rd of September 2025, the conference of contemplative communities of Kenya -CCCK will begin its annual executive meeting at Dimese Sisters with the opening mass by Rev. Bishop Dominic Kimengich of the Catholic Diocese of Eldoret.' }
         ] 
       }
     ],
     mainImage: { asset: { _ref: 'image-1' } },
-    publishedAt: '2024-09-20T00:00:00Z',
+    publishedAt: '2025-09-20T00:00:00Z',
     categories: [
       { _id: 'cat-1', title: 'Events' },
       { _id: 'cat-4', title: 'Announcements' }
@@ -79,7 +79,7 @@ const newsArticles = [
       }
     ],
     mainImage: { asset: { _ref: 'image-2' } },
-    publishedAt: '2024-09-19T00:00:00Z',
+    publishedAt: '2025-09-19T00:00:00Z',
     categories: [
       { _id: 'cat-1', title: 'Events' },
       { _id: 'cat-4', title: 'Announcements' }
@@ -92,18 +92,18 @@ const newsArticles = [
   {
     _id: 'news-new-3',
     title: 'First VENITE SEORSUM Program Graduates to Receive Certificates',
-    slug: { current: 'venite-seorsum-graduates-2024' },
-    excerpt: 'The first group of sisters completing the three-year VENITE SEORSUM THEOLOGY PROGRAM will receive certificates on September 29th.',
+    slug: { current: 'venite-seorsum-graduates-2025' },
+    excerpt: 'The first group of sisters completing the three-year VENITE SEORSUM THEOLOGY PROGRAM will receive certificates on September 29th, 2025.',
     body: [
       { 
         _type: 'block', 
         children: [
-          { _type: 'span', text: 'On 29th September the first group of sisters, the beneficiaries of the VENITE SEORSUM THEOLOGY PROGRAM for contemplative nuns will be gifted and given certificates upon completion of their three year program which began in 2023.' }
+          { _type: 'span', text: 'On 29th September 2025 the first group of sisters, the beneficiaries of the VENITE SEORSUM THEOLOGY PROGRAM for contemplative nuns will be gifted and given certificates upon completion of their three year program which began in 2023.' }
         ] 
       }
     ],
     mainImage: { asset: { _ref: 'image-3' } },
-    publishedAt: '2024-09-18T00:00:00Z',
+    publishedAt: '2025-09-18T00:00:00Z',
     categories: [
       { _id: 'cat-1', title: 'Events' },
       { _id: 'cat-2', title: 'Formation' },

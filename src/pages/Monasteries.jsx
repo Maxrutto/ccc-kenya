@@ -111,7 +111,7 @@ const kenyanMonasteries = [
     name: "Dominican Nuns",
     location: "Karen (Archdiocese of Nairobi)",
     country: "Kenya",
-    image: "images/Dominican Nuns Karen.jpeg",
+    image: "images/Dominican Nuns Karen 2.jpg",
     coordinates: [-1.3132, 36.7064], // Approximate coordinates
     description: "Corpus Christi monastery Karen-Nairobi"
   },
@@ -183,9 +183,9 @@ const kenyanMonasteries = [
     name: "Benedictine Nuns",
     location: "Kiambu (Archdiocese of Nairobi)",
     country: "Kenya",
-    image: "images/Kiambu.jpeg",
+    image: "images/Kiambu 2.jpg",
     coordinates: [-1.1694, 36.8290], // Approximate coordinates
-    description: ""
+    description: "Queen of Angels Monastery Kiambu"
   },
   {
     id: "benedictine-muhoroni",
@@ -238,10 +238,10 @@ const otherCountriesMonasteries = [
   },
   {
     id: "carmelite-weirmouth-zimbabwe",
-    name: "Discalced Carmelite Nuns",
+    name: "Carmelite Nuns of Ancient Observance",
     location: "Weirmouth (Diocese of Mutare)",
     country: "Zimbabwe",
-    image: "images/Mutare.jpeg",
+    image: "images/Mutare 2.jpg",
     coordinates: [-18.9716, 32.6467], // Approximate coordinates
     description: "Monastery of the Holy Family Mutare"
   },
@@ -250,7 +250,7 @@ const otherCountriesMonasteries = [
     name: "Dominican Nuns",
     location: "Kabwe (Diocese of Kabwe)",
     country: "Zambia",
-    image: "images/Kabwe.jpeg",
+    image: "images/Kabwe 2.jpg",
     coordinates: [-14.4469, 28.4464], // Approximate coordinates
     description: "Divine Mercy monastery Zambia"
   },
@@ -322,9 +322,9 @@ const otherCountriesMonasteries = [
     name: "Servants of the Holy Spirit of Perpetual Adoration Nuns",
     location: "Lome",
     country: "Togo",
-    image: "images/placeholder.jpeg",
+    image: "images/Togo.jpg",
     coordinates: [6.1375, 1.2123], // Approximate coordinates
-    description: ""
+    description: "Monastere Du Saint Esprit Lome Togo"
   },
   {
     id: "poor-clare-mbarara-uganda",

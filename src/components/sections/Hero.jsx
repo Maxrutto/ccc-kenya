@@ -5,9 +5,13 @@ import { useInView } from 'react-intersection-observer';
 // Define images with direct paths to existing files in public/images
 const images = [
   { url: 'images/Executive commitee.jpg', alt: 'CCC Kenya Executive Committee' },
+  { url: 'images/New images 1.jpg', alt: 'CCC Kenya New Images 1' },
   { url: 'images/Picture homepage2.jpg', alt: 'CCC Kenya Homepage Picture 2' },
+  { url: 'images/New images 2.jpg', alt: 'CCC Kenya New Images 2' },
   { url: 'images/Picture homepage3.jpg', alt: 'CCC Kenya Homepage Picture 3' },
+  { url: 'images/New images 3.jpg', alt: 'CCC Kenya New Images 3' },
   { url: 'images/Picturehomepage4.jpg', alt: 'CCC Kenya Homepage Picture 4' },
+  { url: 'images/New images 4.jpg', alt: 'CCC Kenya New Images 4' },
   { url: 'images/Picture homepage5.jpg', alt: 'CCC Kenya Homepage Picture 5' },
   { url: 'images/New image 1.jpeg', alt: 'CCC Kenya New Image 1' },
   { url: 'images/New image 2.jpeg', alt: 'CCC Kenya New Image 2' },
@@ -54,7 +58,7 @@ export default function Hero() {
         </div>
         
         <p className="text-xs sm:text-base md:text-lg font-['Montserrat'] text-gray-700 mb-6 md:mb-10 max-w-full sm:max-w-2xl mx-auto leading-relaxed italic tracking-wide border-l-4 border-blue-600/40 pl-2 sm:pl-4 py-2 bg-blue-50/30 rounded-r-lg shadow-sm">
-          Founded on 22 Sept 2015, the conference of the contemplative communities of Kenya -CCCK, is a conference of Nuns from different monastic traditions established in Kenya and other English speaking countries in Africa.
+          Founded on 22 Sept 2015, the conference of the contemplative communities of Kenya (CCCK), is a conference of Nuns from different monastic traditions established in Kenya. Besides the CCCK full member monasteries established in Kenya, CCCK membership includes  associate members from other countries in Anglophone Africa.
         </p>
 
         {/* Image Slider */}
