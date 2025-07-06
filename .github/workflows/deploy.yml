@@ -30,10 +30,8 @@ jobs:
     
     - name: Test server connectivity
       run: |
-        echo "Testing server connectivity..."
+        echo "Testing SFTP server connectivity..."
         nc -zv das116.truehost.cloud 1624 || echo "Port 1624 not reachable"
-        nc -zv das116.truehost.cloud 22 || echo "Port 22 not reachable"
-        nc -zv das116.truehost.cloud 21 || echo "Port 21 not reachable"
     
     - name: Explore server directory structure
       run: |
@@ -150,63 +148,7 @@ jobs:
         EOF
       continue-on-error: true
     
-    - name: Deploy with FTP fallback
-      if: failure()
-      run: |
-        echo "SFTP failed, trying FTP..."
-        
-        lftp <<EOF
-        set ssl:verify-certificate no
-        set net:timeout 60
-        set net:max-retries 2
-        set net:reconnect-interval-base 10
-        set net:reconnect-interval-max 30
-        debug 3
-        open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ftp://das116.truehost.cloud:21
-        
-        # List current directory contents
-        pwd
-        ls
-        
-        # Try common web root directories
-        cd public_html || cd www || cd htdocs || cd web || cd html || echo "Could not find web root"
-        pwd
-        ls
-        
-        # Mirror the files
-        mirror -R --delete --verbose ./dist/ ./
-        
-        bye
-        EOF
-      continue-on-error: true
-    
-    - name: Alternative FTP deployment
-      if: failure()
-      run: |
-        echo "Trying alternative FTP deployment..."
-        
-        lftp <<EOF
-        set ssl:verify-certificate no
-        set net:timeout 60
-        set net:max-retries 2
-        set net:reconnect-interval-base 10
-        set net:reconnect-interval-max 30
-        debug 3
-        open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ftp://ftp.cccknunsconference.org:21
-        
-        # List current directory contents
-        pwd
-        ls
-        
-        # Try to find and enter web root
-        cd public_html || cd www || cd htdocs || cd web || cd html || echo "Using current directory"
-        pwd
-        
-        # Mirror the files
-        mirror -R --delete --verbose ./dist/ ./
-        
-        bye
-        EOF
+
     
     - name: Deployment status
       if: always()

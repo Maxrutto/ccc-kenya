@@ -55,7 +55,7 @@ const newsArticles = [
       }
     ],
     mainImage: { asset: { _ref: 'image-1' } },
-    publishedAt: '2025-09-20T00:00:00Z',
+    publishedAt: '2025-09-23T00:00:00Z',
     categories: [
       { _id: 'cat-1', title: 'Events' },
       { _id: 'cat-4', title: 'Announcements' }
@@ -69,17 +69,17 @@ const newsArticles = [
     _id: 'news-new-2',
     title: 'CCCK 10th Anniversary Celebration - September 29, 2025',
     slug: { current: 'ccck-10th-anniversary-2025' },
-    excerpt: 'The celebration for the 10th anniversary of CCCK foundation will be on September 29th, 2025, with mass presided by Archbishop Philip Anyolo.',
+    excerpt: 'The celebration for the 10th anniversary of the foundation of CCCK will be on September 29th, 2025, with Holy Mass presided over by His Grace Right Rev. Archbishop Philip Anyolo of the Catholic Archdiocese of Nairobi.',
     body: [
       { 
         _type: 'block', 
         children: [
-          { _type: 'span', text: 'The celebration for the 10th anniversary of the foundation of CCCK will be on the 29th September 2025. The mass will be presided over by the arch bishop of Nairobi, His Grace Archbishop Philip Anyolo.' }
+          { _type: 'span', text: 'The celebration for the 10th anniversary of the foundation of CCCK will be on September 29th, 2025, with Holy Mass presided over by His Grace Right Rev. Archbishop Philip Anyolo of the Catholic Archdiocese of Nairobi.' }
         ] 
       }
     ],
     mainImage: { asset: { _ref: 'image-2' } },
-    publishedAt: '2025-09-19T00:00:00Z',
+    publishedAt: '2025-09-29T00:00:00Z',
     categories: [
       { _id: 'cat-1', title: 'Events' },
       { _id: 'cat-4', title: 'Announcements' }
@@ -103,7 +103,7 @@ const newsArticles = [
       }
     ],
     mainImage: { asset: { _ref: 'image-3' } },
-    publishedAt: '2025-09-18T00:00:00Z',
+    publishedAt: '2025-09-29T00:00:00Z',
     categories: [
       { _id: 'cat-1', title: 'Events' },
       { _id: 'cat-2', title: 'Formation' },
