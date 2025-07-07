@@ -210,7 +210,7 @@ const kenyanMonasteries = [
     name: "Contemplative Small Hosts",
     location: "Eldoret (Diocese of Eldoret)",
     country: "Kenya",
-    image: "images/placeholder.jpeg",
+    image: "images/Small hosts.jpg",
     coordinates: [0.5100, 35.2750], // Adjusted coordinates for Eldoret area
     description: "New foundation in Eldoret Diocese - canonical status pending"
   }

@@ -47,8 +47,8 @@ const newsArticles = [
     slug: { current: 'ccck-annual-meeting-2025' },
     excerpt: 'From the 23rd of September 2025, CCCK will begin its annual executive meeting at Dimese Sisters with opening mass by Rev. Bishop Dominic Kimengich.',
     body: [
-      { 
-        _type: 'block', 
+      {
+        _type: 'block',
         children: [
           { _type: 'span', text: 'From the 23rd of September 2025, the conference of contemplative communities of Kenya -CCCK will begin its annual executive meeting at Dimese Sisters with the opening mass by Rev. Bishop Dominic Kimengich of the Catholic Diocese of Eldoret.' }
         ] 
