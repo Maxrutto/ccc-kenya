@@ -5,13 +5,9 @@ import { useInView } from 'react-intersection-observer';
 // Define images with direct paths to existing files in public/images
 const images = [
   { url: 'images/Executive commitee.jpg', alt: 'CCC Kenya Executive Committee' },
-  { url: 'images/New images 1.jpg', alt: 'CCC Kenya New Images 1' },
   { url: 'images/Picture homepage2.jpg', alt: 'CCC Kenya Homepage Picture 2' },
-  { url: 'images/New images 2.jpg', alt: 'CCC Kenya New Images 2' },
   { url: 'images/Picture homepage3.jpg', alt: 'CCC Kenya Homepage Picture 3' },
-  { url: 'images/New images 3.jpg', alt: 'CCC Kenya New Images 3' },
   { url: 'images/Picturehomepage4.jpg', alt: 'CCC Kenya Homepage Picture 4' },
-  { url: 'images/New images 4.jpg', alt: 'CCC Kenya New Images 4' },
   { url: 'images/Picture homepage5.jpg', alt: 'CCC Kenya Homepage Picture 5' },
   { url: 'images/New image 1.jpeg', alt: 'CCC Kenya New Image 1' },
   { url: 'images/New image 2.jpeg', alt: 'CCC Kenya New Image 2' },
