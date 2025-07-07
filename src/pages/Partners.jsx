@@ -28,7 +28,7 @@ const Partners = () => {
     },
     {
       id: 'magisterium',
-      name: 'ONLINE COURSE ON MAGISTERIUM, CANONICAL NORMS AND PRACTICE FOR CONSECRATED LIFE',
+      name: 'ONLINE COURSE ON MAGISTERIUM, CANONICAL NORMS AND PRACTICES FOR CONSECRATED LIFE',
       logo: 'images/Magisterium, canonical norms and practice for consecrated Life.jpg',
     },
     {

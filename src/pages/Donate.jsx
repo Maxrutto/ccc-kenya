@@ -131,6 +131,7 @@ function Donate() {
                       You can make a donation through bank transfer to our account:
                     </p>
                     <div className="bg-gray-50 p-4 rounded-lg">
+                      <p className="font-bold text-blue-800">Account Name: Conference of Contemplative Communities of Kenya</p>
                       <p className="font-bold text-blue-800">Account Number: 34 80 11 00 14</p>
                       <p className="font-bold text-blue-800">Bank: NCBA Bank</p>
                     </div>
