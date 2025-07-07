@@ -51,6 +51,28 @@ npm run dev
 
 This will start the development server, usually at http://localhost:5173
 
+## Contact Form Setup
+
+The contact form uses Web3Forms for reliable email delivery without requiring a backend server.
+
+### Quick Setup:
+
+1. Get your free API key from [Web3Forms](https://web3forms.com)
+2. Create a `.env` file in the project root:
+   ```
+   VITE_WEB3FORMS_ACCESS_KEY=your-access-key-here
+   ```
+3. Restart the development server
+
+### Features:
+- ✅ Direct email sending (no email client required)
+- ✅ Fallback to mailto: links
+- ✅ Copy-to-clipboard functionality
+- ✅ Mobile-friendly
+- ✅ Works without configuration (fallback mode)
+
+See `CONTACT_FORM_SETUP.md` for detailed setup instructions.
+
 ## Production Build
 
 To create an optimized production build:
