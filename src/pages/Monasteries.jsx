@@ -483,10 +483,12 @@ function Monasteries() {
                       src={monastery.image} 
                       alt={monastery.name}
                       className={`w-full h-full transition-transform hover:scale-105 duration-500 ${
-                        monastery.id === "carmelite-ancient-kitui" ? "object-cover object-center" : 
-                        monastery.id === "perpetual-adorers-isiolo" || monastery.id === "perpetual-adorers-karima" ? "object-cover object-top" : 
+                        monastery.id === "carmelite-ancient-kitui" ? "object-cover object-[50%_30%]" : 
+                        monastery.id === "perpetual-adorers-isiolo" ? "object-cover object-[50%_20%]" : 
+                        monastery.id === "perpetual-adorers-karima" ? "object-cover object-top" : 
                         monastery.id === "holy-spirit-nairobi" ? "object-cover object-top" : 
                         monastery.id === "carmelite-ancient-juja" ? "object-cover object-top" : 
+                        monastery.id === "contemplative-small-hosts-eldoret" ? "object-cover object-[50%_25%]" : 
                         "object-cover"
                       }`}
                       loading="lazy"
@@ -533,9 +535,11 @@ function Monasteries() {
                       src={monastery.image} 
                       alt={monastery.name}
                       className={`w-full h-full transition-transform hover:scale-105 duration-500 ${
-                        monastery.id === "carmelite-ancient-kitui" ? "object-cover object-center" : 
-                        monastery.id === "perpetual-adorers-isiolo" || monastery.id === "perpetual-adorers-karima" ? "object-cover object-top" : 
+                        monastery.id === "carmelite-ancient-kitui" ? "object-cover object-[50%_30%]" : 
+                        monastery.id === "perpetual-adorers-isiolo" ? "object-cover object-[50%_20%]" : 
+                        monastery.id === "perpetual-adorers-karima" ? "object-cover object-top" : 
                         monastery.id === "holy-spirit-nairobi" ? "object-cover object-top" : 
+                        monastery.id === "contemplative-small-hosts-eldoret" ? "object-cover object-[50%_25%]" : 
                         "object-cover"
                       }`}
                       loading="lazy"
