@@ -189,7 +189,7 @@ const kenyanMonasteries = [
   },
   {
     id: "benedictine-muhoroni",
-    name: "Benedctine Nuns - Tamu",
+    name: "Benedictine Nuns of Perpetual Adoration - Tamu",
     location: "Muhoroni (Archdiocese of Kisumu)",
     country: "Kenya",
     image: "images/Benedictine Tamu,kisumu.jpeg",
@@ -205,15 +205,6 @@ const kenyanMonasteries = [
     coordinates: [-1.2921, 36.8219], // Approximate coordinates
     description: "Sacred heart monastery, resurrection garden Nairobi"
   },
-  {
-    id: "contemplative-small-hosts-eldoret",
-    name: "Contemplative Small Hosts",
-    location: "Eldoret (Diocese of Eldoret)",
-    country: "Kenya",
-    image: "images/Small hosts.jpg",
-    coordinates: [0.5100, 35.2750], // Adjusted coordinates for Eldoret area
-    description: "New foundation in Eldoret Diocese - canonical status pending"
-  }
 ];
 
 // Static data for monasteries in other countries
