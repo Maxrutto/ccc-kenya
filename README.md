@@ -8,7 +8,7 @@ A React website for the Conference of Contemplative Communities of Kenya, showca
 
 ## Features
 
-- Responsive design optimized for all devices
+- Responsive design and optimized for all devices
 - Image galleries and interactive maps
 - News and events management
 - Contact forms with email integration
