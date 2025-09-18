@@ -43,19 +43,19 @@ const categories = [
 const newsArticles = [
   {
     _id: 'news-new-1',
-    title: 'CCCK Annual Executive Meeting Begins September 23rd, 2025',
-    slug: { current: 'ccck-annual-meeting-2025' },
-    excerpt: 'From the 23rd of September 2025, CCCK will begin its annual executive meeting at Dimese Sisters with opening mass by Rev. Bishop Dominic Kimengich.',
+    title: 'Opening Mass for 7th CCCK Executive Meeting - September 23rd, 2025',
+    slug: { current: 'ccck-opening-mass-sept-23-2025' },
+    excerpt: 'Join us for the opening mass of the 7th CCCK Executive Meeting on September 23rd afternoon at Dimesse Retreat Center, Karen Nairobi, presided over by Rev. Bishop Dominic Kimengich.',
     body: [
       {
         _type: 'block',
         children: [
-          { _type: 'span', text: 'From the 23rd of September 2025, the conference of contemplative communities of Kenya -CCCK will begin its annual executive meeting at Dimese Sisters with the opening mass by Rev. Bishop Dominic Kimengich of the Catholic Diocese of Eldoret.' }
+          { _type: 'span', text: 'There is an opening mass on 23rd September afternoon at Dimesse Retreat center, Karen Nairobi. This opening mass marks the beginning of the 7th CCCK Executive Meeting and will be presided over by Rev. Bishop Dominic Kimengich of the Catholic Diocese of Eldoret. All are welcome to join us in this important celebration as we gather in prayer and fellowship.' }
         ] 
       }
     ],
-    mainImage: { asset: { _ref: 'image-1' } },
-    publishedAt: '2025-09-23T00:00:00Z',
+    mainImage: { asset: { _ref: 'bishop-kimengich' } },
+    publishedAt: '2025-09-23T14:00:00Z',
     categories: [
       { _id: 'cat-1', title: 'Events' },
       { _id: 'cat-4', title: 'Announcements' }
@@ -69,16 +69,16 @@ const newsArticles = [
     _id: 'news-new-2',
     title: 'CCCK 10th Anniversary Celebration - September 29, 2025',
     slug: { current: 'ccck-10th-anniversary-2025' },
-    excerpt: 'The celebration for the 10th anniversary of the foundation of CCCK will be on September 29th, 2025, with Holy Mass presided over by His Grace Right Rev. Archbishop Philip Anyolo of the Catholic Archdiocese of Nairobi.',
+    excerpt: '10th anniversary celebrations at the Dominican nuns guest house compound on 29th September. Opening mass for the 7th CCCK Executive meeting on the occasion of the 10th anniversary of the foundation of CCCK, presided over by His Grace Right Rev. Archbishop Philip Anyolo.',
     body: [
       { 
         _type: 'block', 
         children: [
-          { _type: 'span', text: 'The celebration for the 10th anniversary of the foundation of CCCK will be on September 29th, 2025, with Holy Mass presided over by His Grace Right Rev. Archbishop Philip Anyolo of the Catholic Archdiocese of Nairobi.' }
+          { _type: 'span', text: 'Opening mass for the 7th CCCK Executive meeting on the occasion of the 10th anniversary of the foundation of CCCK. The 10th anniversary celebrations are at the Dominican nuns guest house compound on 29th September. The celebration for the 10th anniversary of the foundation of CCCK will be on September 29th, 2025, with Holy Mass presided over by His Grace Right Rev. Archbishop Philip Anyolo of the Catholic Archdiocese of Nairobi. This milestone celebration marks a decade of faithful service and contemplative witness across Anglophone Africa.' }
         ] 
       }
     ],
-    mainImage: { asset: { _ref: 'image-2' } },
+    mainImage: { asset: { _ref: 'ccck-10-years' } },
     publishedAt: '2025-09-29T00:00:00Z',
     categories: [
       { _id: 'cat-1', title: 'Events' },
@@ -86,7 +86,7 @@ const newsArticles = [
     ],
     author: {
       name: 'CCCK Communications',
-      image: { asset: { _ref: 'image-1' } }
+      image: { asset: { _ref: 'philip-anyolo' } }
     }
   },
   {

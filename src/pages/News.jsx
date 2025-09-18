@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, memo, useRef } from 'react';
 import { client } from '../lib/sanity';
+import { urlFor } from '../lib/imageBuilder';
 import AnimWrapper from '../components/UI/AnimWrapper';
 import Loader from '../components/UI/Loader';
 import { FaCalendarAlt, FaTag } from 'react-icons/fa';
@@ -145,54 +146,121 @@ function News() {
           </AnimWrapper>
 
           <AnimWrapper delay={0.5}>
-            <div className="masonry-grid columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {filteredNews().length > 0 ? (
-                filteredNews().map((item, index) => (
-                  <div 
-                    key={item._id} 
-                    className="card break-inside-avoid mb-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
-                    style={{ animationDelay: `${0.1 * index}s` }}
-                  >
-                    <div className="p-6">
-                      <h3 className="text-xl font-['Playfair_Display'] font-bold mb-3 text-blue-700">{item.title}</h3>
+                filteredNews().map((item, index) => {
+                  // Check if this item should have an image (only our two specific announcements)
+                  const shouldShowImage = item.mainImage && 
+                    (item.mainImage.asset._ref === 'bishop-kimengich' || 
+                     item.mainImage.asset._ref === 'ccck-10-years' ||
+                     item.mainImage.asset._ref === 'philip-anyolo') ||
+                    (item._id === 'news-new-2' && item.author && item.author.image && item.author.image.asset._ref === 'philip-anyolo');
+
+                  return (
+                    <div 
+                      key={item._id} 
+                      className="card bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
+                      style={{ animationDelay: `${0.1 * index}s` }}
+                    >
+                      {/* News Image - Only for specific announcements */}
+                      {shouldShowImage && (
+                        <>
+                          {/* Special layout for Anniversary announcement with both images */}
+                          {item._id === 'news-new-2' ? (
+                            <div className="h-48 sm:h-52 md:h-56 overflow-hidden bg-gray-50 flex">
+                              {/* CCCK 10 Years Logo - Left Side */}
+                              <div className="w-1/2 h-full flex items-center justify-center p-2">
+                                <img 
+                                  src={urlFor(item.mainImage).url()}
+                                  alt="CCCK 10th Anniversary"
+                                  className="max-w-full max-h-full object-contain transition-transform hover:scale-105 duration-500"
+                                  loading="lazy"
+                                  onError={(e) => {
+                                    e.target.onerror = null;
+                                    e.target.style.display = 'none';
+                                  }}
+                                />
+                              </div>
+                              {/* Archbishop Philip Anyolo - Right Side */}
+                              <div className="w-1/2 h-full overflow-hidden">
+                                <img 
+                                  src={urlFor(item.author.image).url()}
+                                  alt="Archbishop Philip Anyolo"
+                                  className="w-full h-full object-cover object-[50%_20%] transition-transform hover:scale-105 duration-500"
+                                  loading="lazy"
+                                  onError={(e) => {
+                                    e.target.onerror = null;
+                                    e.target.style.display = 'none';
+                                  }}
+                                />
+                              </div>
+                            </div>
+                          ) : (
+                            /* Single image layout for other announcements */
+                            <div className="h-48 sm:h-52 md:h-56 overflow-hidden">
+                              <img 
+                                src={urlFor(item.mainImage).url()}
+                                alt={item.title}
+                                className={`w-full h-full transition-transform hover:scale-105 duration-500 ${
+                                  item.mainImage.asset._ref === 'bishop-kimengich' ? 'object-contain bg-gray-50' :
+                                  'object-cover'
+                                }`}
+                                loading="lazy"
+                                onError={(e) => {
+                                  e.target.onerror = null;
+                                  e.target.style.display = 'none';
+                                }}
+                              />
+                            </div>
+                          )}
+                        </>
+                      )}
                       
-                      <div className="flex items-center text-sm text-gray-500 mb-4 flex-wrap">
-                        <div className="flex items-center mr-4 mb-2 font-['Montserrat']">
-                          <FaCalendarAlt className="mr-1 text-blue-500" />
-                          <span>
-                            {item.publishedAt ? new Date(item.publishedAt).toLocaleDateString('en-US', {
-                              year: 'numeric',
-                              month: 'long',
-                              day: 'numeric'
-                            }) : 'No date'}
-                          </span>
+                      <div className="p-4 sm:p-6">
+                        <h3 className="text-lg sm:text-xl font-['Playfair_Display'] font-bold mb-3 text-blue-700 leading-tight">
+                          {item.title}
+                        </h3>
+                        
+                        <div className="flex items-center text-xs sm:text-sm text-gray-500 mb-4 flex-wrap">
+                          <div className="flex items-center mr-4 mb-2 font-['Montserrat']">
+                            <FaCalendarAlt className="mr-1 text-blue-500" />
+                            <span>
+                              {item.publishedAt ? new Date(item.publishedAt).toLocaleDateString('en-US', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric'
+                              }) : 'No date'}
+                            </span>
+                          </div>
+                          
+                          {item.categories && item.categories.length > 0 && (
+                            <div className="flex flex-wrap gap-1 sm:gap-2 mb-2">
+                              {item.categories.map(cat => (
+                                <span 
+                                  key={cat._id} 
+                                  className="flex items-center px-2 py-1 bg-blue-50 rounded-full text-xs font-['Montserrat'] text-blue-600"
+                                >
+                                  <FaTag className="mr-1 text-blue-500" />
+                                  {cat.title}
+                                </span>
+                              ))}
+                            </div>
+                          )}
                         </div>
                         
-                        {item.categories && item.categories.length > 0 && (
-                          <div className="flex flex-wrap gap-2 mb-2">
-                            {item.categories.map(cat => (
-                              <span 
-                                key={cat._id} 
-                                className="flex items-center px-2 py-1 bg-blue-50 rounded-full text-xs font-['Montserrat'] text-blue-600"
-                              >
-                                <FaTag className="mr-1 text-blue-500" />
-                                {cat.title}
-                              </span>
-                            ))}
-                          </div>
+                        {item.excerpt && (
+                          <p className="text-gray-600 text-sm sm:text-base font-['Montserrat'] leading-relaxed">
+                            {item.excerpt}
+                          </p>
                         )}
                       </div>
-                      
-                      {item.excerpt && (
-                        <p className="text-gray-600 mb-4 font-['Montserrat']">{item.excerpt}</p>
-                      )}
                     </div>
-                  </div>
-                ))
+                  );
+                })
               ) : (
-                <div className="col-span-full bg-white rounded-lg shadow p-8 text-center">
-                  <h3 className="text-xl font-bold text-gray-700 mb-2">No news articles found</h3>
-                  <p className="text-gray-600">Check back later for updates.</p>
+                <div className="col-span-full bg-white rounded-lg shadow p-6 sm:p-8 text-center">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-700 mb-2">No news articles found</h3>
+                  <p className="text-gray-600 text-sm sm:text-base">Check back later for updates.</p>
                 </div>
               )}
             </div>
