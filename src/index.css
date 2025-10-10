@@ -290,3 +290,209 @@ button {
 main {
   overflow: visible !important;
 }
+
+/* ========================================
+   ANNIVERSARY SLIDER ANIMATIONS
+   ======================================== */
+
+/* Glitch Text Container Styles */
+.glitch-text-container {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-text {
+  position: relative;
+  display: inline-block;
+  animation: float 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+.glitch-text-main {
+  position: relative;
+  z-index: 3;
+  display: inline-block;
+  background: linear-gradient(
+    90deg,
+    currentColor 0%,
+    rgba(255, 255, 255, 0.9) 50%,
+    currentColor 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-position: -200%;
+}
+
+.glitch-text-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 1;
+}
+
+.glitch-text-layer-1 {
+  color: #00ffff;
+  animation: glitch-1 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.glitch-text-layer-2 {
+  color: #ff00ff;
+  animation: glitch-2 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.glitch-text-layer-3 {
+  color: #ffff00;
+  animation: glitch-3 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  z-index: 0;
+}
+
+/* Floating animation for text */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Glitch effect 1 - Cyan layer */
+@keyframes glitch-1 {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    transform: translate(-3px, -3px);
+    opacity: 0.8;
+  }
+  25% {
+    clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+    transform: translate(2px, 2px);
+    opacity: 0.6;
+  }
+  50% {
+    clip-path: polygon(0 20%, 100% 20%, 100% 80%, 0 80%);
+    transform: translate(-2px, 1px);
+    opacity: 0.4;
+  }
+  100% {
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    transform: translate(0);
+    opacity: 0;
+  }
+}
+
+/* Glitch effect 2 - Magenta layer */
+@keyframes glitch-2 {
+  0% {
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+    transform: translate(3px, 3px);
+    opacity: 0.8;
+  }
+  25% {
+    clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%);
+    transform: translate(-2px, -2px);
+    opacity: 0.6;
+  }
+  50% {
+    clip-path: polygon(0 30%, 100% 30%, 100% 70%, 0 70%);
+    transform: translate(2px, -1px);
+    opacity: 0.4;
+  }
+  100% {
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    transform: translate(0);
+    opacity: 0;
+  }
+}
+
+/* Glitch effect 3 - Yellow layer */
+@keyframes glitch-3 {
+  0% {
+    clip-path: polygon(0 15%, 100% 15%, 100% 50%, 0 50%);
+    transform: translate(-4px, 4px) skew(-5deg);
+    opacity: 0.7;
+  }
+  20% {
+    clip-path: polygon(0 70%, 100% 70%, 100% 100%, 0 100%);
+    transform: translate(3px, -3px) skew(5deg);
+    opacity: 0.6;
+  }
+  40% {
+    clip-path: polygon(0 0, 100% 0, 100% 25%, 0 25%);
+    transform: translate(-2px, 2px) skew(-3deg);
+    opacity: 0.5;
+  }
+  60% {
+    clip-path: polygon(0 40%, 100% 40%, 100% 75%, 0 75%);
+    transform: translate(2px, -2px) skew(3deg);
+    opacity: 0.4;
+  }
+  80% {
+    clip-path: polygon(0 10%, 100% 10%, 100% 35%, 0 35%);
+    transform: translate(-1px, 1px) skew(-2deg);
+    opacity: 0.3;
+  }
+  100% {
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    transform: translate(0) skew(0deg);
+    opacity: 0;
+  }
+}
+
+/* Anniversary Image Container Styles */
+.anniversary-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #f3f4f6;
+}
+
+.anniversary-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: filter 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.anniversary-image.loading {
+  filter: blur(20px);
+}
+
+.anniversary-image.loaded {
+  filter: blur(0);
+}
+
+/* 3D Transform optimizations */
+.anniversary-slider-wrapper {
+  transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Shimmer effect for loading placeholder */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer-effect {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(
+    to right,
+    #f3f4f6 0%,
+    #e5e7eb 20%,
+    #f3f4f6 40%,
+    #f3f4f6 100%
+  );
+  background-size: 1000px 100%;
+}

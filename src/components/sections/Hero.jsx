@@ -1,22 +1,6 @@
 import { motion } from 'framer-motion';
-import ImageSlider from '../UI/ImageSlider';
+import AnniversarySlider from '../UI/AnniversarySlider';
 import { useInView } from 'react-intersection-observer';
-
-// Define images with direct paths to existing files in public/images
-const images = [
-  { url: 'images/Executive commitee.jpg', alt: 'CCC Kenya Executive Committee' },
-  { url: 'images/Picture homepage2.jpg', alt: 'CCC Kenya Homepage Picture 2' },
-  { url: 'images/Picture homepage3.jpg', alt: 'CCC Kenya Homepage Picture 3' },
-  { url: 'images/Picturehomepage4.jpg', alt: 'CCC Kenya Homepage Picture 4' },
-  { url: 'images/Picture homepage5.jpg', alt: 'CCC Kenya Homepage Picture 5' },
-  { url: 'images/New image 1.jpeg', alt: 'CCC Kenya New Image 1' },
-  { url: 'images/New image 2.jpeg', alt: 'CCC Kenya New Image 2' },
-  { url: 'images/New image 3.jpeg', alt: 'CCC Kenya New Image 3' },
-  { url: 'images/New image 5.jpeg', alt: 'CCC Kenya New Image 5' },
-  { url: 'images/image2.jpeg', alt: 'CCC Kenya Community' },
-  { url: 'images/image3.jpeg', alt: 'CCC Kenya Community' },
-  { url: 'images/image6.jpeg', alt: 'CCC Kenya Community' }
-];
 
 export default function Hero() {
   const [ref, inView] = useInView({ 
@@ -25,7 +9,7 @@ export default function Hero() {
   });
 
   return (
-    <section className="relative pt-16 pb-6 md:pt-20 md:pb-10 flex flex-col items-center w-full overflow-hidden">
+    <section className="relative pt-16 pb-4 md:pt-18 md:pb-6 flex flex-col items-center w-full overflow-hidden">
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 20 }}
@@ -53,13 +37,13 @@ export default function Hero() {
           </div>
         </div>
         
-        <p className="text-xs sm:text-base md:text-lg font-['Montserrat'] text-gray-700 mb-6 md:mb-10 max-w-full sm:max-w-2xl mx-auto leading-relaxed italic tracking-wide border-l-4 border-blue-600/40 pl-2 sm:pl-4 py-2 bg-blue-50/30 rounded-r-lg shadow-sm">
+        <p className="text-xs sm:text-base md:text-lg font-['Montserrat'] text-gray-700 mb-4 sm:mb-6 md:mb-8 max-w-full sm:max-w-2xl mx-auto leading-relaxed italic tracking-wide border-l-4 border-blue-600/40 pl-2 sm:pl-4 py-2 bg-blue-50/30 rounded-r-lg shadow-sm">
           Founded on 22 Sept 2015, the conference of the contemplative communities of Kenya (CCCK), is a conference of Nuns from different monastic traditions established in Kenya. Besides the CCCK full member monasteries established in Kenya, CCCK membership includes  associate members from other countries in Anglophone Africa.
         </p>
 
-        {/* Image Slider */}
-        <div className="mx-auto w-full sm:w-[90%] md:w-3/4 h-[200px] sm:h-[300px] md:h-[450px] mb-4 sm:mb-6 md:mb-8 rounded-lg overflow-hidden shadow-lg">
-          <ImageSlider images={images} />
+        {/* Anniversary Slider */}
+        <div className="mx-auto w-full px-4 sm:px-6 md:px-8 max-w-7xl mb-4 sm:mb-6 md:mb-8">
+          <AnniversarySlider />
         </div>
       </motion.div>
     </section>

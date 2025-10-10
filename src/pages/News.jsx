@@ -8,7 +8,7 @@ import { FaCalendarAlt, FaTag } from 'react-icons/fa';
 // Custom component for rendering Portable Text
 const CustomPortableText = ({ value }) => {
   if (!value) return null;
-  
+
   // Simple renderer that just outputs the text content
   return (
     <div>
@@ -32,14 +32,14 @@ function News() {
   // Use a more robust method to fetch and handle news data
   useEffect(() => {
     let isMounted = true;
-    
+
     async function fetchNews() {
       try {
         // Set a longer timeout for slower connections
         const timeoutPromise = new Promise((_, reject) => 
           setTimeout(() => reject(new Error('Request timed out')), 10000)
         );
-        
+
         const newsPromise = client.fetch(`
           *[_type == "news"] | order(publishedAt desc) {
             _id,
@@ -58,14 +58,14 @@ function News() {
             }
           }
         `);
-        
+
         const categoriesPromise = client.fetch(`
           *[_type == "category"] {
             _id,
             title
           }
         `);
-        
+
         // Use Promise.race to handle timeouts
         const [newsData, categoriesData] = await Promise.all([
           Promise.race([newsPromise, timeoutPromise]),
@@ -89,7 +89,7 @@ function News() {
     }
 
     fetchNews();
-    
+
     return () => {
       isMounted = false;
     };
