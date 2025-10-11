@@ -20,34 +20,94 @@ function GlitchText({ text, delay = 0, className = '' }) {
   return (
     <motion.div
       className={`glitch-text-container ${className}`}
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.95 }}
-      transition={{ duration: 0.5, delay: delay / 1000 }}
+      style={{
+        transformStyle: 'preserve-3d',
+        perspective: '800px'
+      }}
+      initial={{ 
+        opacity: 0, 
+        scale: 0.9,
+        rotateX: 20,
+        rotateY: -10,
+        z: -100
+      }}
+      animate={{ 
+        opacity: isVisible ? 1 : 0, 
+        scale: isVisible ? 1 : 0.9,
+        rotateX: isVisible ? 0 : 20,
+        rotateY: isVisible ? 0 : -10,
+        z: isVisible ? 0 : -100
+      }}
+      transition={{ 
+        duration: 0.8, 
+        delay: delay / 1000,
+        rotateX: {
+          type: "spring",
+          stiffness: 100,
+          damping: 15
+        },
+        rotateY: {
+          type: "spring",
+          stiffness: 110,
+          damping: 17
+        },
+        z: {
+          type: "spring",
+          stiffness: 90,
+          damping: 14
+        }
+      }}
     >
       <motion.div
         className="glitch-text"
+        style={{
+          transformStyle: 'preserve-3d'
+        }}
         initial={{ 
-          filter: 'blur(20px) brightness(0.5)',
-          y: 40,
-          x: -10,
+          filter: 'blur(25px) brightness(0.4)',
+          y: 50,
+          x: -15,
+          rotateX: 30,
+          rotateZ: 5,
           opacity: 0,
-          scale: 0.9
+          scale: 0.85,
+          z: -150
         }}
         animate={isVisible ? { 
           filter: 'blur(0px) brightness(1)',
           y: 0,
           x: 0,
+          rotateX: 0,
+          rotateZ: 0,
           opacity: 1,
-          scale: 1
+          scale: 1,
+          z: 0
         } : {}}
         transition={{
-          duration: 1.2,
+          duration: 1.4,
           ease: [0.16, 1, 0.3, 1],
           delay: delay / 1000 + 0.3,
           scale: {
             type: "spring",
+            stiffness: 90,
+            damping: 16,
+            mass: 1.1
+          },
+          rotateX: {
+            type: "spring",
+            stiffness: 80,
+            damping: 15,
+            mass: 1.2
+          },
+          rotateZ: {
+            type: "spring",
             stiffness: 100,
-            damping: 15
+            damping: 18
+          },
+          z: {
+            type: "spring",
+            stiffness: 70,
+            damping: 13
           }
         }}
       >

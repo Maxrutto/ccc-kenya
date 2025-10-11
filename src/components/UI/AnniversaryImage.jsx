@@ -104,7 +104,7 @@ function AnniversaryImage({
         </motion.div>
       )}
 
-      {/* Main Image */}
+      {/* Main Image with Enhanced 3D Entrance */}
       {!error && (
         <motion.img
           ref={imgRef}
@@ -116,30 +116,61 @@ function AnniversaryImage({
           onError={handleError}
           initial={{ 
             opacity: 0, 
-            scale: 1.2,
-            filter: 'blur(30px) brightness(0.7)',
-            rotateZ: 2
+            scale: 1.3,
+            rotateX: 10,
+            rotateY: 8,
+            rotateZ: 3,
+            filter: 'blur(40px) brightness(0.6) contrast(0.8)',
+            z: -200
           }}
           animate={{ 
             opacity: loaded ? 1 : 0,
-            scale: loaded ? 1 : 1.2,
-            filter: loaded ? 'blur(0px) brightness(1)' : 'blur(30px) brightness(0.7)',
-            rotateZ: loaded ? 0 : 2
+            scale: loaded ? 1 : 1.3,
+            rotateX: loaded ? 0 : 10,
+            rotateY: loaded ? 0 : 8,
+            rotateZ: loaded ? 0 : 3,
+            filter: loaded ? 'blur(0px) brightness(1) contrast(1)' : 'blur(40px) brightness(0.6) contrast(0.8)',
+            z: loaded ? 0 : -200
           }}
           transition={{ 
-            duration: 1.2,
+            duration: 1.5,
             ease: [0.16, 1, 0.3, 1],
             scale: {
               type: "spring",
+              stiffness: 70,
+              damping: 18,
+              mass: 1.2
+            },
+            rotateX: {
+              type: "spring",
               stiffness: 80,
-              damping: 20
+              damping: 20,
+              mass: 1.1
+            },
+            rotateY: {
+              type: "spring",
+              stiffness: 75,
+              damping: 19,
+              mass: 1.15
+            },
+            rotateZ: {
+              type: "spring",
+              stiffness: 90,
+              damping: 22
+            },
+            z: {
+              type: "spring",
+              stiffness: 60,
+              damping: 16,
+              mass: 1.3
             }
           }}
           loading={priority ? 'eager' : 'lazy'}
           fetchPriority={priority ? 'high' : 'auto'}
           decoding="async"
           style={{ 
-            willChange: loaded ? 'auto' : 'transform, opacity, filter'
+            willChange: loaded ? 'auto' : 'transform, opacity, filter',
+            transformStyle: 'preserve-3d'
           }}
         />
       )}
