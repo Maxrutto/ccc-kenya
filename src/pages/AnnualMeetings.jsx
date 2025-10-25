@@ -84,6 +84,14 @@ const annualMeetings = [
     date: "September 2024",
     venue: "Dominican Nuns Guest House, Nairobi",
     participants: "Representatives from 28 monasteries across 10 countries"
+  },
+  {
+    id: 11,
+    year: 2025,
+    title: "Seventh Annual Executive Meeting",
+    date: "September 2025",
+    venue: "Dimesse Retreat Center, Nairobi",
+    participants: "Delegates from 37 monasteries spread in 8 countries across Africa"
   }
 ];
 
