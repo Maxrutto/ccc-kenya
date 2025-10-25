@@ -6,38 +6,38 @@ export const anniversaryImages = [
   {
     id: 1,
     src: 'anniversary_images/IMG_1957.jpg',
-    caption: 'Honoring the vision of our founding mothers',
+    caption: 'CCCK THEOLOGY program graduation day 29.10.2025',
     alt: 'Anniversary celebration scene'
   },
   {
     id: 2,
     src: 'anniversary_images/IMG_1958.jpg',
-    caption: 'A future bright with contemplative hope',
+    caption: 'Nuns ready for the great day - 10th anniversary of the foundation of CCCK',
     alt: 'CCCK 10th anniversary'
   },
   // New images added by user
   {
     id: 3,
     src: 'anniversary_images/IMG_1624.jpg',
-    caption: 'Celebrating a decade of faith and unity',
+    caption: 'Collaboration and unity among monasteries across Africa',
     alt: 'CCCK anniversary gathering'
   },
   {
     id: 4,
     src: 'anniversary_images/IMG_1626.jpg',
-    caption: 'Sisters gathered in joyful celebration',
+    caption: 'CCCK Executive committee in a dialogue',
     alt: 'Anniversary celebration moment'
   },
   {
     id: 5,
     src: 'anniversary_images/IMG_1641.jpg',
-    caption: 'Witnessing God\'s faithfulness through the years',
+    caption: 'Superiors & Delegates - Annual Executive Meeting - Sept. 2025',
     alt: 'CCCK 10th anniversary event'
   },
   {
     id: 6,
     src: 'anniversary_images/IMG_1642.jpg',
-    caption: 'United in prayer and thanksgiving',
+    caption: '10 yrs of communion among monasteries (2015-2025)',
     alt: 'Anniversary prayer gathering'
   },
   {
@@ -55,7 +55,7 @@ export const anniversaryImages = [
   {
     id: 9,
     src: 'anniversary_images/IMG_1648.jpg',
-    caption: 'Blessed by ten years of spiritual growth',
+    caption: 'CCCK Governing Council  with bishop Kimengich of Eldoret',
     alt: 'CCCK anniversary blessing'
   },
   {
@@ -86,13 +86,13 @@ export const anniversaryImages = [
   {
     id: 14,
     src: 'anniversary_images/IMG_1766.jpg',
-    caption: 'Celebrating 10 years of contemplative unity across Africa',
+    caption: 'The Venite Seorsum Theology program students nuns in class',
     alt: 'CCCK 10th Anniversary celebration gathering'
   },
   {
     id: 15,
     src: 'anniversary_images/IMG_1769.jpg',
-    caption: 'Sisters united in prayer and fellowship',
+    caption: 'Nuns instruct nuns...',
     alt: 'CCCK nuns gathered in celebration'
   },
   {
@@ -104,61 +104,61 @@ export const anniversaryImages = [
   {
     id: 17,
     src: 'anniversary_images/IMG_1780.jpg',
-    caption: 'One praying heart for the Church of Africa',
+    caption: 'CCCK nuns in session...',
     alt: 'Anniversary gathering scene'
   },
   {
     id: 18,
     src: 'anniversary_images/IMG_1782.jpg',
-    caption: 'Building bridges of communion among monasteries',
+    caption: 'Solid theological formation for the monasteries',
     alt: 'CCCK community celebration'
   },
   {
     id: 19,
     src: 'anniversary_images/IMG_1785.jpg',
-    caption: 'Gratitude for a journey of faith and solidarity',
+    caption: 'Hilton foundation supports the theological formation of nuns members of CCCK',
     alt: 'Anniversary celebration event'
   },
   {
-    id: 21,
+    id: 20,
     src: 'anniversary_images/IMG_1866.jpg',
     caption: 'United in mission, diverse in charism',
     alt: 'CCCK sisters in celebration'
   },
   {
-    id: 22,
+    id: 21,
     src: 'anniversary_images/IMG_1867.jpg',
-    caption: 'A testament to God\'s faithfulness over the years',
+    caption: 'Theology program students celebrating...',
     alt: 'Anniversary event moment'
   },
   {
-    id: 23,
+    id: 22,
     src: 'anniversary_images/IMG_1887.jpg',
-    caption: 'Empowering contemplative communities through education',
+    caption: 'The shepherd representative from Rome comes to celebrate',
     alt: 'CCCK anniversary gathering'
   },
   {
-    id: 24,
+    id: 23,
     src: 'anniversary_images/IMG_1889.jpg',
-    caption: 'Celebrating the Venite Seorsum program graduates',
+    caption: 'The shepherd representative from Rome comes to celebrate',
     alt: 'Anniversary celebration scene'
   },
   {
-    id: 25,
+    id: 24,
     src: 'anniversary_images/IMG_1944.jpg',
-    caption: 'From 19 monasteries to over 35 communities',
+    caption: 'From 19 monasteries to over 40 communities',
     alt: 'CCCK celebration moment'
   },
   {
-    id: 26,
+    id: 25,
     src: 'anniversary_images/IMG_1947.jpg',
-    caption: 'Fostering collaboration among Anglophone Africa',
+    caption: 'Big day for CCCK theology students',
     alt: 'Anniversary gathering'
   },
   {
-    id: 27,
+    id: 26,
     src: 'anniversary_images/IMG_1952.jpg',
-    caption: 'Grounded in prayer, growing in unity',
+    caption: 'Grounded in prayer &  deep theological formation -  ready for mission',
     alt: 'CCCK anniversary event'
   }
 ];

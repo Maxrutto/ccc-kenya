@@ -308,76 +308,85 @@ const AnniversarySlider = () => {
               />
             </motion.div>
 
-            {/* Enhanced 3D Animated Text Overlay */}
+            {/* Enhanced 3D Animated Text Overlay - Moved Higher Up */}
             <motion.div
-              className="absolute bottom-0 left-0 right-0 z-20 p-4 md:p-8"
+              className="absolute bottom-16 md:bottom-20 left-0 right-0 z-20 px-4 md:px-8"
               style={{
                 transformStyle: 'preserve-3d',
                 perspective: '1000px'
               }}
               initial={{ 
                 opacity: 0, 
-                y: 100,
-                rotateX: 45,
-                rotateY: 5,
-                rotateZ: -2,
-                scale: 0.8,
-                z: -200,
-                filter: 'blur(15px) brightness(0.7)'
+                y: 120,
+                rotateX: 60,
+                rotateY: 8,
+                rotateZ: -4,
+                scale: 0.7,
+                z: -300,
+                filter: 'blur(20px) brightness(0.5) contrast(0.7)'
               }}
               animate={{ 
                 opacity: imageLoaded ? 1 : 0, 
-                y: imageLoaded ? 0 : 100,
-                rotateX: imageLoaded ? 0 : 45,
-                rotateY: imageLoaded ? 0 : 5,
-                rotateZ: imageLoaded ? 0 : -2,
-                scale: imageLoaded ? 1 : 0.8,
-                z: imageLoaded ? 0 : -200,
-                filter: imageLoaded ? 'blur(0px) brightness(1)' : 'blur(15px) brightness(0.7)'
+                y: imageLoaded ? 0 : 120,
+                rotateX: imageLoaded ? 0 : 60,
+                rotateY: imageLoaded ? 0 : 8,
+                rotateZ: imageLoaded ? 0 : -4,
+                scale: imageLoaded ? 1 : 0.7,
+                z: imageLoaded ? 0 : -300,
+                filter: imageLoaded ? 'blur(0px) brightness(1) contrast(1)' : 'blur(20px) brightness(0.5) contrast(0.7)'
               }}
               transition={{ 
-                delay: 0.5, 
-                duration: 1.2,
+                delay: 1.2, // Slower, more dramatic entrance
+                duration: 2.0, // Longer animation duration
                 ease: [0.16, 1, 0.3, 1],
                 rotateX: {
                   type: "spring",
-                  stiffness: 80,
-                  damping: 15,
-                  mass: 1.2
+                  stiffness: 60,
+                  damping: 18,
+                  mass: 1.5
                 },
                 rotateY: {
                   type: "spring",
-                  stiffness: 90,
-                  damping: 17
+                  stiffness: 70,
+                  damping: 20,
+                  mass: 1.3
                 },
                 scale: {
                   type: "spring",
-                  stiffness: 100,
-                  damping: 18,
-                  mass: 1
+                  stiffness: 80,
+                  damping: 22,
+                  mass: 1.2
                 },
                 z: {
                   type: "spring",
-                  stiffness: 70,
-                  damping: 14
+                  stiffness: 50,
+                  damping: 16,
+                  mass: 1.8
                 }
               }}
             >
-              <GlitchText 
-                text={currentImage.caption}
-                delay={imageLoaded ? 500 : 0}
-                className="text-white text-lg md:text-2xl lg:text-3xl xl:text-4xl font-['Playfair_Display'] font-bold drop-shadow-2xl"
-              />
+              {/* Enhanced background for better text visibility */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent rounded-xl backdrop-blur-sm"></div>
               
-              {/* Progress indicator */}
-              <motion.div 
-                className="mt-4 text-white/90 text-sm md:text-base font-['Montserrat'] backdrop-blur-sm bg-black/20 inline-block px-3 py-1 rounded-full"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1.2, duration: 0.6 }}
-              >
-                <span className="font-semibold">{currentIndex + 1}</span> / {anniversaryImages.length}
-              </motion.div>
+              <div className="relative z-10">
+                <GlitchText 
+                  text={currentImage.caption}
+                  delay={imageLoaded ? 1500 : 0} // Slower delay for more drama
+                  className="text-white text-xl md:text-3xl lg:text-4xl xl:text-5xl font-['Playfair_Display'] font-bold drop-shadow-2xl"
+                />
+                
+                {/* Progress indicator - moved and styled better */}
+                <motion.div 
+                  className="mt-6 text-white/95 text-sm md:text-lg font-['Montserrat'] backdrop-blur-md bg-black/30 inline-block px-4 py-2 rounded-full border border-white/20"
+                  initial={{ opacity: 0, x: -30, scale: 0.8 }}
+                  animate={{ opacity: 1, x: 0, scale: 1 }}
+                  transition={{ delay: 2.5, duration: 0.8 }}
+                >
+                  <span className="font-bold">{currentIndex + 1}</span>
+                  <span className="mx-2 opacity-60">of</span>
+                  <span className="font-bold">{anniversaryImages.length}</span>
+                </motion.div>
+              </div>
             </motion.div>
           </motion.div>
         </AnimatePresence>
@@ -412,16 +421,16 @@ const AnniversarySlider = () => {
           )}
         </button>
 
-        {/* Dots Navigation */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex gap-2 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
+        {/* Minimalist Dots Navigation - Redesigned to avoid caption conflicts */}
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-30 flex gap-1.5 bg-black/20 backdrop-blur-md px-3 py-2 rounded-full border border-white/10">
           {anniversaryImages.map((_, index) => (
             <button
               key={index}
               onClick={() => handleDotClick(index)}
-              className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
+              className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full transition-all duration-500 transform ${
                 index === currentIndex 
-                  ? 'bg-white scale-125' 
-                  : 'bg-white/50 hover:bg-white/75'
+                  ? 'bg-white scale-150 shadow-lg shadow-white/50' 
+                  : 'bg-white/40 hover:bg-white/70 hover:scale-125'
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
@@ -429,7 +438,7 @@ const AnniversarySlider = () => {
         </div>
       </div>
 
-      {/* Anniversary Badge */}
+      {/* Anniversary Badge with Duration */}
       <motion.div 
         className="absolute top-3 left-3 z-30 bg-gradient-to-br from-red-600 to-red-700 text-white px-3 py-1.5 rounded-lg shadow-2xl"
         initial={{ scale: 0, rotate: -180, opacity: 0 }}
@@ -468,6 +477,7 @@ const AnniversarySlider = () => {
         >
           <div className="text-xl md:text-2xl font-bold font-['Playfair_Display']">10th</div>
           <div className="text-[10px] md:text-xs font-['Montserrat']">Anniversary</div>
+          <div className="text-[8px] md:text-[10px] font-['Montserrat'] opacity-90 mt-0.5">2015-2025</div>
         </motion.div>
       </motion.div>
     </div>

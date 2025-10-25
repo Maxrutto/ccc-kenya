@@ -64,17 +64,17 @@ function GlitchText({ text, delay = 0, className = '' }) {
           transformStyle: 'preserve-3d'
         }}
         initial={{ 
-          filter: 'blur(25px) brightness(0.4)',
-          y: 50,
-          x: -15,
-          rotateX: 30,
-          rotateZ: 5,
+          filter: 'blur(35px) brightness(0.3) contrast(0.5)',
+          y: 80,
+          x: -25,
+          rotateX: 45,
+          rotateZ: 8,
           opacity: 0,
-          scale: 0.85,
-          z: -150
+          scale: 0.75,
+          z: -250
         }}
         animate={isVisible ? { 
-          filter: 'blur(0px) brightness(1)',
+          filter: 'blur(0px) brightness(1) contrast(1)',
           y: 0,
           x: 0,
           rotateX: 0,
@@ -84,30 +84,31 @@ function GlitchText({ text, delay = 0, className = '' }) {
           z: 0
         } : {}}
         transition={{
-          duration: 1.4,
+          duration: 2.2, // Increased from 1.4 for slower, more dramatic entrance
           ease: [0.16, 1, 0.3, 1],
-          delay: delay / 1000 + 0.3,
+          delay: delay / 1000 + 0.5, // Longer initial delay
           scale: {
             type: "spring",
-            stiffness: 90,
-            damping: 16,
-            mass: 1.1
+            stiffness: 70, // Reduced for more fluid movement
+            damping: 20,
+            mass: 1.4
           },
           rotateX: {
             type: "spring",
-            stiffness: 80,
-            damping: 15,
-            mass: 1.2
+            stiffness: 60,
+            damping: 18,
+            mass: 1.6
           },
           rotateZ: {
             type: "spring",
-            stiffness: 100,
-            damping: 18
+            stiffness: 80,
+            damping: 22
           },
           z: {
             type: "spring",
-            stiffness: 70,
-            damping: 13
+            stiffness: 50,
+            damping: 15,
+            mass: 2.0
           }
         }}
       >
@@ -118,10 +119,10 @@ function GlitchText({ text, delay = 0, className = '' }) {
           animate={isVisible ? { 
             backgroundPosition: '200%',
             transition: {
-              duration: 2,
+              duration: 3.5, // Slower shimmer for more elegance
               ease: "linear",
               repeat: Infinity,
-              delay: delay / 1000 + 1
+              delay: delay / 1000 + 2.0 // Later shimmer start
             }
           } : {}}
         >
