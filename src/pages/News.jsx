@@ -3,22 +3,57 @@ import { client } from '../lib/sanity';
 import { urlFor } from '../lib/imageBuilder';
 import AnimWrapper from '../components/UI/AnimWrapper';
 import Loader from '../components/UI/Loader';
-import { FaCalendarAlt, FaTag } from 'react-icons/fa';
+import { FaCalendarAlt, FaTag, FaTimes } from 'react-icons/fa';
 
 // Custom component for rendering Portable Text
+// Supports: plain text spans, strong marks, bullet lists
 const CustomPortableText = ({ value }) => {
   if (!value) return null;
 
-  // Simple renderer that just outputs the text content
+  const renderSpan = (child, i) => {
+    if (child.marks && child.marks.includes('strong')) {
+      return <strong key={i}>{child.text}</strong>;
+    }
+    return <span key={i}>{child.text}</span>;
+  };
+
+  const renderChildren = (block) =>
+    block.children && block.children.map((child, i) => renderSpan(child, i));
+
+  // Pre-pass: group consecutive bullet blocks into unified list structures
+  const groups = [];
+  let currentBullets = [];
+
+  for (let i = 0; i < value.length; i++) {
+    const block = value[i];
+    if (block.listItem === 'bullet') {
+      currentBullets.push({ block, index: i });
+    } else {
+      if (currentBullets.length > 0) {
+        groups.push({ type: 'list', items: currentBullets });
+        currentBullets = [];
+      }
+      groups.push({ type: 'paragraph', block, index: i });
+    }
+  }
+  if (currentBullets.length > 0) {
+    groups.push({ type: 'list', items: currentBullets });
+  }
+
   return (
-    <div>
-      {value.map((block, index) => (
-        <p key={index}>
-          {block.children && block.children.map((child, i) => (
-            <span key={i}>{child.text}</span>
-          ))}
-        </p>
-      ))}
+    <div className="text-gray-700 font-['Montserrat'] text-sm leading-relaxed space-y-2">
+      {groups.map((group, gIdx) => {
+        if (group.type === 'list') {
+          return (
+            <ul key={`list-${gIdx}`} className="list-disc pl-5 my-2 space-y-1">
+              {group.items.map(({ block, index }) => (
+                <li key={index}>{renderChildren(block)}</li>
+              ))}
+            </ul>
+          );
+        }
+        return <p key={group.index}>{renderChildren(group.block)}</p>;
+      })}
     </div>
   );
 };
@@ -28,6 +63,16 @@ function News() {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeFilter, setActiveFilter] = useState('all');
+  const [selectedArticle, setSelectedArticle] = useState(null);
+
+  useEffect(() => {
+    if (selectedArticle) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => { document.body.style.overflow = 'unset'; };
+  }, [selectedArticle]);
 
   // Use a more robust method to fetch and handle news data
   useEffect(() => {
@@ -253,6 +298,15 @@ function News() {
                             {item.excerpt}
                           </p>
                         )}
+
+                        {item.body && item.body.length > 0 && (
+                          <button
+                            onClick={() => setSelectedArticle(item)}
+                            className="mt-4 text-blue-600 font-medium text-sm hover:text-blue-800 transition-colors font-['Montserrat']"
+                          >
+                            Read Full Article
+                          </button>
+                        )}
                       </div>
                     </div>
                   );
@@ -267,6 +321,45 @@ function News() {
           </AnimWrapper>
         </div>
       </section>
+
+      {selectedArticle && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 md:p-6"
+          onClick={() => setSelectedArticle(null)}
+        >
+          <div
+            className="bg-white rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] flex flex-col overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header */}
+            <div className="flex items-start justify-between p-6 border-b border-gray-200">
+              <div>
+                <h2 className="text-xl md:text-2xl font-['Playfair_Display'] font-bold text-blue-700 leading-tight">
+                  {selectedArticle.title}
+                </h2>
+                {selectedArticle.publishedAt && (
+                  <p className="text-sm text-gray-500 mt-1 font-['Montserrat']">
+                    {new Date(selectedArticle.publishedAt).toLocaleDateString('en-US', {
+                      year: 'numeric', month: 'long', day: 'numeric'
+                    })}
+                  </p>
+                )}
+              </div>
+              <button
+                onClick={() => setSelectedArticle(null)}
+                className="ml-4 p-2 text-gray-400 hover:text-gray-700 transition-colors rounded-full hover:bg-gray-100"
+                aria-label="Close"
+              >
+                <FaTimes className="w-5 h-5" />
+              </button>
+            </div>
+            {/* Body */}
+            <div className="p-6 md:p-8 overflow-y-auto">
+              <CustomPortableText value={selectedArticle.body} />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

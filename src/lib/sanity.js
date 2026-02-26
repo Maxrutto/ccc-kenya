@@ -42,6 +42,111 @@ const categories = [
 // Static list of news articles
 const newsArticles = [
   {
+    _id: 'news-new-4',
+    title: 'Initial and On-Going Formation Courses Schedule (2026/2027)',
+    slug: { current: 'formation-courses-2026-2027' },
+    excerpt: 'CCCK announces the full schedule of initial and on-going formation courses for 2026/2027, covering theology of the vows, formation of formators, human formation, magisterial documents, safeguarding, conflict management, and more.',
+    body: [
+      // --- COURSE 1 ---
+      { _type: 'block', children: [{ _type: 'span', text: 'COURSE 1: MARCH 2026', marks: ['strong'] }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Course Title: ', marks: ['strong'] }, { _type: 'span', text: 'Theology of the Vows' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Participants: ', marks: ['strong'] }, { _type: 'span', text: 'Novices & Junior Sisters from CCCK Member Monasteries' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Facilitator: ', marks: ['strong'] }, { _type: 'span', text: 'Fr. Misheck Theresa (Cont. of the Heart of Christ)' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Mode of Study: ', marks: ['strong'] }, { _type: 'span', text: 'Online' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Schedule: ', marks: ['strong'] }, { _type: 'span', text: '3:00 p.m - 6:00 p.m. (twice per week for one month) — Fridays & Saturdays' }] },
+      { _type: 'block', listItem: 'bullet', children: [{ _type: 'span', text: '3:00 p.m. - 4:30 p.m. Course session part one' }] },
+      { _type: 'block', listItem: 'bullet', children: [{ _type: 'span', text: '4:30 p.m. - 4:45 p.m. Break' }] },
+      { _type: 'block', listItem: 'bullet', children: [{ _type: 'span', text: '4:45 p.m. - 6:00 p.m. Course session part two' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Dates: ', marks: ['strong'] }, { _type: 'span', text: '6th, 7th, 13th, 14th, 20th, 21st, 27th & 28th March' }] },
+      { _type: 'block', children: [{ _type: 'span', text: '' }] },
+
+      // --- COURSE 2 ---
+      { _type: 'block', children: [{ _type: 'span', text: 'COURSE 2: FORMATION OF FORMATORS', marks: ['strong'] }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Dates: ', marks: ['strong'] }, { _type: 'span', text: 'April 13th - April 29th, 2026' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Venue: ', marks: ['strong'] }, { _type: 'span', text: 'Dominican Nuns Monastery Guest House — Karen, Nairobi' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Participants: ', marks: ['strong'] }, { _type: 'span', text: 'Formators from CCCK Full and Associate Member Monasteries' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Mode of Study: ', marks: ['strong'] }, { _type: 'span', text: 'In-Person' }] },
+      { _type: 'block', children: [{ _type: 'span', text: '' }] },
+
+      // --- COURSE 3 ---
+      { _type: 'block', children: [{ _type: 'span', text: 'COURSE 3: MAY 2026 — HUMAN FORMATION', marks: ['strong'] }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Course Title: ', marks: ['strong'] }, { _type: 'span', text: 'Self Awareness' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Dates: ', marks: ['strong'] }, { _type: 'span', text: 'May 1st - 15th, 2026' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Participants: ', marks: ['strong'] }, { _type: 'span', text: 'Aspirants and Postulants' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Instructor: ', marks: ['strong'] }, { _type: 'span', text: 'Sr. Mary Gitau' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Mode of Study: ', marks: ['strong'] }, { _type: 'span', text: 'Online' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Days: ', marks: ['strong'] }, { _type: 'span', text: 'Mondays, Wednesdays & Fridays' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Schedule: ', marks: ['strong'] }, { _type: 'span', text: '3:00 p.m - 6:00 p.m. (as in March above)' }] },
+      { _type: 'block', children: [{ _type: 'span', text: '' }] },
+
+      // --- COURSE 4 ---
+      { _type: 'block', children: [{ _type: 'span', text: 'COURSE 4: ONGOING FORMATION — JUNE 2026', marks: ['strong'] }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Course Title: ', marks: ['strong'] }, { _type: 'span', text: 'Magisterial Documents — The Gift of Faithfulness, the Joy of Perseverance' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Participants: ', marks: ['strong'] }, { _type: 'span', text: 'All the nuns from CCCK Full and Associate Member Monasteries' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Facilitator: ', marks: ['strong'] }, { _type: 'span', text: 'Fr. Thembo, OMI' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Mode of Study: ', marks: ['strong'] }, { _type: 'span', text: 'Online' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Schedule: ', marks: ['strong'] }, { _type: 'span', text: '3:00 p.m - 6:00 p.m. (twice per week for one month) — Fridays & Saturdays' }] },
+      { _type: 'block', listItem: 'bullet', children: [{ _type: 'span', text: '3:00 p.m. - 4:30 p.m. Course session part one' }] },
+      { _type: 'block', listItem: 'bullet', children: [{ _type: 'span', text: '4:30 p.m. - 4:45 p.m. Break' }] },
+      { _type: 'block', listItem: 'bullet', children: [{ _type: 'span', text: '4:45 p.m. - 6:00 p.m. Course session part two' }] },
+      { _type: 'block', children: [{ _type: 'span', text: '' }] },
+
+      // --- COURSE 5 ---
+      { _type: 'block', children: [{ _type: 'span', text: 'COURSE 5: SAFEGUARDING & PROTECTION OF MINORS AND VULNERABLE PERSONS', marks: ['strong'] }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Course Title: ', marks: ['strong'] }, { _type: 'span', text: 'Establishing the Right Protocols in CCCK Member Monasteries' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Participants: ', marks: ['strong'] }, { _type: 'span', text: 'Nuns from CCCK Full and Associate Member Monasteries' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Facilitator: ', marks: ['strong'] }, { _type: 'span', text: 'Sr. Mumbi Kigutha (to be confirmed)' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Mode of Study: ', marks: ['strong'] }, { _type: 'span', text: 'Online' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Schedule: ', marks: ['strong'] }, { _type: 'span', text: '3:30 p.m - 6:00 p.m. (once per week) — Fridays' }] },
+      { _type: 'block', listItem: 'bullet', children: [{ _type: 'span', text: '3:30 p.m. - 4:30 p.m. Course session part one' }] },
+      { _type: 'block', listItem: 'bullet', children: [{ _type: 'span', text: '4:30 p.m. - 4:45 p.m. Break' }] },
+      { _type: 'block', listItem: 'bullet', children: [{ _type: 'span', text: '4:45 p.m. - 6:00 p.m. Course session part two' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Dates: ', marks: ['strong'] }, { _type: 'span', text: '7th, 14th, 21st, 28th August 2026' }] },
+      { _type: 'block', children: [{ _type: 'span', text: '' }] },
+
+      // --- COURSE 6 ---
+      { _type: 'block', children: [{ _type: 'span', text: 'COURSE 6: FORMATION OF SUPERIORS — OCTOBER 2026', marks: ['strong'] }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Course Title: ', marks: ['strong'] }, { _type: 'span', text: 'Conflicts Management in Groups and Organizations' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Participants: ', marks: ['strong'] }, { _type: 'span', text: 'The Superiors from CCCK Full and Associate Member Monasteries' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Mode of Study: ', marks: ['strong'] }, { _type: 'span', text: 'Online' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Date: ', marks: ['strong'] }, { _type: 'span', text: 'October 2026' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Schedule: ', marks: ['strong'] }, { _type: 'span', text: '3:00 p.m - 6:00 p.m. (twice per week for one month) — Fridays & Saturdays' }] },
+      { _type: 'block', listItem: 'bullet', children: [{ _type: 'span', text: '3:00 p.m. - 4:30 p.m. Course session part one' }] },
+      { _type: 'block', listItem: 'bullet', children: [{ _type: 'span', text: '4:30 p.m. - 4:45 p.m. Break' }] },
+      { _type: 'block', listItem: 'bullet', children: [{ _type: 'span', text: '4:45 p.m. - 6:00 p.m. Course session part two' }] },
+      { _type: 'block', children: [{ _type: 'span', text: '' }] },
+
+      // --- COURSE 7 ---
+      { _type: 'block', children: [{ _type: 'span', text: 'COURSE 7: SELF AWARENESS — NOVEMBER 2026', marks: ['strong'] }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Course Title: ', marks: ['strong'] }, { _type: 'span', text: 'Transactional Analysis' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Participants: ', marks: ['strong'] }, { _type: 'span', text: 'Aspirants, Postulants & Novices' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Facilitator: ', marks: ['strong'] }, { _type: 'span', text: 'To be confirmed' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Mode of Study: ', marks: ['strong'] }, { _type: 'span', text: 'Online' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Schedule: ', marks: ['strong'] }, { _type: 'span', text: '3:00 p.m - 6:00 p.m. (twice per week for one month) — Fridays & Saturdays' }] },
+      { _type: 'block', listItem: 'bullet', children: [{ _type: 'span', text: '3:00 p.m. - 4:30 p.m. Course session part one' }] },
+      { _type: 'block', listItem: 'bullet', children: [{ _type: 'span', text: '4:30 p.m. - 4:45 p.m. Break' }] },
+      { _type: 'block', listItem: 'bullet', children: [{ _type: 'span', text: '4:45 p.m. - 6:00 p.m. Course session part two' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Dates: ', marks: ['strong'] }, { _type: 'span', text: 'Every Friday and Saturday in November 2026' }] },
+      { _type: 'block', children: [{ _type: 'span', text: '' }] },
+
+      // --- TRAININGS FOR CARE OF THE ELDERLY ---
+      { _type: 'block', children: [{ _type: 'span', text: 'TRAININGS FOR THE CARE OF THE ELDERLY — GERIATRICS', marks: ['strong'] }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Date: ', marks: ['strong'] }, { _type: 'span', text: 'February 2027' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Participants: ', marks: ['strong'] }, { _type: 'span', text: 'Selected nuns from the member monasteries' }] },
+      { _type: 'block', children: [{ _type: 'span', text: 'Mode: ', marks: ['strong'] }, { _type: 'span', text: 'Online/Onsite — to be confirmed soon' }] },
+    ],
+    mainImage: { asset: { _ref: 'image-3' } },
+    publishedAt: '2026-02-26T00:00:00Z',
+    categories: [
+      { _id: 'cat-2', title: 'Formation' },
+      { _id: 'cat-1', title: 'Events' }
+    ],
+    author: {
+      name: 'CCCK Communications',
+      image: { asset: { _ref: 'image-1' } }
+    }
+  },
+  {
     _id: 'news-new-1',
     title: 'Opening Mass for 7th CCCK Executive Meeting - September 23rd, 2025',
     slug: { current: 'ccck-opening-mass-sept-23-2025' },
