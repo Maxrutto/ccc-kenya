@@ -1,5 +1,7 @@
 import { memo } from 'react';
 import AnimWrapper from '../components/UI/AnimWrapper';
+import ActivityGallery from '../components/UI/ActivityGallery';
+import { activities } from '../data/activities';
 import { FaPrayingHands, FaBook, FaHandHoldingHeart, FaCross, FaSeedling, FaGraduationCap, 
          FaGraduationCap as FaEducation, FaUsers, FaShieldAlt, FaGlobeAmericas, FaHandsHelping } from 'react-icons/fa';
 
@@ -84,7 +86,7 @@ function Work() {
                   {
                     icon: <FaUsers className="text-3xl text-blue-600 mt-1 mr-4 flex-shrink-0" />,
                     title: "Capacity Building Courses for Superiors and Formators",
-                    content: "Every year the superiors and formators from all the 34 plus member monasteries in Africa meet in Nairobi to study and share. Helped by an expert, they explore different topics to keep themselves updated and possibly learn new ways of leadership and administration."
+                    content: "Every year the superiors and formators from all the 36 member monasteries in Africa meet in Nairobi to study and share. Helped by an expert, they explore different topics to keep themselves updated and possibly learn new ways of leadership and administration."
                   },
                   {
                     icon: <FaShieldAlt className="text-3xl text-blue-600 mt-1 mr-4 flex-shrink-0" />,
@@ -127,6 +129,20 @@ function Work() {
               </div>
             </div>
           </AnimWrapper>
+
+          <h2 className="text-3xl font-['Playfair_Display'] font-bold text-center text-blue-600 mt-20 mb-4">
+            Recent Activities
+          </h2>
+          <p className="text-center font-['Montserrat'] text-gray-700 max-w-3xl mx-auto mb-12">
+            Recent gatherings and milestones of the Conference.
+          </p>
+          <div className="max-w-5xl mx-auto space-y-16">
+            {activities.map((activity, index) => (
+              <AnimWrapper key={activity.id} delay={0.1 * index}>
+                <ActivityGallery activity={activity} />
+              </AnimWrapper>
+            ))}
+          </div>
         </div>
       </section>
     </div>
